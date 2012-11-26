@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+input.boto {
+	width: auto;
+}
+div.contenidor .titol-contenidor {
+  height: auto;
+}
+div.llistat-continguts dd {
+  margin-left: 0;
+}
+form.vertical div.columna-inputs ul {
+  width: 100%;
+}
+div.toggle-box {
+  overflow: hidden;
+}
+div#resultats-buscador {
+  margin-left: 220px;
+}
+.treeview li .hitarea {
+  left: 0;
+}
+.missatge-error {
+	height: auto;
+}

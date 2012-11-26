@@ -1,0 +1,6815 @@
+@media all {
+/*
+	TOC
+		1. Títol
+		2. Taules
+		3. Paginadors
+		4. Estructures per formularis
+			4.1. Caixes de formularis
+			4.2. Caixes de formularis tipus filtre
+		5. Dades
+			5.1. Tres columnes
+		6. Persianes v1.0
+		8. Layout
+			8.1. Layout 70% - 30%
+			8.2. Layout 60% - 40%
+		9. Pestanyes
+		10. Títol de pantalla
+		11. Formularis
+		13. Contenidors
+		14. Llistats enllaços
+		15. Caixa detall
+		16. Llista continguts
+		17. Missatge error
+		18. Pantalles de procés
+		19. Popup modal de procés
+		20. Buscador actualitat
+		21. toogle JS
+		22. Línia separadora horitzontal
+		23. Missatges de procés
+		24. Subtítol de pàgina
+		25. Càrregues asíncrones
+		26. Pantalla Login AGS
+		27. Què és?
+		28. Alertes
+		28. Títol de contingut
+		29. Fitxes amb pestanyes
+		30. Ocultació XML finestra marc
+		31. Datepicker
+		32. Treeview
+		33. Columnes per retícula
+		34. Passos
+		35. Guió
+		36. Feedback lite
+		37. Peu de pàgina
+		38. Enllaç en nou escenari
+*/
+
+
+body {
+	color: rgb(51,51,51);
+	font: 0.75em/1.2 Verdana, Tahoma, Geneva, sans-serif;
+	margin: 0 0 18px;
+}
+div#contenidor-general {
+	padding: 0 18px;
+}
+button,
+input,
+select,
+textarea {
+	color: rgb(51,51,51);
+	font-family: Verdana, Tahoma, Geneva, sans-serif;
+}
+textarea {
+    font-size: 1em;
+}
+input.tty,
+textarea.tty {
+	font-family: "Lucida Console", Monaco, Courier;
+	font-size: 1.2em;
+}
+input.text {
+	padding-left: 3px;
+}
+a:link,
+a:visited {
+	color: rgb(26,100,164);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+p.sortida a {
+	font-weight: normal;
+}
+a img {
+	border: 0;
+}
+.text-aural {
+	top: -1000em;
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+}
+abbr {
+	border-bottom-style: dotted;
+	border-bottom-width: 1px;
+}
+pre.tty {
+	font-family: "Lucida Console", Monaco, Courier;
+	font-size: 1.2em;
+	overflow-x: auto;
+	overflow-y: visible;
+	margin: 0;
+	padding: 0;
+	_width: 100%;
+}
+
+/*-- Taules
+------------------------------------------------------------------------- */
+table {
+	border: 1px solid rgb(165, 172, 178);
+	border-collapse: collapse;
+	clear: both;
+	font-size: 1em;
+	width: 100%;
+	text-align: left;
+}
+.contenidor-taula {
+	position: relative;
+	margin-bottom: 1.4em;
+	clear: both;
+}
+.contenidor-taula {
+	margin-left: 1em;
+	margin-right: 1em;
+}
+table thead {
+	background: rgb(240, 242, 249) url(../img/tablas-fondo-cabecera.gif) repeat-x left bottom;
+}
+table thead tr th {
+	border-bottom: 1px solid rgb(165, 172, 178);
+	font-weight: normal;
+	vertical-align: middle;
+}
+table tbody th,
+table tbody td {
+	border-top: 1px solid rgb(220,220,220);
+}
+table th,
+table td {
+	padding: 3px 6px;
+	vertical-align:  top;
+}
+caption {
+	font-weight: bold;
+	text-align: left;
+}
+
+caption span {
+	display: block;
+	padding-bottom: 0.3em;
+}
+
+.titol-taula {
+	clear: both;
+	font-size: 1em;
+	margin:0 1em;
+	padding-bottom: 0.3em;
+}
+.nota-cap-taula {
+	clear: both;
+	margin: 0.3em 0 0.3em 0;
+	text-align: right;
+}
+.export-excel-cap-taula {
+	clear: both;
+	float: right;
+	margin: 0.5em 0 0.3em 0;
+	text-align: right;
+}
+ul.links-cap-taula {
+	clear: both;
+	margin: 0.3em 0;
+	padding: 0;
+	text-align: right;
+}
+ul.links-cap-taula li {
+	padding-bottom: 0;
+	display: inline;
+/*	text-align: right;*/
+}
+
+table p {
+	margin:  0;
+	padding:  0;
+}
+table tr.destacada {
+	background-color: rgb(192,210,231);
+}
+table thead th.destacada {
+	background: rgb(182,201,228) url(../img/tablas-fondo-cabecera-destacada.gif) repeat-x left bottom;
+	color: rgb(48,66,87);
+}
+table tbody td.destacada,
+table tbody th.destacada {
+	background-color: rgb(192,210,231);
+}
+table tbody th.destacada {
+	background-color: rgb(192,210,231);
+}
+table tbody th.has-tooltip,
+table tbody td.has-tooltip {
+	background-image: url(../img/tablas-icono-tooltip.gif);
+	background-position: right bottom;
+	background-repeat: no-repeat;
+}
+table tbody th.tooltip-on,
+table tbody td.tooltip-on {
+	background-color: rgb(231,231,193);
+}
+
+/* doble capçalera */
+table.doble-capcalera thead th {
+	border-right: 1px solid rgb(111,121,150);
+}
+table.doble-capcalera thead th.superior {
+	background: rgb(240, 242, 249);
+	border-bottom: 1px solid rgb(111, 121, 150);
+	text-align: center;
+}
+table.doble-capcalera tbody th,
+table.doble-capcalera tbody td {
+	border-right: 1px solid rgb(183,190,196);
+}
+table.doble-capcalera tbody th.ultima,
+table.doble-capcalera tbody th.radio,
+table.doble-capcalera tbody th.check,
+table.doble-capcalera tbody td.ultima,
+table.doble-capcalera tbody td.radio,
+table.doble-capcalera tbody td.check {
+	border-right: none;
+}
+/* linies verticals per columnes */
+table.amb-columnes thead th {
+	border-right: 1px solid rgb(111,121,150);
+}
+table.amb-columnes thead th.ultima {
+	border-right: none;
+}
+table.amb-columnes tbody th,
+table.amb-columnes tbody td {
+	border-right: 1px solid rgb(183,190,196);
+}
+table.amb-columnes tbody th.ultima,
+table.amb-columnes tbody th.radio,
+table.amb-columnes tbody th.check,
+table.amb-columnes tbody td.ultima,
+table.amb-columnes tbody td.radio,
+table.amb-columnes tbody td.check{
+	border-right: none;
+}
+/* eliminació de linia vertical en columna de radiobutton/checkbox */
+table.seleccio thead th.radio,
+table.seleccio thead th.check {
+	border-right: none;
+}
+table.seleccio tbody td.radio,
+table.seleccio tbody td.check,
+table.seleccio thead th.select-all {
+	padding: 0 0 0 3px;
+}
+.parell {
+	background: rgb(245,245,245);
+}
+table th.esq,
+table td.esq {
+	text-align: left;
+}
+table th.cen,
+table td.cen {
+	text-align: center;
+}
+table th.dre,
+table td.dre {
+	text-align: right;
+}
+
+table .llistat {
+	margin: 0;
+	padding: 0;
+}
+table .llistat li {
+	margin: 0;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+table .llistat + .llistat {
+	margin-top: 0;
+}
+/* -- fi taules --*/
+
+
+/*-- Taula amb agregadors
+-------------------------------------------------------------------------- */
+
+/*desplegable accions*/
+table th.accions,
+table td.accions {
+	text-align: left;
+	/* since REV 83 */
+	width: 1px;
+}
+table td.accions {
+	padding-bottom: 1px;
+	padding-top: 1px;
+}
+table td.accions button {
+	font-weight: normal;
+	padding: 0;
+	text-align: left;
+	padding: 0 1em 0 0;
+	width: auto;
+	overflow: visible;
+}
+table .accions div {
+	position: relative;
+}
+table .accions span {
+	background: transparent url('../img/tablas-icono-abrir-operativa.gif') no-repeat 100% 50%;
+	position: relative;
+	display: block;
+	padding: 1px 15px 1px 10px;
+	padding: 0 15px 0 10px;
+}
+table .accions span span {
+	position: absolute;
+	padding: 0;
+	border: 0;
+	width: 4px;
+	height: 4px;
+}
+
+table .accions div.tf7-widget-menu-flyout-menu {
+	position: absolute;
+	z-index: 10000;
+	padding: 0;
+	width: auto;
+	white-space: nowrap;
+}
+table .accions li a:link,
+table .accions li a:visited,
+table .accions li a:hover {
+	display: block;
+	color: rgb(102,102,102);
+	padding: 3px 10px;
+	text-decoration: none;
+}
+table .accions li a:hover {
+	background: rgb(201,209,233);
+}
+
+table.taula-agregadora th.saldo,
+table.taula-agregadora td.saldo {
+	width: 6em;
+}
+
+
+/*-- Taula jeràrquica
+------------------------------------------------------------------------- */
+/*	colors per nivells (fosc a clar):
+	0(189,199,223)
+	1(213,218,233)
+	2(226,229,239)
+	3(243,245,248) */
+	
+table.jerarquica thead th {
+	border-left: 1px solid rgb(111,121,150);
+}
+table.jerarquica thead th.primera {
+	border-left: none;
+}
+table.jerarquica tbody td {
+	border-left: 1px solid rgb(183,190,196);
+}
+table.jerarquica tbody td.primera {
+	padding-left: 40px;
+	border-left: 0;
+}
+table.jerarquica tr a {
+	font-weight: normal;
+}
+/* indentació de cada nivell */
+table.jerarquica tr.nivell-0 td.primera,
+table.jerarquica tr.nivell-0 th {
+	padding-left: 7px;
+}
+table.jerarquica tr.nivell-1 td.primera,
+table.jerarquica tr.nivell-1 th {
+	padding-left: 24px;
+}
+table.jerarquica tr.nivell-2 td.primera {
+	padding-left: 40px;
+}
+table.jerarquica tr.nivell-2 th {
+	padding-left: 39px;
+}
+table.jerarquica tr.nivell-3 th,
+table.jerarquica tr.nivell-3 td.primera {
+	padding-left: 56px;
+}
+table.jerarquica tr.nivell-4 th,
+table.jerarquica tr.nivell-4 td.primera {
+	padding-left: 72px;
+}
+table.jerarquica tr.nivell-5 th,
+table.jerarquica tr.nivell-5 td.primera {
+	padding-left: 88px;
+}
+table.jerarquica tr.nivell-6 th,
+table.jerarquica tr.nivell-6 td.primera {
+	padding-left: 104px;
+}
+table.jerarquica tr.nivell-7 th,
+table.jerarquica tr.nivell-7 td.primera {
+	padding-left: 120px;
+}
+table.jerarquica tr.nivell-8 th,
+table.jerarquica tr.nivell-8 td.primera {
+	padding-left: 136px;
+}
+/* fi indentació de cada nivell */
+
+/* colors de nivells per taules  */
+table.nodes-n1-n2-resaltats tr.nivell-0 th,
+table.nodes-n1-n2-resaltats tr.nivell-0 td {
+  background-color: rgb(226,229,239);
+}
+table.nodes-n1-resaltats tr.nivell-0 th,
+table.nodes-n1-resaltats tr.nivell-0 td,
+table.nodes-n1-n2-resaltats tr.nivell-1 th,
+table.nodes-n1-n2-resaltats tr.nivell-1 td {
+  background-color: rgb(243,245,248);
+}
+table.nodes-n1-resaltats tr.nivell-0 th,
+table.nodes-n1-resaltats tr.nivell-0 th a,
+table.nodes-n1-resaltats tr.nivell-0 td,
+table.nodes-n1-resaltats tr.nivell-0 td a,
+table.nodes-n1-n2-resaltats tr.nivell-0 th,
+table.nodes-n1-n2-resaltats tr.nivell-0 th a,
+table.nodes-n1-n2-resaltats tr.nivell-0 td,
+table.nodes-n1-n2-resaltats tr.nivell-0 td a,
+table.nodes-n1-n2-resaltats tr.nivell-1 th a,
+table.nodes-n1-n2-resaltats tr.nivell-1 td,
+table.nodes-n1-n2-resaltats tr.nivell-1 td a {
+  font-weight: bold;
+}
+table.nodes-n1-resaltats tr.nivell-1 th,
+table.nodes-n1-resaltats tr.nivell-2 th,
+table.nodes-n1-resaltats tr.nivell-3 th,
+table.nodes-n1-resaltats tr.nivell-4 th,
+table.nodes-n1-resaltats tr.nivell-5 th,
+table.nodes-n1-resaltats tr.nivell-6 th,
+table.nodes-n1-resaltats tr.nivell-7 th,
+table.nodes-n1-resaltats tr.nivell-8 th,
+table.nodes-n1-n2-resaltats tr.nivell-2 th,
+table.nodes-n1-n2-resaltats tr.nivell-3 th,
+table.nodes-n1-n2-resaltats tr.nivell-4 th,
+table.nodes-n1-n2-resaltats tr.nivell-5 th,
+table.nodes-n1-n2-resaltats tr.nivell-6 th,
+table.nodes-n1-n2-resaltats tr.nivell-7 th,
+table.nodes-n1-n2-resaltats tr.nivell-8 th,
+table.nodes-no-resaltats tr.nivell-0 th,
+table.nodes-no-resaltats tr.nivell-1 th,
+table.nodes-no-resaltats tr.nivell-2 th,
+table.nodes-no-resaltats tr.nivell-3 th,
+table.nodes-no-resaltats tr.nivell-4 th,
+table.nodes-no-resaltats tr.nivell-5 th,
+table.nodes-no-resaltats tr.nivell-6 th,
+table.nodes-no-resaltats tr.nivell-7 th,
+table.nodes-no-resaltats tr.nivell-8 th {
+  font-weight: normal;
+}
+table.nodes-n1-n2-resaltats tr.nivell-0 div.text-secundari *,
+table.nodes-n1-n2-resaltats tr.nivell-0 td.operatives *,
+table.nodes-n1-n2-resaltats tr.nivell-1 div.text-secundari *,
+table.nodes-n1-n2-resaltats tr.nivell-1 td.operatives *,
+table.nodes-n1-resaltats tr.nivell-0 div.text-secundari *,
+table.nodes-n1-resaltats tr.nivell-0 td.operatives * {
+  font-weight: normal;
+}
+/* fi colors de nivells per taules  */
+
+/* ocultació dels fills per defecte */
+/* els nodes de nivell 0 son sempre visibles */
+table.colapsable tr.nivell-1,
+table.colapsable tr.nivell-2,
+table.colapsable tr.nivell-3,
+table.colapsable tr.nivell-4,
+table.colapsable tr.nivell-5,
+table.colapsable tr.nivell-6,
+table.colapsable tr.nivell-7,
+table.colapsable tr.nivell-8 {
+	display: none;
+}
+/* fi ocultació dels fills per defecte */
+
+
+/* indentació de cada nivell */
+table.colapsable thead tr th.primera {
+	padding-left: 24px;
+}
+table.colapsable tr.nivell-0 th,
+table.colapsable tr.nivell-0 td.primera {
+	padding-left: 24px;
+}
+table.colapsable tr.nivell-1 th,
+table.colapsable tr.nivell-1 td.primera {
+	padding-left: 40px;
+}
+table.colapsable tr.nivell-2 th,
+table.colapsable tr.nivell-2 td.primera {
+	padding-left: 56px;
+}
+table.colapsable tr.nivell-3 th,
+table.colapsable tr.nivell-3 td.primera {
+	padding-left: 72px;
+}
+table.colapsable tr.nivell-4 th,
+table.colapsable tr.nivell-4 td.primera {
+	padding-left: 88px;
+}
+table.colapsable tr.nivell-5 th,
+table.colapsable tr.nivell-5 td.primera {
+	padding-left: 104px;
+}
+table.colapsable tr.nivell-6 th,
+table.colapsable tr.nivell-6 td.primera {
+	padding-left: 120px;
+}
+table.colapsable tr.nivell-7 th,
+table.colapsable tr.nivell-7 td.primera {
+	padding-left: 136px;
+}
+table.colapsable tr.nivell-8 th,
+table.colapsable tr.nivell-8 td.primera {
+	padding-left: 152px;
+}
+table.colapsable span.obridor {
+	cursor: default;
+}
+table.colapsable span.obridor span.trigger {
+	cursor: default;
+	padding-left: 13px;
+	margin-left: -14px;
+	margin-right: 0.1em;
+}
+table.colapsable thead tr span span.trigger {
+	background: url(../img/tablas-icono-desplegar-todos.gif) no-repeat 0 50%;
+}
+table.colapsable thead tr.obert span span.trigger {
+	background: url(../img/tablas-icono-plegar-todos.gif) no-repeat 0 50%;
+}
+table.colapsable tbody tr.tancat span.obridor span.trigger {
+	background: url(../img/tablas-icono-desplegar.gif) no-repeat 0 0.24em;
+}
+table.colapsable tbody tr.obert span.obridor span.trigger {
+	background: url(../img/tablas-icono-plegar.gif) no-repeat 0 0.24em;
+}
+
+
+/*-- Taules de selecció
+------------------------------------------------------------------------- */
+form table.jerarquica tr.colapsable label.radio input,
+form table.jerarquica tr.colapsable label.checkbox input {
+	margin-left: -3px;
+}
+form table.jerarquica label.radio input,
+/*form.vertical table.jerarquica label.radio input,*/
+form table.jerarquica label.checkbox input/*,
+form.vertical table.jerarquica label.checkbox input*/ {
+/*	margin-left: 2px;*/
+	margin-right: 3px;
+	_margin-right: 1px;
+}
+.over,
+table tbody tr.over td,
+table tbody tr.over th,
+table.jerarquica tbody tr.over th,
+table.jerarquica tbody tr.over td,
+table.seleccio tbody tr.over th,
+table.seleccio tbody.nivells-1 tr.over th,
+table.seleccio tbody.nivells-1 tr.over td,
+table.seleccio tbody.nivells-2 tr.over th,
+table.seleccio tbody.nivells-2 tr.over td,
+table.seleccio tbody.nivells-3 tr.over th,
+table.seleccio tbody.nivells-3 tr.over td,
+table.seleccio tbody.nivells-4 tr.over th,
+table.seleccio tbody.nivells-4 tr.over td {
+	background-color: rgb(245,235,206);
+}
+
+
+/*-- Taula simple
+-------------------------------------------------------------------------- */
+.contenidor .contenidor-taula { /* TODO: moure on calgui, o fer un contenidor específic per taules simples, o eliminar aquest contenidor per aquestes taules */
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+}
+table.simple {
+	border: 0;
+}
+table.simple thead {
+	background: none;
+}
+table.simple thead th {
+	border-bottom-color: #ccc;
+	padding-bottom: 2px;
+	padding-top: 0;
+}
+table.simple tbody th,
+table.simple tbody td {
+	border: 0;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+table.simple .primera {
+	padding-left: 0;
+}
+table.simple .ultima {
+	padding-right: 0;
+}
+/*table.simple tbody tr.parell th,*/
+table.simple tr.parell {
+	background-color: rgb(255,255,255);
+}
+
+/*-- Reordenació de taules
+------------------------------------------------------------------------- */
+table.reordenable thead th {
+	border-right: 1px solid rgb(111,121,150);
+}
+table.amb-reordenable thead th.ultima {
+	border-right: none;
+}
+table thead tr th.reordenable a {
+	background: transparent url(../img/tablas-icono-ordenar.gif) no-repeat 100% 50%;
+	display: block;
+	padding-right: 16px;
+}
+table thead tr th.reordenable a:link,
+table thead tr th.reordenable a:visited,
+table thead tr th.reordenable a:hover {
+	color: rgb(61,61,61);
+	text-decoration: none;
+}
+table thead tr th.descendent,
+table thead tr th.ascendent {
+	background: rgb(216,221,234) url(../img/tablas-fondo-cabecera-destacada.gif) repeat-x left bottom;
+}
+table thead tr th.ascendent a {
+	background: transparent url(../img/tablas-icono-ordenar-ascendente.gif) no-repeat 100% 50%;
+}
+table thead tr th.descendent a {
+	background: transparent url(../img/tablas-icono-ordenar-descendente.gif) no-repeat 100% 50%;
+}
+table .icona-ordenacio {
+	float: right;
+	height: 100%;
+	display: none;
+}
+
+/*-- Taules ordenables
+--------------------------------------------------------------------------*/
+table.files-ordenables td.ordenable {
+  text-align: center;
+}
+.js table.files-ordenables td.ordenable ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.js table.files-ordenables td.ordenable li {
+  cursor: pointer;
+  display: inline;
+}
+.js table.files-ordenables td.ordenable li.down {
+  margin-left: 2em;
+}
+.js table.files-ordenables td.ordenable li.up {
+  margin-right: 2em;
+}
+.js table.files-ordenables td.ordenable ul.up-down li.down {
+  margin-left: 0;
+}
+.js table.files-ordenables td.ordenable ul.up-down li.up {
+  border-right: 1px solid #b7bec4;
+  padding-right: 0.5em;
+  margin-right: 0.5em;
+}
+.js table.files-ordenables td.ordenable li img {
+  vertical-align: middle;
+}
+.js table.files-ordenables tr.hilite {
+  background: #f5de8a;
+}
+
+
+/*-- Scroll taules
+------------------------------------------------------------------------- */
+div.scroll-taula {
+	overflow-x: auto;
+	width: 100%;
+	position: relative;
+}
+
+div.scroll-taula-y {
+	overflow-y: auto;
+}
+/*-- Paginadors
+------------------------------------------------------------------------- */
+ul.paginador {
+	float: right;
+	margin: -0.9em 0 0.9em 0;
+	text-align: right;
+}
+
+ul.paginador li {
+	display: inline;
+	margin-left: 6px;
+	color: rgb(161,161,146);
+}
+
+ul.paginador li a.anterior {
+	padding-left: 10px;
+	background: transparent url(../img/icono-paginador-anterior.gif) no-repeat 0 60%;
+}
+
+ul.paginador li a.inici {
+	padding-left: 10px;
+	background: transparent url(../img/icono-paginador-inicio.gif) no-repeat 0 60%;
+}
+
+ul.paginador li a.seguent {
+	padding-right: 10px;
+	background: transparent url(../img/icono-paginador-siguiente.gif) no-repeat 100% 60%;
+}
+ul.paginador li span.anterior {
+	padding-left: 10px;
+	background: transparent url(../img/icono-paginador-anterior.gif) no-repeat 0 60%;
+}
+
+ul.paginador li span.inici {
+	padding-left: 10px;
+	background: transparent url(../img/icono-paginador-inicio.gif) no-repeat 0 60%;
+}
+
+ul.paginador li span.seguent {
+	padding-right: 10px;
+	background: transparent url(../img/icono-paginador-siguiente.gif) no-repeat 100% 60%;
+}
+/*-- paginadors --*/
+
+/*-- Caixes de formularis
+------------------------------------------------------------------------- */
+fieldset {
+	border: 0;
+}
+fieldset.caixa-formulari {
+	border: 1px solid rgb(135,155,179);
+	padding-top: 0.8em;
+}
+fieldset.sense-border {
+	border: none;
+}
+fieldset.nomes-top {
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+}
+fieldset.caixa-formulari legend {
+	color: rgb(51,51,51);
+	font-weight: bold;
+	margin: 0 0 0.8em 7px;
+}
+fieldset.nomes-top legend {
+	margin-left: -9px;
+  	padding-left: 19px;
+}
+ul.switcher fieldset.caixa-formulari legend {
+	color: rgb(51,51,51);
+}
+ul.switcher fieldset.caixa-formulari {
+	border-top: 1px solid rgb(193,201,211);
+}
+
+
+/*-- Estructures de formularis
+------------------------------------------------------------------------- */
+form.vertical,
+form.horitzontal {
+	margin: 0;
+	padding: 0;
+}
+form.vertical p,
+form.vertical div.fila-inputs,
+form.vertical div.columna-inputs,
+form.vertical div.graella-inputs {
+	clear: left;
+	margin: 0 0 0 17px;
+}
+
+
+
+
+
+/* form-redux */
+form.vertical fieldset div.columna-inputs li {
+	clear: left; /* TODO: liquidar si passa el nou */
+}
+/*****/
+form.vertical div.columna-inputs li {
+	clear: left; /* neteja per quan s'aniden camps en línia a radios/checks */
+}
+/* form-redux */
+
+
+
+
+
+/* form-redux */
+form.vertical fieldset p {
+	padding-bottom: 0.3em;
+}
+/*****/
+form.vertical div.llistat-entrada p {
+	margin-left: 5px;
+	padding-bottom: 0.3em;
+}
+form.vertical div.llistat-entrada.numero .currency,
+form.vertical div.llistat-entrada.numero .amount {
+  margin-left: 0;
+}
+
+/* form-redux */
+
+
+
+/* form-redux */
+form.vertical div.llistat-entrada {
+	/* espai blanc entre llistats de continguts */
+	padding: 0 1.3em 1.2em 1em;
+	
+	/* TODO: unificar regles llistats */
+}
+form.vertical div.anidat ul.llistat-normal  {
+  padding: 0 0em 1.2em 1em;
+}
+form.vertical div.anidat div.llistat-entrada:last-child,
+form.vertical div.anidat ul.llistat-normal:last-child   {
+  padding-bottom: 0;
+}
+/* form-redux */   
+
+
+
+form.vertical div.fila-inputs {
+	padding-bottom: 0;
+}
+form.vertical fieldset div.fila-inputs li label.radio,
+form.vertical fieldset div.fila-inputs li label.checkbox {
+/*	margin-bottom: 0.2em !important;*/
+}
+form.vertical div.fila-inputs li label.radio,
+form.vertical div.fila-inputs li label.checkbox {
+/*	margin-bottom: 0.2em !important;*/
+}
+form.vertical .radiocheck .control input {
+	vertical-align: bottom;
+}
+
+
+/* form-redux */
+.proces ul.llistat li,
+.proces div.llistat li,
+.proces div.llistat dt,
+.proces div.llistat dd,
+form.vertical ul.llistat li,
+form.vertical div.llistat li,
+form.vertical div.llistat dt,
+form.vertical div.llistat dd,
+form.vertical fieldset ul.llistat li,
+form.vertical fieldset div.llistat li {
+	padding-bottom: 0.7em;
+}
+/*****/
+.proces ul.llistat li,
+.proces div.llistat li,
+.proces div.llistat dt,
+.proces div.llistat dd,
+form.vertical ul.llistat li,
+form.vertical div.llistat li,
+form.vertical div.llistat dt,
+form.vertical div.llistat dd,
+form.vertical ul.llistat li,
+form.vertical div.llistat li {
+	padding-bottom: 0.7em;
+}
+/* form-redux */
+
+
+
+form.vertical fieldset div.fila-inputs li {
+	padding-bottom: 0.5em;
+	padding-bottom: 0;
+}
+
+
+
+form.vertical fieldset dt,
+form.vertical fieldset dd {
+	padding-bottom: 0.8em; /* només usat en dades de contexte */
+}
+form.vertical fieldset p label {
+/*  	display: inline-block; */
+}
+form.vertical fieldset div.fila-inputs,
+form.vertical fieldset div.columna-inputs ,
+form.vertical fieldset div.graella-inputs {
+	margin-top: 0;
+}
+/* form.vertical p:after, */
+form.vertical div:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+/* amplada columna etiquetes */
+form.vertical fieldset.etiqueta-estreta div.field span.label-wrapper,
+form.vertical fieldset.etiqueta-estreta div.llistat-continguts dt {
+	width: 8em;
+}
+form.vertical fieldset.etiqueta-estreta p.sortida strong {
+	display: inline-block;
+	font-weight: normal;
+	width: 8.5em;
+}
+form.vertical fieldset.etiqueta-mitjana div.field span.label-wrapper,
+form.vertical fieldset.etiqueta-mitjana div.llistat-continguts dt {
+	width: 16em;
+}
+form.vertical fieldset.etiqueta-mitjana p.sortida strong {
+	display: inline-block;
+	font-weight: normal;
+	width: 16.5em;
+}
+form.vertical fieldset.etiqueta-ample div.field span.label-wrapper,
+form.vertical fieldset.etiqueta-ample div.llistat-continguts dt {
+	width: 24em;
+}
+form.vertical fieldset.etiqueta-ample p.sortida strong {
+	display: inline-block;
+	font-weight: normal;
+	width: 24.5em;
+}
+form.vertical fieldset.etiqueta-estreta .radiocheck label,
+form.vertical fieldset.etiqueta-mitjana .radiocheck label,
+form.vertical fieldset.etiqueta-ample .radiocheck label {
+	width: auto;
+}
+
+
+
+
+form.vertical div.columna-inputs ul {
+	width: 100%;
+}
+
+/* form-redux: amplada per columnes d'etiquetes */
+form.vertical span.label-wrapper {
+	display: inline-block;
+}
+
+/* se permite campos de salida en agrupadores horizontales */
+form.vertical div.agrupador-horitzontal p.sortida strong {
+  font-weight: normal;
+}
+
+
+/* los listados de salida tienen una anchura por defecto de un 50% por lo que hay que añadir un selector de formulario sólo para ese caso [form.vertical] */
+/* TODO: trasladar reglas a hoja IE */
+/* REFACTOR: mirar de reduir el nombre de selectors per regla */
+
+
+form.vertical fieldset.etiqueta-estreta div.llistat-entrada div.agrupador-horitzontal div.field span.label-wrapper.primer,
+form.vertical fieldset.etiqueta-mitjana div.llistat-entrada div.agrupador-horitzontal div.field span.label-wrapper.primer,
+form.vertical fieldset.etiqueta-ample div.llistat-entrada div.agrupador-horitzontal div.field span.label-wrapper.primer {
+	width: auto !important;
+}
+/* form-redux */
+form.vertical div.agrupador-horitzontal div.field span.label-wrapper {
+	width: auto;
+}
+
+
+form.vertical span.label-wrapper,
+form.vertical div.agrupador-horitzontal div.field span.label-wrapper.primer,
+form.vertical div.llistat-continguts dl dt {
+  width: 20%;
+}
+
+form.vertical div.etiqueta-20 span.label-wrapper,
+form.vertical div.etiqueta-20 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-20 dl dt,
+div.etiqueta-20 dl dt {
+	width: 20%;
+}
+
+div.etiqueta-20 dl dd {
+	_margin-left: 20%;
+}
+form.vertical div.etiqueta-22 span.label-wrapper,
+form.vertical div.etiqueta-22 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-22 dl dt,
+div.etiqueta-22 dl dt {
+	width: 22%;
+}
+div.etiqueta-22 dl dd {
+	_margin-left: 22%;
+}
+form.vertical div.etiqueta-24 span.label-wrapper,
+form.vertical div.etiqueta-24 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-24 dl dt,
+div.etiqueta-24 dl dt {
+	width: 24%;
+}
+div.etiqueta-24 dl dd {
+	_margin-left: 24%;
+}
+form.vertical div.etiqueta-26 span.label-wrapper,
+form.vertical div.etiqueta-26 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-26 dl dt,
+div.etiqueta-26 dl dt {
+	width: 26%;
+}
+div.etiqueta-26 dl dd {
+	_margin-left: 26%;
+}
+form.vertical div.etiqueta-28 span.label-wrapper,
+form.vertical div.etiqueta-28 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-28 dl dt,
+div.etiqueta-28 dl dt {
+	width: 28%;
+}
+div.etiqueta-28 dl dd {
+	_margin-left: 28%;
+}
+form.vertical div.etiqueta-30 span.label-wrapper,
+form.vertical div.etiqueta-30 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-30 dl dt,
+div.etiqueta-30 dl dt {
+	width: 30%;
+}
+div.etiqueta-30 dl dd {
+	_margin-left: 30%;
+}
+form.vertical div.etiqueta-32 span.label-wrapper,
+form.vertical div.etiqueta-32 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-32 dl dt,
+div.etiqueta-32 dl dt {
+	width: 32%;
+}
+div.etiqueta-32 dl dd {
+	_margin-left: 32%;
+}
+form.vertical div.etiqueta-34 span.label-wrapper,
+form.vertical div.etiqueta-34 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-34 dl dt,
+div.etiqueta-34 dl dt {
+	width: 34%;
+}
+div.etiqueta-34 dl dd {
+	_margin-left: 34%;
+}
+form.vertical div.etiqueta-36 span.label-wrapper,
+form.vertical div.etiqueta-36 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-36 dl dt,
+div.etiqueta-36 dl dt {
+	width: 36%;
+}
+div.etiqueta-36 dl dd {
+	_margin-left: 36%;
+}
+form.vertical div.etiqueta-38 span.label-wrapper,
+form.vertical div.etiqueta-38 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-38 dl dt,
+div.etiqueta-38 dl dt {
+	width: 38%;
+}
+div.etiqueta-38 dl dd {
+	_margin-left: 38%;
+}
+form.vertical div.etiqueta-40 span.label-wrapper,
+form.vertical div.etiqueta-40 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-40 dl dt,
+div.etiqueta-40 dl dt {
+	width: 40%;
+}
+div.etiqueta-40 dl dd {
+	_margin-left: 40%;
+}
+form.vertical div.etiqueta-42 span.label-wrapper,
+form.vertical div.etiqueta-42 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-42 dl dt,
+div.etiqueta-42 dl dt {
+	width: 42%;
+}
+div.etiqueta-42 dl dd {
+	_margin-left: 42%;
+}
+form.vertical div.etiqueta-44 span.label-wrapper,
+form.vertical div.etiqueta-44 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-44 dl dt,
+div.etiqueta-44 dl dt {
+	width: 44%;
+}
+div.etiqueta-44 dl dd {
+	_margin-left: 44%;
+}
+form.vertical div.etiqueta-46 span.label-wrapper,
+form.vertical div.etiqueta-46 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-46 dl dt,
+div.etiqueta-46 dl dt {
+	width: 46%;
+}
+div.etiqueta-46 dl dd {
+	_margin-left: 46%;
+}
+form.vertical div.etiqueta-48 span.label-wrapper,
+form.vertical div.etiqueta-48 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-48 dl dt,
+div.etiqueta-48 dl dt {
+	width: 48%;
+}
+div.etiqueta-48 dl dd {
+	_margin-left: 48%;
+}
+form.vertical div.etiqueta-50 span.label-wrapper,
+form.vertical div.etiqueta-50 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-50 dl dt,
+div.etiqueta-50 dl dt {
+	width: 50%;
+}
+div.etiqueta-50 dd {
+	_margin-left: 50%;
+}
+form.vertical div.etiqueta-52 span.label-wrapper,
+form.vertical div.etiqueta-52 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-52 dl dt,
+div.etiqueta-52 dl dt {
+	width: 52%;
+}
+div.etiqueta-52 dl dd {
+	_margin-left: 52%;
+}
+form.vertical div.etiqueta-54 span.label-wrapper,
+form.vertical div.etiqueta-54 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-54 dl dt,
+div.etiqueta-54 dl dt {
+	width: 54%;
+}
+div.etiqueta-54 dl dd {
+	_margin-left: 54%;
+}
+form.vertical div.etiqueta-56 span.label-wrapper,
+form.vertical div.etiqueta-56 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-56 dl dt,
+div.etiqueta-56 dl dt {
+	width: 56%;
+}
+div.etiqueta-56 dl dd {
+	_margin-left: 56%;
+}
+form.vertical div.etiqueta-58 span.label-wrapper,
+form.vertical div.etiqueta-58 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-58 dl dt,
+div.etiqueta-58 dl dt {
+	width: 58%;
+}
+div.etiqueta-58 dl dd {
+	_margin-left: 58%;
+}
+form.vertical div.etiqueta-60 span.label-wrapper,
+form.vertical div.etiqueta-60 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-60 dl dt,
+div.etiqueta-60 dl dt {
+	width: 60%;
+}
+div.etiqueta-60 dl dd {
+	_margin-left: 60%;
+}
+form.vertical div.etiqueta-62 span.label-wrapper,
+form.vertical div.etiqueta-62 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-62 dl dt,
+div.etiqueta-62 dl dt {
+	width: 62%;
+}
+div.etiqueta-62 dl dd {
+	_margin-left: 62%;
+}
+form.vertical div.etiqueta-64 span.label-wrapper,
+form.vertical div.etiqueta-64 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-64 dl dt,
+div.etiqueta-64 dl dt {
+	width: 64%;
+}
+div.etiqueta-64 dl dd {
+	_margin-left: 64%;
+}
+form.vertical div.etiqueta-66 span.label-wrapper,
+form.vertical div.etiqueta-66 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-66 dl dt,
+div.etiqueta-66 dl dt {
+	width: 66%;
+}
+div.etiqueta-66 dl dd {
+	_margin-left: 66%;
+}
+form.vertical div.etiqueta-68 span.label-wrapper,
+form.vertical div.etiqueta-68 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-68 dl dt,
+div.etiqueta-68 dl dt {
+	width: 68%;
+}
+div.etiqueta-68 dl dd {
+	_margin-left: 68%;
+}
+form.vertical div.etiqueta-70 span.label-wrapper,
+form.vertical div.etiqueta-70 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-70 dl dt,
+div.etiqueta-70 dl dt {
+	width: 70%;
+}
+div.etiqueta-70 dl dd {
+	_margin-left: 70%;
+}
+form.vertical div.etiqueta-72 span.label-wrapper,
+form.vertical div.etiqueta-72 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-72 dl dt,
+div.etiqueta-72 dl dt {
+	width: 72%;
+}
+div.etiqueta-72 dl dd {
+	_margin-left: 72%;
+}
+form.vertical div.etiqueta-74 span.label-wrapper,
+form.vertical div.etiqueta-74 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-74 dl dt,
+div.etiqueta-74 dl dt {
+	width: 74%;
+}
+div.etiqueta-74 dl dd {
+	_margin-left: 74%;
+}
+form.vertical div.etiqueta-76 span.label-wrapper,
+form.vertical div.etiqueta-76 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-76 dl dt,
+div.etiqueta-76 dl dt {
+	width: 76%;
+}
+div.etiqueta-76 dl dd {
+	_margin-left: 76%;
+}
+form.vertical div.etiqueta-78 span.label-wrapper,
+form.vertical div.etiqueta-78 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-78 dl dt,
+div.etiqueta-78 dl dt {
+	width: 78%;
+}
+div.etiqueta-78 dl dd {
+	_margin-left: 78%;
+}
+form.vertical div.etiqueta-80 span.label-wrapper,
+form.vertical div.etiqueta-80 div.agrupador-horitzontal span.label-wrapper.primer,
+form.vertical div.etiqueta-80 dl dt,
+div.etiqueta-80 dl dt {
+	width: 80%;
+}
+div.etiqueta-80 dl dd {
+	_margin-left: 80%;
+}
+/* form-redux: amplada per columnes d'etiquetes */
+
+
+
+
+
+
+
+form.vertical .radiocheck .control input {
+	margin: 0;
+/* 	padding: 0; */
+}
+div.inputs-auto .field-wrapper {
+	width: auto;
+}
+div.inputs-estrets .field-wrapper {
+	width: 8em;
+}
+div.inputs-mitjans .field-wrapper {
+	width: 12em;
+}
+div.inputs-amples .field-wrapper {
+	width: 16em;
+}
+/* fi amplades de checks i radios */
+form.vertical p.botons {
+	margin: 1.3em 0;
+}
+/* TODO: a eliminar el 2008-10-01 */
+form span.primer-grup-logic {
+	padding-right: 0.4em;
+}
+form span.grup-logic {
+	border-left: 1px solid rgb(51,51,51);
+	padding-left: 0.7em;
+	padding-right: 0.5em;
+}
+/* final TODO: a eliminar el 2008-10-01 */
+div.fila-inputs ul.field-group,
+form.vertical div.columna-inputs ul.field-group,
+form.vertical div.graella-inputs ul.field-group,
+form.vertical ul.switch {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* form-redux */
+form.vertical div.columna-inputs,
+form.vertical div.graella-inputs {
+/*	margin-left: 38px; TODO: revisar si es pot deixar fora */
+}
+/* form-redux */
+
+
+
+form.vertical div.columna-inputs ul.field-group,
+form.vertical div.graella-inputs ul.field-group {
+	float: left;
+	margin: 0;
+}
+form.vertical div.columna-inputs ul.field-group ul.field-group,
+form.vertical div.graella-inputs ul.field-group ul.field-group {
+  float: none;
+}
+div.fila-inputs li.field-wrapper,
+div.columna-inputs li.field-wrapper,
+div.graella-inputs li.field-wrapper,
+ul.switch li {
+	list-style-type: none;
+}
+div.columna-inputs li.field-wrapper,
+div.graella-inputs li.field-wrapper,
+ul.switch li {
+	margin-bottom: 0;
+}
+div.fila-inputs li.field-wrapper {
+	padding-right: 0.9em;
+}
+div.fila-inputs {
+	padding-bottom: 0;
+}
+div.fila-inputs li.field-wrapper {
+	float: left;
+}
+form.horitzontal div.fila-inputs li.field-wrapper {
+	margin: 0.6em 0;
+}
+div.fila-inputs:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+div.fila-inputs input,
+div.columna-inputs input,
+div.graella-inputs input {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+div.fila-inputs div.llistat-entrada label,
+div.columna-inputs div.llistat-entrada label,
+div.graella-inputs div.llistat-entrada label {
+	/* no interessa el marge heredat dels radios i checks */
+	/* REFACTOR: revisar si realment cal mantenir el marge a radios i checks */
+	margin-right: 0;
+}
+
+
+
+/* form-redux */
+div.fila-inputs label,
+div.columna-inputs label,
+div.graella-inputs label {
+	/* REFACTOR: a revisar segons el resultat del refactor de nowrap */
+	white-space: normal;
+}
+/* form-redux */
+
+
+
+
+
+/* form-redux */
+form.vertical div.fila-inputs,
+form.vertical div.columna-inputs,
+form.vertical div.graella-inputs {
+	margin-top: 0;
+}
+form.vertical div.fila-inputs div.field.radiocheck,
+form.vertical div.columna-inputs div.field.radiocheck,
+form.vertical div.graella-inputs div.field.radiocheck {
+	margin-bottom: 0.6em;
+}
+/* form.vertical span.control {
+	display: block;
+}
+form.vertical span.control {
+	margin-bottom: 0.5em;
+	margin-top: 0.1em;
+} */
+/* form-redux */
+
+
+
+
+form.horitzontal fieldset .field,
+form.horitzontal fieldset p {
+	float: left;
+	height: 1.6em;
+	margin: 6px 6px 6px 0;
+/* 	padding-right: 1em; */
+	white-space: nowrap;
+}
+form.horitzontal fieldset p.sortida strong {
+	font-weight: normal;
+}
+form.horitzontal p.botons {
+	float: right;
+	margin-right: 3px;
+	padding-right: 0;
+}
+
+form.vertical p.botons {
+	clear: both;
+}
+form.horitzontal label {
+	margin-left: 6px;
+}
+form.horitzontal-especial p.botons {
+	float: left;
+	margin-top: 5px;
+}
+form.horitzontal-especial fieldset {
+	padding: 0 0 1.74em 6px;
+}
+form.horitzontal-especial fieldset:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+form.vertical p.banda-informativa {
+	background-color: rgb(213,218,233);
+	border-bottom: 1px solid rgb(204,204,204);
+	border-top: 1px solid rgb(204,204,204);
+	font-weight: bold;
+	padding: 0.2em 6px;
+	margin: 0 18px 18px 18px;
+}
+ul.switcher {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul.switcher li {
+	background: transparent url(../img/formularios-switch-linea.gif) no-repeat 18px 1em;
+	margin: 0 18px 1.7em 0;
+	padding: 0;
+}
+ul.switcher li a.enllac-switch {
+	background-color: rgb(255,255,255);
+	padding: 0 0.3em;
+}
+ul.switcher li li,
+ul.switcher li li li {
+	background: none;
+}
+ul.switcher label.switch {
+	background-color: rgb(255,255,255);
+	font-weight: bold;
+	margin-right: 0;
+	padding-right: 6px;
+	white-space: nowrap;
+}
+ul.switcher li .primera-fila {
+	padding-top: 1em;
+}
+ul.switcher label.switch input {
+	margin-left: 14px;
+}
+ul.switcher ul.llistat-links li {
+	background: url(../img/bullet-fletxa-gran.gif) no-repeat 0 0.1em;
+	padding-left: 10px;
+	margin-left: 6px;
+}
+form.vertical ul.switcher fieldset p,
+form.vertical ul.switcher fieldset div.fila-inputs,
+form.vertical ul.switcher fieldset div.columna-inputs,
+form.vertical ul.switcher fieldset div.graella-inputs {
+	margin: 0 0 0 38px;
+}
+form.vertical ul.switcher fieldset legend {
+	padding-left: 38px;
+}
+
+
+
+/* form-redux */
+form.vertical fieldset div.agrupador-horitzontal {
+/*	clear: left;*/
+	margin: 0 0 0 17px;
+	margin: 0;
+}
+/*****/
+form.vertical div.llistat-entrada div.agrupador-horitzontal {
+	clear: left;
+	margin: 0;
+/* 	padding-left: 5px; */
+}
+/* form-redux */
+
+
+
+
+form.horitzontal fieldset div.agrupador-horitzontal,
+form.horitzontal fieldset div.agrupador-horitzontal div.fila-inputs,
+form.horitzontal fieldset div.agrupador-horitzontal div.fila-inputs ul {
+	float: left;
+}
+
+form.vertical div.agrupador-horitzontal:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+
+/* form-redux */
+form.vertical div.agrupador-horitzontal div.field {
+	margin-right: 12px;
+}
+form.vertical div.agrupador-horitzontal div.field {
+	clear: none;
+	float: left;
+/* 	white-space: nowrap; */
+	margin-right: 12px;
+/* 	display: inline; */
+}
+form.vertical div.agrupador-horitzontal {
+	padding-bottom: 0.3em;
+}
+form.vertical div.agrupador-horitzontal div.field {
+	margin-left: 0;
+}
+/* form-redux */
+
+
+
+
+
+
+
+form.vertical fieldset.etiqueta-estreta div.agrupador-horitzontal span.label-wrapper.primer {
+	width: 8em !important;
+}
+form.vertical fieldset.etiqueta-mitjana div.agrupador-horitzontal span.label-wrapper.primer {
+	width: 16em !important;
+}
+form.vertical fieldset.etiqueta-ample div.agrupador-horitzontal  span.label-wrapper.primer {
+	width: 24em !important;
+}
+div.amb-fons form.vertical {
+	padding: 10px 10px;
+	margin: 0;
+}
+div.amb-fons form.vertical fieldset.caixa-formulari {
+	margin: 0;
+	padding: 0;
+}
+div.amb-fons form.vertical fieldset p {
+	margin: 0;
+	padding: 0;
+}
+div.amb-fons form.vertical fieldset label {
+	text-indent: -9000px;
+	position: absolute;
+}
+div.amb-fons form.vertical fieldset p input.text {
+	width: 96%;
+}
+div.amb-fons form.vertical p.botons {
+	margin: 0.6em 0 0 0;
+	padding: 0;
+}
+div.contenidor form.vertical {
+	padding: 0 1.2em 1.6em 1.2em;
+	margin: 0;
+}
+div.login-ags form.vertical {
+	padding: 0;
+}
+div.contenidor form.vertical fieldset.caixa-formulari {
+	margin: 0;
+	padding: 0;
+}
+div.contenidor form.vertical fieldset p {
+	margin: 0;
+	padding: 0;
+}
+div.login-ags form.vertical fieldset p {
+	padding-bottom: 0.6em;
+}
+div.contenidor form.vertical fieldset label {
+	display: block;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+div.login-ags form.vertical fieldset label {
+	display: inline-block;
+	font-weight: normal;
+	padding-bottom: 0;
+}
+div.contenidor form.vertical p.botons {
+	margin: 0.5em 0 0 0;
+	padding: 0;
+}
+div.login-ags form.vertical p.botons {
+	margin: 0.6em auto;
+	padding: 0 0 3px 0;
+}
+span.data,
+span.numero,
+span.import,
+span.telefon {
+	white-space: nowrap;
+}
+span.import span.iso {
+	color: rgb(135,135,135);
+	font-size: 0.8em;
+}
+
+
+/* form-redux */
+form.vertical fieldset div.fila-inputs ul.anidat,
+form.vertical fieldset div.columna-inputs ul.anidat,
+form.vertical fieldset div.graella-inputs ul.anidat {
+	padding-left: 1.4em;
+	/* TODO: eliminar si passa el nou */
+}
+/*****/
+form.vertical div.fila-inputs ul.anidat,
+form.vertical div.columna-inputs ul.anidat,
+form.vertical div.graella-inputs ul.anidat {
+	padding-left: 1.4em; /* sangrat controls respecte l'etiqueta */
+}
+/* form-redux */
+
+
+/* form-redux */
+form.vertical fieldset div.anidat {
+/*	margin-top: 0em;*/
+/*	margin-bottom: 0.2em;*/
+	/* TODO: eliminar si passa el nou */
+}
+/*****/
+form.vertical div.anidat {
+	margin-top: -0.1em;
+	margin-bottom: 0;
+}
+/* form-redux */
+
+
+
+form.vertical div.anidat .titol-taula,
+form.vertical div.anidat div.contenidor-taula {
+	padding-left: 1.6em;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+
+
+
+/* form-redux */
+form.vertical fieldset .en-linia {
+	float: left;
+	/* TODO: eliminar si passa el nou */
+}
+/*****/
+form.vertical .en-linia {
+	float: left;
+}
+/* form-redux */
+
+
+
+/* form-redux */
+form.vertical fieldset.etiqueta-estreta .en-linia p label,
+form.vertical fieldset.etiqueta-mitjana .en-linia p label,
+form.vertical fieldset.etiqueta-ample .en-linia p label {
+	/* TODO: eliminar si el nou (sense !important) val per tots */
+	width: auto;
+}
+/*****/
+form.vertical .en-linia span.label-wrapper {
+	/* TODO: eliminar !important */
+	width: auto !important;
+}
+/* form-redux */
+
+
+
+/* form-redux */
+form.vertical fieldset .en-linia p {
+/*	margin-left: 0;*/
+}
+/*****/
+form.vertical .en-linia .field {
+	margin-left: 0;
+}
+form.vertical .en-linia div.llistat-entrada {
+	padding-left: 0;
+	padding-bottom: 0;
+}
+/* form-redux */
+
+
+form.vertical .etiqueta-oculta span.label-wrapper {
+	top: -1000em;
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+}
+
+form.vertical fieldset.etiqueta-estreta div.anidat div.field span.label-wrapper,
+form.vertical fieldset.etiqueta-mitjana div.anidat div.field span.label-wrapper,
+form.vertical fieldset.etiqueta-ample div.anidat div.field span.label-wrapper {
+/* 	width: auto; */
+}
+form.vertical fieldset.etiqueta-estreta div.anidat div.field span.label-wrapper.primer {
+/* 	width: 8em; */
+}
+form.vertical fieldset.etiqueta-mitjana div.anidat div.field span.label-wrapper.primer {
+/* 	width: 16em; */
+}
+form.vertical fieldset.etiqueta-ample div.anidat div.field span.label-wrapper.primer {
+/* 	width: 24em; */
+}
+form.vertical fieldset.etiqueta-estreta div.en-linia div.field span.label-wrapper.primer,
+form.vertical fieldset.etiqueta-mitjana div.en-linia div.field span.label-wrapper.primer,
+form.vertical fieldset.etiqueta-ample div.en-linia div.field span.label-wrapper.primer {
+	width: auto;
+}
+
+
+/*-- Taula formularis tabulars
+-------------------------------------------------------------------------- */
+table.tabular {
+	border: 0;
+}
+table.tabular div.field,
+table.tabular p.control {
+  margin: 0;
+}
+table.tabular input.text {
+  text-align: left;
+}
+table.tabular .esq input {
+  text-align: left;
+}
+table.tabular .dre input {
+  text-align: right;
+}
+table.tabular thead {
+	background: none;
+}
+table.tabular thead th {
+	border-bottom-color: #ccc;
+	padding-bottom: 2px;
+	padding-top: 0;
+}
+table.tabular tbody th {
+	font-weight: normal;
+}
+table.tabular tbody th,
+table.tabular tbody td {
+	border-bottom: 0;
+	border-top: 0;
+	padding-bottom: 2px;
+	padding-top: 2px;
+}
+table.tabular th,
+table.tabular td {
+	border-right: 20px solid rgb(255,255,255);
+}
+table.tabular th.primera,
+table.tabular td.primera {
+	padding-left: 0;
+}
+table.tabular th.ultima,
+table.tabular td.ultima {
+	border-right: none;
+	padding-right: 0;
+}
+table.tabular tbody tr.parell th,
+table.tabular tbody tr.parell td {
+	background-color: rgb(255,255,255);
+}
+
+
+/*-- Buscador local
+------------------------------------------------------------------------- */
+div.buscador img.google-powered {
+	position: absolute;
+	left: auto;
+	right: 0;
+	top: -27px;
+}
+div.buscador form fieldset {
+	padding: 8px 18px;
+}
+div.buscador form fieldset p label {
+	color: rgb(51,51,51);
+	display: block;
+	font-weight: bold;
+	margin: 0;
+}
+div.buscador form fieldset p label a {
+	font-weight: normal;
+}
+div.buscador form fieldset p input.text {
+	float: left;
+	margin-top: 0.6em;
+}
+div.buscador form fieldset div.fila-inputs {
+	float: left;
+	margin-top: 1.8em;
+}
+div.buscador form fieldset p.botons {
+	padding-right: 0;
+	margin-right: 0;
+}
+div.buscador form fieldset p.botons input.boto {
+	float: none;
+	margin-top: 1.8em;
+}
+div.buscador form fieldset p select {
+	margin-top: 0.5em;
+}
+div.buscador form fieldset p.texte-ajuda {
+	clear: both;
+	margin: 2px 6px 0 0;
+}
+/*-- fi de buscador local
+------------------------------------------------------------------------- */
+
+/*-- Filtres avançats
+-------------------------------------------------------------------------- */
+/* REFACTOR: estudiar si es pot millorar com està estructurat el tema de marges al /form i les caixes. caldrà tenir en compte la globalitat de formularis */
+div.filtres {
+	clear: left;
+	color: rgb(51, 51, 51);
+	position: relative;
+}
+
+div.toggle-box {
+	clear: left;
+	color: rgb(51, 51, 51);
+	position: relative;
+	margin-top: 0.9em;
+	padding-bottom: 16px;
+}
+
+
+
+div.toggle-box-content {
+	border: 1px solid rgb(135,155,179);
+	margin-top: -0.5em;
+}
+html.js div.toggle-box div.toggle-box-content {
+  display: none;
+}
+html.js div.toggle-box-visible div.toggle-box-content {
+  display: block;
+}
+html.js div.toggle-form div.toggle-form-item {
+  display: none;
+}
+html.js div.toggle-form div.toggle-form-item-visible {
+  display: block;
+}
+div.toggle-box div.toggle-box-content:after {
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;
+}
+div.toggle-box span.toggle-box-trigger,
+div.toggle-form span.toggle-form-trigger,
+div.toggle-form span.ocultar-avansat {
+  background: #fff url(../img/tablas-icono-desplegar.gif) no-repeat 0.5em 0.25em;
+  color: rgb(26,100,164);
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 1em;
+  padding-left: 1.6em;
+  padding-right: 0.5em;
+}
+div.toggle-box-visible span.toggle-box-trigger,
+div.toggle-form span.ocultar-avansat {
+  background-image: url(../img/tablas-icono-plegar.gif);
+}
+div.toggle-form span.toggle-form-trigger {
+  margin-bottom: 0.9em;
+}
+div.toggle-form span.ocultar-avansat {
+	background-image: url(../img/tablas-icono-plegar.gif);
+}
+
+div.filtres form {
+	padding: 0.9em 9px 9px 0;
+	margin: 0;
+}
+div.filtres fieldset {
+  padding: 0 0 0 9px !important;
+  border: none !important;
+  margin-left: 0.1em;
+}
+div.filtres fieldset:after {
+	content: "."	; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+div.toggle-form form.vertical fieldset {
+	padding: 1.4em 9px 3.6em 0;
+}
+
+div.toggle-form fieldset {
+	padding-bottom: 2em;
+}
+div.toggle-form form.vertical p.botons {
+	margin-top: -2.2em;
+}
+div.toggle-form p.botons {
+	float: right;
+}
+/*-- Fin de filtres avançats
+-------------------------------------------------------------------------- */
+
+
+/*-- Dades
+------------------------------------------------------------------------- */
+div.dades {
+	margin-bottom: 6px;
+	margin-left: 6px;
+}
+div.dades:after {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+div.dades dl,
+div.dades dt,
+div.dades dd {
+	margin: 0;
+	padding: 0;
+}
+div.dades dd.compte a img {
+	vertical-align: middle;
+	margin-left: 2px; 
+}
+div.dades dl.numero dd {
+	float: right;
+	margin-right: 0;
+}
+
+div.unaColumna div.columna-1 dt {
+	width: 20%;
+}
+div.duesColumnes div.columna-1,
+div.duesColumnes div.columna-2 {
+	float: left;
+	width: 49%;
+}
+div.tresColumnes div.columna-1,
+div.tresColumnes div.columna-2,
+div.tresColumnes div.columna-3 {
+	float: left;
+	width: 33%;
+}
+div.quatreColumnes div.columna-1,
+div.quatreColumnes div.columna-2,
+div.quatreColumnes div.columna-3,
+div.quatreColumnes div.columna-4 {
+	float: left;
+	width: 24.5%;
+}
+div.dades dt {
+	clear: both;
+	float: left;
+	padding: 3px 3px 3px 6px;
+	width: 37%;
+}
+div.dades dd {
+	float: left;
+	padding: 3px 8px 3px 3px;
+}
+div.dades div.columna-3 ul.llista-enllacos li {
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+div.dades div.llistat-links {
+	padding: 3px 3px 3px 8px;
+}
+/* fi dades */
+
+/* Minifitxa
+------------------------------------------------------------------------- */
+div.minifitxa-principal,
+div.minifitxa-secundaria {
+	margin-bottom: 1em;
+}
+div.minifitxa-principal .titol-minifitxa,
+div.minifitxa-secundaria .titol-minifitxa {
+	position: relative;
+	font-size: 1em;
+	margin: 0;
+	padding: 0.9em 0.9em 0.4em;
+}
+div.minifitxa-principal p,
+div.minifitxa-secundaria p {
+	margin: 0;
+	padding: 0 0.9em 0.7em;
+}
+div.minifitxa-principal p strong,
+div.minifitxa-secundaria p strong,
+div.minifitxa-principal .seccio-persiana span,
+div.minifitxa-secundaria .seccio-persiana span {
+	font-weight: normal;
+}
+div.minifitxa-principal p span,
+div.minifitxa-secundaria p span,
+div.minifitxa-principal .seccio-persiana strong,
+div.minifitxa-secundaria .seccio-persiana strong {
+	font-weight: bold;
+}
+div.minifitxa-principal .titol-persiana,
+div.minifitxa-secundaria .titol-persiana {
+	position: relative;
+	cursor: pointer;
+	font-size: 1em;
+	padding: 0.3em 1em;
+}
+div.minifitxa-principal .seleccionat,
+div.minifitxa-secundaria .seleccionat,
+div.minifitxa-principal .seleccionat a,
+div.minifitxa-secundaria .seleccionat a {
+	cursor: default;
+}
+div.minifitxa-principal .titol-persiana a,
+div.minifitxa-secundaria .titol-persiana a {
+	display: block;
+	margin: -0.3em -1em;
+	padding: 0.3em 1em 0.3em 1em;
+}
+div.minifitxa-principal .titol-persiana a,
+div.minifitxa-secundaria .titol-persiana a,
+div.minifitxa-principal .titol-persiana a:hover,
+div.minifitxa-secundaria .titol-persiana a:hover,
+div.minifitxa-principal .titol-persiana a:visited,
+div.minifitxa-secundaria .titol-persiana a:visited {
+	color: rgb(51,51,51);
+	text-decoration: none;
+}
+div.minifitxa-principal div.llistat-continguts,
+div.minifitxa-secundaria div.llistat-continguts,
+div.minifitxa-principal .llistat-links,
+div.minifitxa-secundaria .llistat-links,
+div.minifitxa-principal .llistat-normal,
+div.minifitxa-secundaria .llistat-normal,
+div.minifitxa-principal .seccio-persiana p,
+div.minifitxa-secundaria .seccio-persiana p {
+	margin: 0;
+	padding: 0 0 0.7em 0;
+}
+div.minifitxa-principal div.llistat-continguts dl dt,
+div.minifitxa-secundaria div.llistat-continguts dl dt,
+div.minifitxa-principal div.llistat-continguts dl dd,
+div.minifitxa-secundaria div.llistat-continguts dl dd {
+	margin: 0 0 0.2em 0;
+	padding: 0;
+}
+div.minifitxa-principal div.llistat-continguts dl dt,
+div.minifitxa-secundaria div.llistat-continguts dl dt {
+	color: rgb(134,134,134);
+	width: auto;
+}
+div.minifitxa-principal div.llistat-continguts dl dd.numero,
+div.minifitxa-secundaria div.llistat-continguts dl dd.numero {
+	text-align: right;
+}
+div.minifitxa-principal .llistat-normal li,
+div.minifitxa-secundaria .llistat-normal li,
+div.minifitxa-principal .llistat-links li,
+div.minifitxa-secundaria .llistat-links li {
+	margin-bottom: 0.2em;
+	margin-left: 0;
+	margin-top: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+div.minifitxa-principal .titol-grup,
+div.minifitxa-secundaria .titol-grup {
+	font-size: 1em;
+	margin: 0 0 0.3em 0;
+	padding: 0;
+}
+div.minifitxa-principal .titol-grup a,
+div.minifitxa-secundaria .titol-grup a {
+	font-weight: normal;
+}
+div.minifitxa-principal div.seccio-persiana img,
+div.minifitxa-secundaria div.seccio-persiana img {
+	border: 1px solid rgb(26,100,164);
+	margin: 0 6px 1.4em 0;
+}
+div.minifitxa-principal div.seccio-persiana img.scoring,
+div.minifitxa-secundaria div.seccio-persiana img.scoring {
+	border: 0;
+	margin: 0;
+}
+div.minifitxa-principal .se,
+div.minifitxa-principal .sd,
+div.minifitxa-principal .ie,
+div.minifitxa-principal .id,
+div.minifitxa-secundaria .se,
+div.minifitxa-secundaria .sd,
+div.minifitxa-secundaria .ie,
+div.minifitxa-secundaria .id {
+	position: absolute;	
+	width: 5px;
+	height: 5px;
+}
+div.minifitxa-principal {
+	background: rgb(252, 244,224);
+	border: 1px solid rgb(243,200,103);
+}
+div.minifitxa-principal .seccio-persiana {
+	background: rgb(253,249,238);
+	padding: 1.2em 12px 0.5em 12px;
+}
+div.minifitxa-principal .titol-persiana {
+	margin: 0;
+	border: 1px solid rgb(243,200,103);
+	border-width: 1px 0;
+	background: rgb(251,239,211);
+}
+div.minifitxa-principal .titol-persiana {
+	background: rgb(251,239,211) url(../img/persianes-fletxa-avall-groga.gif) no-repeat 98% 60%;
+	margin: 0 0 -1px;
+}
+div.minifitxa-principal .titol-minifitxa .se {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 0;
+	left: -1px;
+	top: -1px;
+}
+div.minifitxa-principal .titol-minifitxa .sd {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -10px;
+	top: -1px;
+	right: -1px;
+}
+div.minifitxa-principal .titol-persiana .se {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -40px;
+	left: 0;
+	top: -1px;
+}
+div.minifitxa-principal .titol-persiana .sd {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -50px;
+	top: -1px;
+	right: 0;
+}
+div.minifitxa-principal .darrer-titol .ie {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -20px;
+	bottom: -1px;
+	left: -1px;
+}
+div.minifitxa-principal .darrer-titol .id {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -30px;
+	bottom: -1px;
+	right: -1px;
+}
+div.minifitxa-principal .seleccionat {
+	background: rgb(244,202,108) url(../img/persianes-sprites.gif) repeat-x 0 -80px;
+}
+div.minifitxa-principal .darrer-titol.seleccionat .ie {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -60px;
+	bottom: -2px;
+	left: 0;
+}
+div.minifitxa-principal .darrer-titol.seleccionat .id {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -70px;
+	bottom: -2px;
+	right: 0;
+}
+
+/*persianes secundaries*/
+div.minifitxa-secundaria {
+	background: rgb(237,239,245);
+	border: 1px solid rgb(167,183,212);
+}
+div.minifitxa-secundaria .seccio-persiana {
+	background: rgb(245,247,249);
+	padding: 1.2em 12px 0.5em 12px;
+}
+div.minifitxa-secundaria .titol-persiana {
+	margin: 0;
+	border: 1px solid rgb(167,183,212);
+	border-width: 1px 0;
+	background: rgb(237,239,245);
+}
+div.minifitxa-secundaria .titol-persiana {
+	background: rgb(237,239,245) url(../img/persianes-fletxa-avall-blava.gif) no-repeat 98% 60%;
+	margin: 0 0 -1px;
+}
+
+div.minifitxa-secundaria .titol-minifitxa .se {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -110px;
+	left: -1px;
+	top: -1px;
+}
+div.minifitxa-secundaria .titol-minifitxa .sd {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -120px;
+	top: -1px;
+	right: -1px;
+}
+div.minifitxa-secundaria .titol-persiana .se {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -150px;
+	left: 0;
+	top: -1px;
+}
+div.minifitxa-secundaria .titol-persiana .sd {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -160px;
+	top: -1px;
+	right: 0;
+}
+div.minifitxa-secundaria .darrer-titol .ie {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -130px;
+	bottom: -1px;
+	left: -1px;
+}
+div.minifitxa-secundaria .darrer-titol .id {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -140px;
+	bottom: -1px;
+	right: -1px;
+}
+div.minifitxa-secundaria .seleccionat {
+	background: rgb(171,187,213) url(../img/persianes-sprites.gif) repeat-x 0 -190px;
+}
+div.minifitxa-secundaria .darrer-titol.seleccionat .ie {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -170px;
+	bottom: -2px;
+	left: 0;
+}
+div.minifitxa-secundaria .darrer-titol.seleccionat .id {
+	background: url(../img/persianes-sprites.gif) no-repeat 0 -180px;
+	bottom: -2px;
+	right: 0;
+}
+/* fi persianes */
+
+/*-- Layouts
+------------------------------------------------------------------------- */
+#layout-8-2,
+#layout-7-3,
+#layout-6-4,
+#layout-5-5,
+#layout-3-7 {
+	margin-left: 0.8em;
+	clear: both;
+}
+#layout-3-4-3,
+#layout-2-5-3,
+#layout-25-5-25 {
+	margin-left: 1.6em;
+}
+#layout-8-2:after,
+#layout-7-3:after,
+#layout-6-4:after,
+#layout-5-5:after,
+#layout-3-7:after,
+#layout-3-4-3:after,
+#layout-2-5-3:after,
+#layout-25-5-25:after {
+	content: "."; 
+	display: block; 
+	height: 0;
+	clear: both; 
+	visibility: hidden;
+}
+
+/*--- Layout 8-2
+------------------------------------------------------------------------- */
+#layout-8-2 .contenidor-principal {
+	float: left;
+	width: 80.3%;
+	margin: 0 0.8em 0 -0.8em;
+}
+#layout-8-2 .contenidor-secundari {
+	float: left;
+	width: 19.7%;
+}
+
+/*--- Layout 7-3
+------------------------------------------------------------------------- */
+#layout-7-3 .contenidor-principal {
+	float: left;
+	width: 70.3%;
+	margin: 0 0.8em 0 -0.8em;
+}
+#layout-7-3 .contenidor-secundari {
+	float: left;
+	width: 29.7%;
+}
+
+/*--- Layout 6-4
+------------------------------------------------------------------------- */
+#layout-6-4 .contenidor-principal {
+	float: left;
+	width: 60.39%;
+/*	_width: 60.2%;*/
+	margin: 0 0.8em 0 -0.8em;
+}
+#layout-6-4 .contenidor-secundari {
+	float: left;
+	width: 39.6%;
+}
+
+/*--- Layout 5-5
+------------------------------------------------------------------------- */
+#layout-5-5 .contenidor-principal {
+	float: left;
+	width: 49.39%;
+	margin: 0 0.8em 0 -0.8em;
+}
+#layout-5-5 .contenidor-secundari {
+	float: left;
+	width: 50.6%;
+}
+
+/*--- Layout 7-3
+------------------------------------------------------------------------- */
+#layout-3-7 .contenidor-secundari {
+	float: left;
+	margin: 0 0.8em 0 -0.8em;
+	width: 29.7%;
+}
+#layout-3-7 .contenidor-principal {
+	float: left;
+	width: 70.3%;
+}
+
+/*--- Layout 2-5-3
+------------------------------------------------------------------------- */
+#layout-2-5-3 .contenidor-secundari {
+	float: left;
+	width: 20.5%;
+	margin: 0 1.6em 0 -1.6em;
+}
+#layout-2-5-3 .contenidor-principal {
+	float: left;
+	width: 49.9%;
+	margin: 0 0.8em 0 -0.8em;
+}
+#layout-2-5-3 .contenidor-terciari {
+	float: left;
+	width: 29.6%;
+}
+#layout-2-5-3 .contenidor-terciari {
+	float: left;
+}
+
+/*--- Layout 3-4-3
+------------------------------------------------------------------------- */
+#layout-3-4-3 .contenidor-secundari {
+	float: left;
+	width: 29.8%;
+	margin: 0 1.6em 0 -1.6em;
+}
+#layout-3-4-3 .contenidor-principal {
+	float: left;
+	width: 39.9%;
+	margin: 0 0.8em 0 -0.8em;
+}
+#layout-3-4-3 .contenidor-terciari {
+	float: left;
+	width: 29.9%;
+}
+#layout-3-4-3 .contenidor-terciari {
+	float: left;
+}
+
+/*--- Layout 2.5-5-2.5
+------------------------------------------------------------------------- */
+#layout-25-5-25 .contenidor-secundari {
+	float: left;
+	width: 24.8%;
+	margin: 0 1.6em 0 -1.6em;
+}
+#layout-25-5-25 .contenidor-principal {
+	float: left;
+	width: 49.9%;
+	margin: 0 0.8em 0 -0.8em;
+}
+#layout-25-5-25 .contenidor-terciari {
+	float: left;
+	width: 24.9%;
+}
+#layout-25-5-25 .contenidor-terciari {
+	float: left;
+}
+
+/*-- Pestanyes
+------------------------------------------------------------------------- */
+#pestanyes-globals {
+	background: transparent url(../img/degradat-vertical-gris-blanc.png) repeat-x bottom;
+	background-color: rgb(252,244,224);
+	clear: both;
+	padding-bottom: 14px;
+	margin: 0 -18px 3px -18px;
+}
+ul.pestanyes,
+ul.pestanyes-submenu {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+ul.pestanyes a:link,
+ul.pestanyes a:visited {
+	color: rgb(102,102,102);
+	text-decoration: none;
+	white-space: nowrap;
+}
+ul.pestanyes-submenu a:link,
+ul.pestanyes-submenu a:visited {
+	color: rgb(23,86,130);
+	white-space: nowrap;
+}
+ul.pestanyes li.seleccionat a:link,
+ul.pestanyes li.seleccionat a:visited {
+	color: rgb(0,0,0);
+	font-weight: bold;
+}
+ul.pestanyes-submenu li.seleccionat a:link,
+ul.pestanyes-submenu li.seleccionat a:visited {
+	color: rgb(23,86,130);
+	font-weight: bold;
+}
+ul.pestanyes li.deshabilitat a:link,
+ul.pestanyes li.deshabilitat a:visited {
+	font-weight: bold;
+	color: rgb(161,161,146);
+}
+ul.pestanyes {
+	background-color: rgb(255,255,255);
+	border-bottom: 1px solid rgb(135,155,179);
+	padding-bottom: 2.2em;
+	padding-left: 16px;
+}
+ul.pestanyes li {
+	background: url(../img/pestanyes-sprites.png) no-repeat left 2px;
+	margin: 0.2em 1px -0.1em 0;
+	float: left;
+}
+ul.pestanyes li a {
+	background: url(../img/pestanyes-sprites.png) no-repeat right 2px;
+	display: block;
+	padding: 0.5em 14px 0.3em 14px;
+	margin-left: 4px;
+}
+ul.pestanyes li.seleccionat {
+	background: url(../img/pestanyes-sprites.png) no-repeat left -100px;
+}
+ul.pestanyes li.seleccionat a {
+	background: url(../img/pestanyes-sprites.png) no-repeat right -100px;
+	padding-bottom: 0.35em;
+}
+ul.pestanyes li.deshabilitat {
+	background: url(../img/pestanyes-sprites.png) no-repeat left -198px;
+	margin: 0.2em 1px -0.1em 0;
+	float: left;
+}
+ul.pestanyes li.deshabilitat a {
+	background: url(../img/pestanyes-sprites.png) no-repeat right -198px;
+	padding: 0.5em 14px 0.3em 14px;
+}
+ul.pestanyes a:link,
+ul.pestanyes a:visited {
+	font-weight: bold;
+}
+ul.pestanyes-submenu {
+	clear: left;
+	padding: 6px 0 0 15px;
+}
+ul.pestanyes-submenu li {
+	border-right: 1px solid rgb(102,102,102);
+	display: inline;
+	padding: 0 15px;
+}
+ul.pestanyes-submenu li.darrer {
+	border-right-width: 0;
+}
+
+/*--- Títol de pantalla
+------------------------------------------------------------------------- */
+div#titol-pantalla {
+	clear: left;
+	margin: 0 0 9px -3px;
+}
+div#titol-pantalla:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+div#titol-pantalla h2,
+div#titol-pantalla h3,
+div#titol-pantalla h4 {
+	clear: left;
+	color: rgb(51,51,51);
+	float: left;
+	font-weight: normal;
+	font-family: Tahoma;
+	font-size: 117%;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+	width: 66%;
+}
+div#titol-pantalla h2 .actiu,
+div#titol-pantalla h3 .actiu,
+div#titol-pantalla h4 .actiu {
+	color: rgb(0,0,0);
+	font-size: 1.2em;
+	font-weight: bold;
+}
+div#titol-pantalla h2 a:link,
+div#titol-pantalla h3 a:link,
+div#titol-pantalla h4 a:link {
+	text-decoration: none;
+}
+div#titol-pantalla h2 a:visited,
+div#titol-pantalla h3 a:visited,
+div#titol-pantalla h4 a:visited {
+	text-decoration: none;
+}
+div#titol-pantalla h2 a:hover,
+div#titol-pantalla h3 a:hover,
+div#titol-pantalla h4 a:hover {
+	text-decoration: underline;
+}
+div#titol-pantalla p.texte-informatiu {
+	color: rgb(102,102,102);
+	margin: 0;
+	float: right;
+	padding: 0.2em 0 0.2em 0;
+	text-align: right;
+	width: 33%;
+}
+div#titol-pantalla p strong.alerta {
+	background: none;
+	color: rgb(255,0,0);
+	font-weight: normal;
+	padding-left: 0;
+}
+div#titol-pantalla p.imatge-informativa {
+	float: right;
+	margin: 0;
+	text-align: right;
+	width: 33%;
+}
+
+/*--- Formularis
+------------------------------------------------------------------------- */
+form {
+	margin: 0;
+	padding: 0;
+}
+label {
+	margin-right: 0.3em;
+}
+form.vertical p.etiqueta {
+	margin-left: 0;
+	padding-bottom: 0.5em;
+	padding-top: 0.2em;
+}
+form.vertical div.fila-inputs p.etiqueta {
+	padding-bottom: 0.4em;
+}
+input.text {
+    border: 1px solid rgb(135,155,179);
+}
+div.login-ags input.text {
+    border-color: rgb(177,177,177);
+}
+input.boto {
+	overflow: visible;
+	padding: 0 .4em;
+}
+
+
+
+
+form.vertical span.control  {
+	/* marges radios/checks */
+	margin-bottom: 0.5em;
+	margin-top: 0.1em;
+	display: block;
+}
+
+
+/* TODO: canviar per disabled-field eliminant els !important (comporta modificar JS) */
+.inhabilitat,
+.inhabilitat label,
+.inhabilitat input,
+.inhabilitat select,
+.inhabilitat textarea,
+.inhabilitat strong.alerta,
+.inhabilitat .menu-desplegable span.obridor span.title {
+	color: rgb(161,161,146) !important;
+}
+.inhabilitat strong.alerta {
+	background-image: url(../img/bullet-alerta-inhabilitat.gif);
+}
+
+.inhabilitat select,
+.inhabilitat input.text,
+.inhabilitat textarea.text {
+	border: 1px solid rgb(161,161,146) !important;
+}
+.inhabilitat select,
+.inhabilitat input.text,
+.inhabilitat textarea.text {
+	border: 1px solid rgb(161,161,146) !important;
+}
+.error select,
+.error input.text,
+.error textarea.text {
+	border: 1px solid rgb(255,0,0);
+	background: #FCE3D9;
+}
+.error input.text.focus,
+.error textarea.text.focus,
+.error input.text:focus,
+.error textarea.text:focus {
+  background: #fff;
+}
+
+.error {
+	position: relative;
+}
+p.error label,
+span.error label,
+ul.error label,
+label.error,
+.error .etiqueta {
+	color: rgb(255,0,0);
+}
+p.quadre-llista label {
+	vertical-align: top;
+}
+button.boto-calendari {
+	background: transparent;
+	border: 0;
+	margin: 0;
+	padding: 0 0 0.1em 2px;
+	vertical-align: middle;
+}
+button.boto-calendari img {
+	margin: 0;
+	padding: 0;
+	display: block;
+}
+button.desplegable span {
+	background: transparent url(../img/tablas-icono-abrir-operativa.gif) no-repeat 100% 50%;
+	padding: 0 15px 0 10px;
+}
+
+.icona-error {
+	vertical-align: middle;
+	margin: 0 0.5em 0 0.5em;
+	cursor: pointer;
+}
+p.quadre-llista label {
+	vertical-align: top;
+}
+
+p.area-text label {
+	vertical-align: top;
+}
+img.persones-relacionades {
+	position: absolute;
+}
+input.confirmar,
+input.destacat {
+    font-weight: bold;
+}
+
+span.caps-warning {
+  display: block;
+}
+
+/* nuevo modelo de campos  */
+.field {
+	margin-bottom: 0.3em;
+}
+.field p {
+	display: inline;
+}
+.field p.extra,
+.field p.inline-hint,
+.field p.actions {
+	margin: 0 .25em;
+}
+div.field.disabled-field,
+div.field.disabled-field a,
+div.field.disabled-field input,
+div.field.disabled-field select,
+div.field.disabled-field textarea,
+div.field.disabled-field label,
+div.field.disabled-field .errors,
+div.field.disabled-field .hint,
+div.field.disabled-field .menu-desplegable span.obridor span.title {
+	color: rgb(161,161,146);
+}
+.inhabilitat,
+.inhabilitat a,
+.inhabilitat input,
+.inhabilitat select,
+.inhabilitat textarea,
+.inhabilitat label,
+.inhabilitat .field .extra,
+.inhabilitat .field .errors,
+.inhabilitat .field .hint,
+.inhabilitat .menu-desplegable span.obridor span.title {
+	color: rgb(161,161,146);
+}
+.inhabilitat select,
+.inhabilitat input.text,
+.inhabilitat textarea.text {
+	border: 1px solid rgb(161,161,146);
+	background-color: transparent;
+}
+.js .inhabilitat .menu-desplegable span.obridor span.over,
+.js .inhabilitat .menu-desplegable span.obridor,
+.inhabilitat a:hover {
+  cursor: default;
+  text-decoration: none;
+}
+.js .field.disabled-field .menu-desplegable span.obridor span.over,
+.js .field.disabled-field .menu-desplegable span.obridor,
+.field.disabled-field a:hover {
+  cursor: default;
+  text-decoration: none;
+}
+.field.disabled-field select,
+.field.disabled-field input.text,
+.field.disabled-field textarea.text {
+	border: 1px solid rgb(161,161,146);
+}
+
+.field .control {
+	display: inline;
+	float: none;
+}
+.field.radiocheck .control {
+	margin-left: 0;
+}
+.field .control .label-wrapper {
+/* 	display: inline-block; */
+/* 	width: 50%; */
+/* 	float: left; */
+}
+/* TODO: revisar i millorar */
+form.horitzontal .field .extra {
+	float: none;
+	display: inline;
+}
+
+.field .hint {
+	color: #9aa7b3;
+	font-size: 0.916em;
+	font-family: Tahoma;
+}
+
+.field .block-hint {
+	display: block;
+}
+
+.field ul.errors {
+	color: rgb(255,0,0);
+	padding-left: 1.7em;
+	margin: 0;
+	margin-bottom: 0;
+}
+.field ul.errors li {
+	padding-bottom: 0;
+/* 	margin-bottom: 0.3em; */
+	list-style-type: disc;
+}
+
+.field .actions {
+  display: inline;
+}
+
+/* fi Formulari */
+
+/*--- Contenidors
+------------------------------------------------------------------------- */
+div.contenidor {
+	position: relative;
+	margin-bottom: 16px;
+	border-bottom: 1px solid rgb(139,139,139);
+	border-left: 1px solid rgb(139,139,139);
+	border-right: 1px solid rgb(139,139,139);
+}
+div.contenidor .titol-contenidor {
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 -1px 0.95em -1px;
+	padding: 3px 10px;
+}
+div.contenidor .titol-contenidor a span.accedir {
+	font-size: 0.9em;
+	margin-left: -0.2em;
+}
+div.contenidor div.se,
+div.contenidor div.sd,
+div.contenidor div.ie,
+div.contenidor div.id {
+	position: absolute;
+	padding: 0;
+	border: 0;
+	width: 10px;
+	height: 10px;
+	z-index: 2;
+}
+div.contenidor div.se {
+	top: -1px;
+	left: -1px;
+}
+div.contenidor div.sd {
+	top: -1px;
+	right: -1px;
+}/*
+div.contenidor div.ie {
+	bottom: -1px;
+	left: -1px;
+}
+div.contenidor div.id {
+	bottom: -1px;
+	right: -1px;
+}*/
+div.contenidor div.se {
+	left: -2px;
+}
+div.contenidor div.sd {
+	right: -2px;
+}
+div.contenidor div.ie {
+	bottom: -2px;
+	left: -2px;
+}
+div.contenidor div.id {
+	bottom: -2px;
+	right: -2px;
+}
+div.contenidor div.ie {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -100px;
+}
+div.contenidor div.id {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -110px;
+}
+div.contenidor .titol-contenidor {
+	border-bottom: 1px solid rgb(169,169,169);
+}
+div.amb-fons {
+	background-color: rgb(198,198,195);
+	border-bottom: 1px solid rgb(198,198,195);
+	border-left: 1px solid rgb(198,198,195);
+	border-right: 1px solid rgb(198,198,195);
+}
+div.amb-fons div.ie {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -490px;
+}
+div.amb-fons div.id {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -500px;
+}
+div.destacats .titol-contenidor {
+	background: rgb(253,93,0) url(../img/contenidors-sprites.png) repeat-x 0 -300px;
+	border-left: 1px solid rgb(213,78,0);
+	border-right: 1px solid rgb(213,78,0);
+	color: rgb(255,255,255);
+	margin: 0 -1px 0.95em -1px;
+}
+div.destacats-sense-contingut .titol-contenidor { /* nou */
+	border-bottom-color: rgb(213,78,0);
+	margin-bottom: -1px;
+}
+div.destacats .titol-contenidor a {
+	color: rgb(255,255,255);
+}
+div.destacats div.se {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -280px;
+}
+div.destacats div.sd {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -290px;
+}
+div.destacats-sense-contingut {
+	border-bottom: 1px solid rgb(213,78,0);
+	border-left: 1px solid rgb(213,78,0);
+	border-right: 1px solid rgb(213,78,0);
+}
+div.destacats-sense-contingut div.ie {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -830px;
+}
+div.destacats-sense-contingut div.id {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -840px;
+}
+div.generic .titol-contenidor {
+	background: rgb(205,205,202) url(../img/contenidors-sprites.png) repeat-x 0 -140px;
+	border-left: 1px solid rgb(169,169,169);
+	border-right: 1px solid rgb(169,169,169);
+	color: rgb(51,51,51);
+}
+div.generic .titol-contenidor a {
+	color: rgb(51,51,51);
+}
+div.generic div.se {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -120px;
+}
+div.generic div.sd {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -130px;
+}
+div.obra-social .titol-contenidor {
+	background: rgb(0,0,0) url(../img/contenidors-sprites.png) repeat-x 0 -370px;
+	border-left: 1px solid rgb(0,0,0);
+	border-right: 1px solid rgb(0,0,0);
+	color: rgb(255,255,255);
+	margin: 0 -1px 0.95em -1px;
+}
+div.obra-social-sense-contingut .titol-contenidor {
+	border-bottom-color: rgb(0,0,0);
+	margin-bottom: -1px;
+}
+div.obra-social .titol-contenidor a {
+	color: rgb(255,255,255);
+}
+div.obra-social div.se {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -350px;
+}
+div.obra-social div.sd {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -360px;
+}
+div.obra-social-sense-contingut {
+	border-bottom: 1px solid rgb(0,0,0);
+	border-left: 1px solid rgb(0,0,0);
+	border-right: 1px solid rgb(0,0,0);
+}
+div.obra-social-sense-contingut div.ie {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -880px;
+}
+div.obra-social-sense-contingut div.id {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -890px;
+}
+div.continguts-especifics .titol-contenidor {
+	background: rgb(141,144,0) url(../img/contenidors-sprites.png) repeat-x 0 -440px;
+	border-left: 1px solid rgb(77,79,0);
+	border-right: 1px solid rgb(77,79,0);
+	color: rgb(255,255,255);
+}
+div.continguts-especifics-sense-contingut .titol-contenidor {
+	border-bottom-color: rgb(141,144,0);
+	margin-bottom: -1px;
+}
+div.continguts-especifics .titol-contenidor a {
+	color: rgb(255,255,255);
+}
+div.continguts-especifics div.se {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -420px;
+}
+div.continguts-especifics div.sd {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -430px;
+}
+div.continguts-especifics-sense-contingut {
+	border-bottom: 1px solid rgb(141,144,0);
+	border-left: 1px solid rgb(141,144,0);
+	border-right: 1px solid rgb(141,144,0);
+}
+div.continguts-especifics-sense-contingut div.ie {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -930px;
+}
+div.continguts-especifics-sense-contingut div.id {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -940px;
+}
+div.login-ags {
+	background: rgb(223,223,223);
+	border-bottom: 1px solid rgb(223,223,223);
+	border-left: 1px solid rgb(223,223,223);
+	border-right: 1px solid rgb(223,223,223);
+	color: rgb(51,51,51);
+	padding: 0 10px;
+}
+/*
+div.contenidor-primari div.login-ags,
+div.contenidor-secundari div.login-ags,
+div.contenidor-terciari div.login-ags {
+	width: 100%;
+}*/
+div.login-ags .titol-contenidor {
+	background: rgb(177,0,72) url(../img/contenidors-sprites.png) repeat-x 0 -230px;
+	border-bottom: 1px solid rgb(139,139,139);
+	border-left: 1px solid rgb(168,0,77);
+	border-right: 1px solid rgb(168,0,77);
+	color: rgb(255,255,255);
+	margin: 0 -11px .7em -11px;
+}
+div.login-ags form.vertical fieldset.caixa-formulari {
+	margin: 0;
+	padding: 0;
+}
+div.login-ags fieldset p {
+	margin-left: 0;
+	margin-right: 0;
+}
+div.login-ags p {
+	margin: 0.6em 10px 0.8em 10px;
+	padding: 0;
+}
+div.login-ags ul.llistat {
+	margin-left: 0;
+}
+div.login-ags ul.llistat li {
+	margin-left: 0;
+}
+div.login-ags p.botons {
+	padding-bottom: 0.6em;
+	padding-top: 0.6em;
+}
+div.login-ags a:link,
+div.login-ags a:visited,
+div.login-ags a:hover {
+	color: rgb(26,100,164);
+}
+div.login-ags div.se {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -190px;
+}
+div.login-ags div.sd {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -200px;
+}
+div.login-ags div.ie {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -210px;
+}
+div.login-ags div.id {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -220px;
+}
+div.buscador {
+	border: 1px solid rgb(195,203,213);
+	background-color: rgb(241,241,247);
+}
+div.buscador div.se {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -610px;
+	height: 5px;
+	top: -2px;
+	width: 4px;
+}
+div.buscador div.sd {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -620px;
+	height: 5px;
+	top: -2px;
+	right: -1px;
+	width: 4px;
+}
+div.buscador div.ie {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -630px;
+	height: 5px;
+	left: -1px;
+	width: 4px;
+}
+div.buscador div.id {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -640px;
+	height: 5px;
+	right: -1px;
+	width: 4px;
+}
+div.ambits {
+	background-color: rgb(198,198,195);
+	border-bottom: 1px solid rgb(198,198,195);
+	border-left: 1px solid rgb(198,198,195);
+	border-right: 1px solid rgb(198,198,195);
+}
+div.ambits .titol-contenidor {
+	background: rgb(145,0,144) url(../img/contenidors-sprites.png) repeat-x 0 -710px;
+	border-bottom: 1px solid rgb(145,0,144);
+	border-left: 1px solid rgb(145,0,144);
+	border-right: 1px solid rgb(145,0,144);
+	color: rgb(255,255,255);
+}
+div.ambits div.se {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -670px;
+}
+div.ambits div.sd {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -680px;
+}
+div.ambits div.ie {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -690px;
+}
+div.ambits div.id {
+	background: url(../img/contenidors-sprites.png) repeat-x 0 -700px;
+}
+
+
+
+div.anonim {
+	background: rgb(231,231,231);
+	border-bottom: 1px solid rgb(231,231,231);
+	border-left: 1px solid rgb(231,231,231);
+	border-right: 1px solid rgb(231,231,231);
+	padding-top: 1em;
+}
+div.anonim div.se,
+div.anonim div.sd,
+div.anonim div.ie,
+div.anonim div.id {
+	height: 10px;
+	width: 10px;
+}
+div.anonim div.se {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -980px;
+	left: -2px;
+}
+div.anonim div.sd {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -990px;
+}
+div.anonim div.ie {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -1000px;
+	left: -2px;
+}
+div.anonim div.id {
+	background: url(../img/contenidors-sprites.png) no-repeat 0 -1010px;
+}
+div.anonim img.google-powered {
+	position: absolute;
+	right: 10px;
+}
+div.anonim .content-title {
+  border-bottom: 0;
+}
+div.anonim form .content-title {
+  margin-left: 0;
+  padding-left: 0;
+}
+div.anonim h3.titol-contenidor {
+	border: none;
+	margin: 0 0 0.7em;
+	padding: 0 0 0.2em 0;
+}
+div.anonim fieldset {
+	margin: 0;
+	padding: 0;
+}
+div.anonim form.horitzontal {
+	margin: 0;
+	padding: 0 1.2em 1em;
+}
+div.anonim form.horitzontal fieldset .field,
+div.anonim form.horitzontal fieldset p {
+  margin-bottom: 0;
+	margin-top: 0;
+}
+div.anonim form.horitzontal fieldset label {
+	margin-left: 0;
+}
+div.anonim form.vertical div.llistat-entrada {
+  padding: 0;
+}
+div.anonim div.llistat-entrada div.agrupador-horitzontal {
+	padding-left: 0;
+}
+div.anonim form.vertical div.llistat-entrada p {
+	margin-left: 0;
+}
+div.anonim-amb-etiquetes-en-bloc form.vertical label {
+	display: block;
+	padding-bottom: 0.2em;
+}
+div.anonim-amb-etiquetes-en-bloc form.vertical p {
+	margin-bottom: 0.4em;
+}
+div.anonim-sense-contingut {
+	padding: 0.2em 1.2em;
+}
+div.anonim-sense-contingut h3.titol-contenidor {
+	margin: 0;
+	padding: 0;
+}
+div.anonim-sense-contingut h3.titol-contenidor a {
+	color: rgb(51,51,51);
+}
+
+/*--- Llistats
+------------------------------------------------------------------------- */
+/* REFACTOR: eliminar l'important */
+.llistat + .llistat,
+.llistat + .disclosure-box,
+.disclosure-box + .llistat,
+.disclosure-box + .disclosure-box,
+.disclosure-box-visible + .llistat,
+.disclosure-box-visible + .disclosure-box-visible {
+  margin-top: -1.2em !important;
+}
+div#persianes .llistat + .llistat {
+	margin-top: -0.7em !important;
+}
+form.vertical .llistat + p.llistat-entrada,
+form.vertical .llistat + .fila-inputs,
+form.vertical .llistat + .columna-inputs,
+form.vertical .llistat + .graella-inputs {
+	margin-top: -1.2em !important;
+}
+form.vertical p + .content-title,
+form.vertical .fila-inputs + .content-title,
+form.vertical .columna-inputs + .content-title,
+form.vertical .graella-inputs + .content-title {
+	margin-top: 1.2em !important;
+}
+.llistat .separat {
+	margin-top: 1.2em !important;
+}
+/* END REFACTOR */
+
+div.contenidor:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.llistat-normal,
+.llistat-links,
+.llistat-links-contingut {
+	/* espai blanc entre llistats */
+	padding: 0 1.3em 1.2em 1em;
+}
+/* TODO: eliminar !important */
+ul.llistat-normal div.anidat ul.llistat-normal {
+	padding-top: 0.3em !important;
+	padding-bottom: 0 !important;
+}
+.proces ul.llistat-normal div.anidat ul.llistat-normal {
+  padding-top: 0.7em !important;
+  padding-bottom: 0 !important;
+  margin-bottom: -0.7em !important;
+}
+div.llistat-continguts dt.anidat,
+form.vertical div.llistat-continguts dt.anidat {
+	float: none;
+	width: auto;
+}
+.llistat-continguts dd.anidat {
+	float: none;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+.llistat-continguts dd.anidat .llistat-normal,
+.llistat-continguts dd.anidat .llistat-continguts {
+	margin-right: 0;
+	padding-bottom: 0;
+	padding-right: 0;
+}
+
+div.llistat-continguts dd.anidat dl.numero dd {
+	padding-right: 0;
+}
+.llistat-continguts dd.anidat.normal {
+	padding-top: 0.2em;
+}
+.llistat-continguts dd.anidat ul.llistat-vinyetes li {
+	background: url(../img/bullet-rodo-clar.gif) no-repeat 0 0.1em;
+	padding-left: 8px;
+	margin-left: 4px;
+}
+.llistat-continguts dd.anidat ul.llistat-vinyetes {
+	margin-bottom: -2px;
+}
+.llistat-continguts dd.anidat div.llistat-continguts dt {
+	padding-left: 3px;
+}
+div.llistat-continguts {
+	/* espai blanc entre llistats de continguts */
+	padding: 0 1.3em 1.2em 1em;
+}
+div.llistat-continguts:after {
+	content: " ";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+div.llistat-continguts dl {
+	line-height: 1.1em;
+}
+div.llistat-continguts dl,
+div.llistat-continguts dt,
+div.llistat-continguts dd {
+	margin: 0;
+	padding: 0;
+}
+div.llistat-continguts dt {
+  clear: both;
+  float: left;
+  padding: 0.2em 0 0.25em 5px;
+  width: 50%;
+}
+div.llistat-entrada.numero .amount span.label-wrapper,
+div.llistat-entrada.numero .currency span.label-wrapper {
+  clear: both;
+  float: left;
+  padding: 0.2em 0 0.25em 5px;
+}
+div.llistat-continguts dd {
+	float: left;
+	padding: 0.2em 0.2em 0.25em 5px ;
+}
+div.llistat-continguts dt.enllac {
+	margin-left: -5px;
+	background: url(../img/bullet-flecha.gif) no-repeat left;
+}
+div.llistat-continguts dt.enllac a {
+	padding-left: 5px;
+	white-space: nowrap;
+}
+div.llistat-entrada.numero span.amount-input,
+div.llistat-entrada.numero span.currency-input,
+div.llistat-continguts dl.numero dd {
+	float: right;
+	margin-right: 10%;
+}
+div.llistat-entrada.numero span.amount-input input,
+div.llistat-entrada.numero span.currency-input input {
+	text-align: right;
+}
+
+
+/* marge dret per llistats numèrics */
+div.llistat-entrada.marge-0 span.amount-input,
+div.llistat-entrada.marge-0 span.currency-input,
+div.llistat-continguts dl.marge-0 dd {
+	margin-right: 0%;
+}
+div.llistat-entrada.marge-2 span.amount-input,
+div.llistat-entrada.marge-2 span.currency-input,
+div.llistat-continguts dl.marge-2 dd {
+	margin-right: 2%;
+}
+div.llistat-entrada.marge-4 span.amount-input,
+div.llistat-entrada.marge-4 span.currency-input,
+div.llistat-continguts dl.marge-4 dd {
+	margin-right: 4%;
+}
+div.llistat-entrada.marge-6 span.amount-input,
+div.llistat-entrada.marge-6 span.currency-input,
+div.llistat-continguts dl.marge-6 dd {
+	margin-right: 6%;
+}
+div.llistat-entrada.marge-8 span.amount-input,
+div.llistat-entrada.marge-8 span.currency-input,
+div.llistat-continguts dl.marge-8 dd {
+	margin-right: 8%;
+}
+div.llistat-entrada.marge-10 span.amount-input,
+div.llistat-entrada.marge-10 span.currency-input,
+div.llistat-continguts dl.marge-10 dd {
+	margin-right: 10%;
+}
+div.llistat-entrada.marge-12 span.amount-input,
+div.llistat-entrada.marge-12 span.currency-input,
+div.llistat-continguts dl.marge-12 dd {
+	margin-right: 12%;
+}
+div.llistat-entrada.marge-14 span.amount-input,
+div.llistat-entrada.marge-14 span.currency-input,
+div.llistat-continguts dl.marge-14 dd {
+	margin-right: 14%;
+}
+div.llistat-entrada.marge-16 span.amount-input,
+div.llistat-entrada.marge-16 span.currency-input,
+div.llistat-continguts dl.marge-16 dd {
+	margin-right: 16%;
+}
+div.llistat-entrada.marge-18 span.amount-input,
+div.llistat-entrada.marge-18 span.currency-input,
+div.llistat-continguts dl.marge-18 dd {
+	margin-right: 18%;
+}
+div.llistat-entrada.marge-20 span.amount-input,
+div.llistat-entrada.marge-20 span.currency-input,
+div.llistat-continguts dl.marge-20 dd {
+	margin-right: 20%;
+}
+div.llistat-entrada.marge-22 span.amount-input,
+div.llistat-entrada.marge-22 span.currency-input,
+div.llistat-continguts dl.marge-22 dd {
+	margin-right: 22%;
+}
+div.llistat-entrada.marge-24 span.amount-input,
+div.llistat-entrada.marge-24 span.currency-input,
+div.llistat-continguts dl.marge-24 dd {
+	margin-right: 24%;
+}
+div.llistat-entrada.marge-26 span.amount-input,
+div.llistat-entrada.marge-26 span.currency-input,
+div.llistat-continguts dl.marge-26 dd {
+	margin-right: 26%;
+}
+div.llistat-entrada.marge-28 span.amount-input,
+div.llistat-entrada.marge-28 span.currency-input,
+div.llistat-continguts dl.marge-28 dd {
+	margin-right: 28%;
+}
+div.llistat-entrada.marge-30 span.amount-input,
+div.llistat-entrada.marge-30 span.currency-input,
+div.llistat-continguts dl.marge-30 dd {
+	margin-right: 30%;
+}
+div.llistat-entrada.marge-32 span.amount-input,
+div.llistat-entrada.marge-32 span.currency-input,
+div.llistat-continguts dl.marge-32 dd {
+	margin-right: 32%;
+}
+div.llistat-entrada.marge-34 span.amount-input,
+div.llistat-entrada.marge-34 span.currency-input,
+div.llistat-continguts dl.marge-34 dd {
+	margin-right: 34%;
+}
+div.llistat-entrada.marge-36 span.amount-input,
+div.llistat-entrada.marge-36 span.currency-input,
+div.llistat-continguts dl.marge-36 dd {
+	margin-right: 36%;
+}
+div.llistat-entrada.marge-38 span.amount-input,
+div.llistat-entrada.marge-38 span.currency-input,
+div.llistat-continguts dl.marge-38 dd {
+	margin-right: 38%;
+}
+div.llistat-entrada.marge-40 span.amount-input,
+div.llistat-entrada.marge-40 span.currency-input,
+div.llistat-continguts dl.marge-40 dd {
+	margin-right: 40%;
+}
+div.llistat-entrada.marge-42 span.amount-input,
+div.llistat-entrada.marge-42 span.currency-input,
+div.llistat-continguts dl.marge-42 dd {
+	margin-right: 42%;
+}
+div.llistat-entrada.marge-44 span.amount-input,
+div.llistat-entrada.marge-44 span.currency-input,
+div.llistat-continguts dl.marge-44 dd {
+	margin-right: 44%;
+}
+div.llistat-entrada.marge-46 span.amount-input,
+div.llistat-entrada.marge-46 span.currency-input,
+div.llistat-continguts dl.marge-46 dd {
+	margin-right: 46%;
+}
+div.llistat-entrada.marge-48 span.amount-input,
+div.llistat-entrada.marge-48 span.currency-input,
+div.llistat-continguts dl.marge-48 dd {
+	margin-right: 48%;
+}
+div.llistat-entrada.marge-50 span.amount-input,
+div.llistat-entrada.marge-50 span.currency-input,
+div.llistat-continguts dl.marge-50 dd {
+	margin-right: 50%;
+}
+div.llistat-entrada.marge-52 span.amount-input,
+div.llistat-entrada.marge-52 span.currency-input,
+div.llistat-continguts dl.marge-52 dd {
+	margin-right: 52%;
+}
+div.llistat-entrada.marge-54 span.amount-input,
+div.llistat-entrada.marge-54 span.currency-input,
+div.llistat-continguts dl.marge-54 dd {
+	margin-right: 54%;
+}
+div.llistat-entrada.marge-56 span.amount-input,
+div.llistat-entrada.marge-56 span.currency-input,
+div.llistat-continguts dl.marge-56 dd {
+	margin-right: 56%;
+}
+div.llistat-entrada.marge-58 span.amount-input,
+div.llistat-entrada.marge-58 span.currency-input,
+div.llistat-continguts dl.marge-58 dd {
+	margin-right: 58%;
+}
+div.llistat-entrada.marge-60 span.amount-input,
+div.llistat-entrada.marge-60 span.currency-input,
+div.llistat-continguts dl.marge-60 dd {
+	margin-right: 60%;
+}
+/* marge dret per llistats numèrics */
+
+
+
+div.llistat-continguts dl.numero dd.anidat {
+	float: none;
+}
+div.llistat-continguts dl.numero dd.anidat dd {
+	float: left;
+}
+div.llistat-continguts dl.numero dd.anidat dl.numero dd {
+	float: right;
+	margin-right: 0;
+}
+.link-tornar {
+	clear: both;
+}
+form.vertical .llistat-links {
+	margin-top: 4px;
+}
+.llistat-normal li,
+.llistat-links li,
+.llistat-links-contingut li {
+	margin-left: 5px;
+}
+.llistat-links-contingut .titol {
+	font-size: 1em;
+	margin: 0 0 0.5em 0;
+	padding: 0;
+}
+.llistat-normal,
+.llistat-links,
+.llistat-links-contingut ul,
+div.tf7-widget-menu-flyout-menu ul,
+#desplegable-clonat {
+	margin: 0;
+}
+div.tf7-widget-menu-flyout-menu ul,
+#desplegable-clonat {
+	padding: 0;
+}
+.llistat-links-contingut ul {
+	padding: 0;
+}
+.llistat-normal,
+.llistat-links,
+.llistat-links-contingut ul,
+div.tf7-widget-menu-flyout-menu ul,
+#desplegable-clonat {
+	list-style: none;
+}
+.llistat-links-contingut ul > li {
+	position: relative;
+}
+.llistat-vinyetes li,
+.llistat-links li {
+	padding-left: 10px;
+}
+.llistat-normal li,
+.llistat-links li {
+	padding-bottom: 0.2em;
+	padding-top: 0.2em;
+}
+.llistat-links-contingut li {
+	padding-left: 14px;
+	margin-bottom: 0.3em;
+}
+.llistat-links-contingut li p {
+	margin: 0 0 0.5em 0;
+	margin: 0;
+	padding: 0;
+}
+.llistat-vinyetes li {
+	background: url(../img/bullet-rodo.gif) no-repeat 0 0.24em;
+}
+.llistat-links li {
+	background: url(../img/bullet-fletxa-gran.gif) no-repeat 0 0.24em;
+}
+.llistat-links-contingut li {
+	background: url(../img/bullet-fletxa-amb-ombra.gif) no-repeat 0 0.24em;
+	padding-bottom: 0.1em;
+}
+div.amb-fons .llistat-links-contingut li {
+	background: url(../img/bullet-rodo.gif) no-repeat 0 0.24em;
+}
+div.ambits .llistat-links-contingut li { /* TODO: a eliminar quan s'elimini la caixa d'ambits */
+	height: 25px;
+	padding: 0;
+	margin: 0 0 3px 0;
+	position: relative;
+}
+div.ambits .llistat-links-contingut li li {
+	height: auto;
+}
+.llistat-links-contingut li li,
+.ambits .llistat-links-contingut li li { /* TODO: a eliminar --només el segon selector-- quan s'elimini la caixa d'ambits */
+    background: none;
+	margin: 0;
+    padding: 0;
+}
+.llistat-links-contingut li a:link,
+.llistat-links-contingut li a:visited,
+.llistat-links-contingut li a:hover {
+	color: rgb(51,51,51);
+}
+.llistat-links-contingut li li a:link,
+.llistat-links-contingut li li a:visited,
+.llistat-links-contingut li li a:hover,
+div.tf7-widget-menu-flyout-menu a:link,
+div.tf7-widget-menu-flyout-menu a:visited,
+div.tf7-widget-menu-flyout-menu a:hover,
+#desplegable-clonat a:link,
+#desplegable-clonat a:visited,
+#desplegable-clonat a:hover {
+	color: rgb(51,51,51);
+}
+.llistat-extes {
+	padding: 0;
+}
+.llistat-extes li {
+	background: url(../img/bullet-rodo.gif) no-repeat 0 0.15em;
+	margin-left: 0;
+	padding-left: 9px;
+}
+.llistat-extes li.calendari { /* TODO: a eliminar quan es revisi la home d'actualitat */
+	background: none;
+	padding-bottom: 0.6em;
+}
+.llistat-extes li.calendari a { /* TODO: a eliminar quan es revisi la home d'actualitat */
+	background: url(../img/icono-calendario-listado.gif) no-repeat 0 0.1em;
+	padding-left: 22px;
+	margin-left: -9px;
+}
+div.contenidor .llistat-extes {
+	margin-left: 5px;
+}
+div.contenidor .llistat-extes {
+	padding: 0 1.3em 1.2em 1em;
+}
+.llistat-extes li a:link,
+.llistat-extes li a:visited,
+.llistat-extes li a:hover {
+	color: rgb(26,100,164);
+}
+.llistat-extes span.categoria {
+	color: rgb(157,157,157);
+	white-space: nowrap;
+}
+.llistat-extes span.data {
+	color: rgb(99,99,99);
+	white-space: nowrap;
+}
+div.contenidor .llistat-links-contingut li li a:link,
+div.contenidor .llistat-links-contingut li li a:visited,
+div.contenidor .llistat-links-contingut li li a:hover {
+	color: rgb(102,102,102);
+}
+.llistat-links-contingut li.desplegable span.obridor {
+	cursor: pointer;
+}
+div.ambits .llistat-links-contingut li.desplegable span.obridor { /* TODO: a eliminar quan s'elimini la caixa d'ambits */
+	background: transparent url(../img/tmp-desplegable-ambits.png) no-repeat 0 0;
+	display: block;
+	height: 25px;
+	padding-left: 22px;
+	padding-top: 4px;
+	float: none;
+}
+.llistat-links-contingut li.desplegable span.obridor span.icona,
+span.tf7-widget-menu-hover-trigger span.icona {
+	background: transparent url(../img/icono-desplegable.png) no-repeat right bottom;
+	height: 13px;
+	padding-right: 17px;
+	width: 13px;
+}
+div.ambits .llistat-links-contingut li.desplegable span.obridor span.icona { /* TODO: a eliminar quan s'elimini la caixa d'ambits */
+	background: transparent url(../img/tmp-desplegable-ambits.png) no-repeat -975px 0;
+	position: absolute;
+	height: 25px;
+	margin: 0;
+	padding: 0;
+	right: 0;
+	top: 0;
+	width: 25px;	
+}
+.llistat-links-contingut li.desplegable ul,
+ul#desplegable-clonat,
+div.tf7-widget-menu-flyout-menu ul {
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(165,172,178);
+	position: absolute;
+	z-index: 10000;
+}
+div.tf7-widget-menu-flyout-menu,
+table div.tf7-widget-menu-flyout-menu {
+	white-space: nowrap;
+	position: absolute;
+}
+div.tf7-widget-menu-flyout-menu ul {
+	position: static;
+}
+div.tf7-widget-menu-flyout-menu a {
+  background-color: #fff;
+}
+div.ambits .llistat-links-contingut li.desplegable ul { /* TODO: a eliminar quan s'elimini la caixa d'ambits */
+	border: 1px solid rgb(170,170,170);
+	bottom: 0;
+	margin: 0;
+}
+ul#desplegable-clonat {
+	background-color: rgb(255,255,255);
+	border: 1px solid rgb(165,172,178);
+	position: absolute;
+	z-index: 10000;
+	white-space: nowrap;
+}
+ul#desplegable-clonat a{
+	display: block;
+	background: #fff;
+}
+.llistat-links-contingut li.desplegable li {
+	background: rgb(255, 255, 255);
+}
+.llistat-links-contingut li.desplegable li a,
+div.tf7-widget-menu-flyout-menu a,
+#desplegable-clonat a {
+	padding: 2px 6px;
+	display: block;
+}
+.ambits .llistat-links-contingut li.desplegable li a { /* TODO: a eliminar quan s'elimini la caixa d'ambits */
+	display: block;
+}
+.llistat-links-contingut li.desplegable li a:hover,
+div.tf7-widget-menu-flyout-menu a:hover,
+#desplegable-clonat a:hover {
+  background-color: rgb(201,209,233);
+	color: rgb(51,51,51);
+	text-decoration: none;
+}
+div.ambits .llistat-links-contingut li.desplegable li a:hover { /* TODO: a eliminar quan s'elimini la caixa d'ambits */ 
+    background-color: rgb(220,220,220);
+}
+.llistat-links-horitzontals {
+	margin: 0;
+	padding: 0.6em 0;
+}
+.llistat-links-horitzontals:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.llistat-links-horitzontals li {
+	background: none;
+	border-right: 1px solid rgb(51,51,51);
+	float: left;
+	list-style: none;
+	padding: 0 9px 0 9px;
+}
+.llistat-links-horitzontals li.primer {
+	padding-left: 0;
+}
+.llistat-links-horitzontals li.ultim {
+	border-right: none;
+}
+.llistat-simple .titol-destacat {
+	background-color: rgb(223,223,222);
+	position: relative;
+	padding: 3px 9px 4px 9px;
+}
+.llistat-simple {
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 0.9em;
+}
+.llistat-simple .titol span.accedir {
+	margin-left: -0.2em;
+}
+.contenidor .llistat-simple + .llistat-simple {
+	margin-top: -0.7em;
+}
+.contenidor .llistat-simple {
+	padding: 0 1.2em 1.2em 1.2em;
+}
+.llistat-simple .titol-destacat span.se,
+.llistat-simple .titol-destacat span.sd,
+.llistat-simple .titol-destacat span.ie,
+.llistat-simple .titol-destacat span.id {
+	border: 0;
+	position: absolute;
+	height: 10px;
+	width: 10px;
+	z-index: 2;
+}
+.llistat-simple .titol-destacat span.se {
+	top: 0;
+	left: -1px;
+}
+.llistat-simple .titol-destacat span.sd {
+	top: 0;
+	right: 0;
+}
+.llistat-simple .titol-destacat span.ie {
+	bottom: 0;
+	left: -1px;
+}
+.llistat-simple .titol-destacat span.id {
+	bottom: 0;
+	right: 0;
+}
+.llistat-simple .titol-destacat span.se {
+	background: url(../img/menu-destacat.gif) no-repeat 0 0;
+}
+.llistat-simple .titol-destacat span.sd {
+	background: url(../img/menu-destacat.gif) no-repeat 0 -10px;
+}
+.llistat-simple .titol-destacat span.ie {
+	background: url(../img/menu-destacat.gif) no-repeat 0 -20px;
+}
+.llistat-simple .titol-destacat span.id {
+	background: url(../img/menu-destacat.gif) no-repeat 0 -30px;
+}
+.llistat-simple li {
+	background: url(../img/bullet-rodo.gif) no-repeat 0 0.1em;
+	padding-left: 9px;
+	margin-left: 0;
+}
+.llistat-simple li a:link,
+.llistat-simple li a:hover,
+.llistat-simple li a:visited {
+	color: rgb(26,100,164);
+}
+
+
+/*--- Blocs estructurals llistats
+------------------------------------------------------------------------- */
+.bloc-llistats-petit { /* TODO: elminar */
+	float: left;
+	width: 23.4em;
+}
+.bloc-llistats-mitja { /* TODO: elminar */
+	float: left;
+	width: 39.4em;
+}
+.bloc-llistats-gran { /* TODO: elminar */
+	float: left;
+	width: 50em;
+}
+.bloc-llistats-fila { /* TODO: elminar */
+	clear: both;
+}
+
+/*--- Caixa detall
+------------------------------------------------------------------------- */
+div.caixa-detall {
+	border: 1px solid rgb(135,155,179);
+	padding-top: 1em;
+}
+div.caixa-detall:after {
+    content: ".";
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+form p.caixa-detall {
+	margin-top: 0.5em;
+}
+ul.caixa-detall {
+	margin-top: 0.8em;
+}
+ul.caixa-detall li a.inici {
+	background-image: url(../img/bullet-flecha.gif);
+	padding-left: 5px;
+}
+ul.caixa-detall li a:visited.inici {
+	background-image: url(../img/bullet-flecha.gif);
+}
+ul.caixa-detall li span.inici {
+	padding-left: 5px;
+	background: transparent url(../img/bullet-flecha-inhabilitat.gif) no-repeat 0 60%;
+}
+
+/*--- Missatge error
+------------------------------------------------------------------------- */
+form.horitzontal ul.missatge-error {
+	color: rgb(255,0,0);
+	clear: left;
+	float: left;
+	padding-left: 20px;
+	margin: 0.2em 0;
+}
+form.horitzontal ul.missatge-error li {
+	padding-bottom: 0.4em;
+}
+
+.missatge-error-integrat {
+	color: rgb(255,0,0);
+}
+
+form.horitzontal .missatge-error-integrat {
+	display: none;
+}
+
+/*--- Pantalles de procés
+------------------------------------------------------------------------- */
+div#autoritzacio,
+div#confirmacio {
+	margin: 0 auto;
+	width: 550px;
+}
+div#autoritzacio p.titol,
+div#confirmacio p.titol {
+	border-bottom: 1px solid rgb(135,155,179);
+	font-weight: bold;
+	padding: 0 0 0.3em 4px;
+	margin: 0 0 -1px 0;
+	width: 546px;
+}/*
+#autoritzacio p.missatge-avis,
+#confirmacio p.missatge-avis,
+#autoritzacio div.missatge-alerta,
+#confirmacio div.missatge-alerta,
+#autoritzacio p.anulacio-moviment,
+#confirmacio p.anulacio-moviment {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}*/
+/*
+#autoritzacio p.missatge-avis,
+#confirmacio p.missatge-avis {
+	border: 1px solid rgb(135,155,179);
+	background: transparent url(../img/icono-alerta.gif) no-repeat 9px 0.5em;
+	padding: 9px 9px 9px 32px;
+}*//*
+#autoritzacio p.signatures,
+#confirmacio p.signatures {
+	margin-left: 18px;
+	margin-bottom: 9px;
+}
+#autoritzacio p.signatures a,
+#confirmacio p.signatures a {
+	padding-left: 5px;
+	background: url(../img/bullet-flecha.gif) no-repeat left;
+}*/
+#autoritzacio form,
+#confirmacio form {
+	border: 1px solid rgb(135,155,179);
+	padding: 12px 18px 18px 18px;
+	margin: 0;
+}/*
+#autoritzacio form.vertical p.botons,
+#confirmacio form.vertical p.botons {
+	margin-left: 24px;
+	padding-bottom: 30px;
+}*/
+#feedback div,
+#error div {
+	margin: 60px;
+}
+#feedback div div,
+#error div div{
+	margin: 0 0 1em 0;
+}
+#feedback div.llistat-links,
+#error div.llistat-links {
+	margin: 1em 0 0 0em;
+}
+#feedback div.proces-feedback-p,
+#error div.proces-error {
+	margin: 0;
+}
+#feedback p.correcte,
+#error p.error {
+	border: 1px solid rgb(135,155,179);
+	padding: 9px 9px 9px 42px;
+}
+#feedback p.correcte {
+	background: transparent url(../img/icono-ok-proceso.gif) no-repeat 4px 4px;
+}
+#error h2 {
+  border: 0;
+  font-size: 1em;
+  margin: 2em 0 0.5em 0;
+  padding: 0;
+}
+#error h2 span {
+	background: rgb(255,255,255) url(../img/icono-filtro-mostrar.gif) no-repeat 93% 50%;
+	cursor: pointer;
+	padding-right: 24px;
+	text-decoration: underline;
+}
+#error h2 span.visibles {
+	background: rgb(255,255,255) url(../img/icono-filtro-ocultar.gif) no-repeat 93% 50%;
+}
+#error p.error {
+	background: transparent url(../img/icono-error-proceso.gif) no-repeat 4px 4px;
+}
+#error dl {
+	border: 1px solid rgb(135,155,179);
+	margin: 0 0 0 15px;
+	padding-bottom: 0.4em;
+	padding-top: 0.4em;
+	width: 100%;
+}
+#error dt,
+#error dd {
+	margin: 0 0 -1px 0;
+	padding: 0;
+}
+#error dt {
+	clear: both;
+	float: left;
+	padding: 0.2em 0.6em;
+	width: 40%;
+}
+#error dd {
+	float: left;
+	padding: 0.2em 0.6em;
+	width: 60%;
+}
+#error dl:after {
+    content: ".";
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+/*--- Popup modal de procés
+------------------------------------------------------------------------- */
+#fons-modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	width: 100%;
+	height: 100%;
+	min-height:100%;
+}
+/* anula l'access amb el ratolí a tot el que queda per sota del modal */
+#fons-modal {
+	background-color: #fff;
+	opacity: 0.6;
+}
+div.popup-modal {
+	border-bottom: 2px solid rgb(159,159,159);
+	border-left: 2px solid rgb(217,217,208);
+	border-right: 2px solid rgb(159,159,159);
+	border-top: 2px solid rgb(217,217,208);
+	background-color: rgb(255,255,255);
+	padding: 0;
+	position: absolute;
+	width: 558px;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+}
+div.popup-modal-petit {
+	width: 25em;
+}
+div.popup-modal-mitja {
+	width: 40em;
+}
+div.popup-modal-gran {
+	width: 55em;
+}
+div.popup-modal a.enllac-tancar-popup {
+	background: url(../img/icono-tancar-popup.png) no-repeat left top;
+	height: 20px;
+	position: absolute;
+	right: 0;
+	width: 20px;
+}
+div.popup-modal a.enllac-tancar-popup:hover {
+	background-image: url(../img/icono-tancar-popup-over.png);
+}
+div.popup-modal a.enllac-tancar-popup span {
+	display: none;
+}
+div.popup-modal h1 {
+	font-size: 160%;
+	margin-bottom: 14px;
+	padding-bottom: 0.15em;
+}
+div.popup-modal div#generic {
+	margin: 0 auto;
+	position: relative;
+	width: 550px;
+}
+div.popup-modal-petit div#generic {
+	width: 24.3em;
+}
+div.popup-modal-mitja div#generic {
+	width: 39.3em;
+}
+div.popup-modal-gran div#generic {
+	width: 54.3em;
+}
+div.popup-modal div#autoritzacio,
+div.popup-modal div#confirmacio,
+div.popup-modal div#generic {
+	border: 4px solid rgb(198,198,184);	
+}
+div.popup-modal div#autoritzacio p.titol,
+div.popup-modal div#confirmacio p.titol,
+div.popup-modal div#generic p.titol {
+	border: 0;
+	background-color: rgb(198,198,184);
+	font-weight: bold;
+	margin: 0;
+	padding: 4px 0 6px 4px;
+}
+
+div.popup-modal div#generic form {
+	border: 1px solid rgb(135,155,179);
+	padding: 12px 18px 18px 18px;
+	margin: 0;
+}
+div.popup-modal div#autoritzacio form p.botons,
+div.popup-modal div#confirmacio form p.botons,
+div.popup-modal div#generic form p.botons {
+	margin-bottom: 0;
+	text-align: center;
+}
+div.popup-modal div#autoritzacio form,
+div.popup-modal div#confirmacio form,
+div.popup-modal div#generic form {
+	border-bottom: 2px solid rgb(217,217,208);
+	border-left: 2px solid rgb(159,159,159);
+	border-right: 2px solid rgb(217,217,208);
+	border-top: 2px solid rgb(159,159,159);
+}
+
+div.popup div.popup-body {
+  height: 400px;
+}
+
+/*-- Buscador actualitat
+------------------------------------------------------------------------- */
+div#form-buscador {
+	background-color: rgb(204,204,204);
+	margin: 0 0 0 220px;
+	padding: 4px 9px 8px 9px;
+	position: relative;
+}
+div#form-buscador:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both;
+    visibility: hidden;
+}
+div#form-buscador img.google-powered {
+	position: absolute;
+	left: -213px;
+}
+form.horitzontal ul.fila-inputs {
+	float: left;
+}
+div#form-buscador div.se {
+	background: url(../img/buscador-sprites.png) no-repeat 0 0;
+}
+div#form-buscador div.sd {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -5px;
+}
+div#form-buscador div.se,
+div#form-buscador div.sd {
+	position: absolute;
+	padding: 0;
+	border: 0;
+}
+div#form-buscador div.se {
+	top: 0;
+	left: 0;
+	width: 4px;
+	height: 4px;
+}
+div#form-buscador div.sd {
+	top: 0;
+	right: -1px;
+	width: 5px;
+	height: 4px;
+}
+/* fi rounded corners pel formulari */
+div#menu-buscador {
+	float: left;
+	margin-top: -2em;
+	padding: 0;
+	width: 220px;
+}
+div#menu-buscador hr {
+	background-color : rgb(151,151,151);
+	border : 0 solid rgb(151,151,151);
+	border-top-width : thin;
+	color : rgb(151,151,151);
+	height : 1px;
+	margin: 0 18px 0 0;
+}
+div#menu-buscador .titol-menu {
+	background-color: rgb(204,204,204);
+	font-size: 1em;
+	margin: 0 18px 0 0;
+	padding: 0.25em 12px 0.4em 12px;
+	position: relative;
+}
+/* rounded corners pel títol del menú */
+div#menu-buscador .titol-menu span.se {
+	background: url(../img/buscador-sprites.png) no-repeat 0 0px;
+}
+div#menu-buscador .titol-menu span.sd {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -5px;
+}
+div#menu-buscador .titol-menu span.se,
+div#menu-buscador .titol-menu span.sd {
+	position: absolute;
+	padding: 0;
+	border: 0;
+}
+div#menu-buscador .titol-menu span.se {
+	top: 0;
+	left: 0;
+	width: 4px;
+	height: 4px;
+}
+div#menu-buscador .titol-menu span.sd {
+	top: 0;
+	right: -1px;
+	width: 5px;
+	height: 4px;
+}
+/* fi rounded corners pel títol del menú */
+div#menu-buscador ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0.5em 0;
+}
+div#menu-buscador li {
+	padding: 3px 12px;
+	margin: 4px 0;
+}
+div#menu-buscador li.seleccionat {
+	background-color: rgb(235,235,235);
+	border-right: 0;
+	margin-right: -1px;
+	position: relative;
+	z-index: 1;
+}
+div#menu-buscador a:link,
+div#menu-buscador a:visited,
+div#menu-buscador a:hover {
+	color: rgb(134,134,134);
+	font-weight: bold;
+}
+div#menu-buscador li.seleccionat a:link,
+div#menu-buscador li.seleccionat a:visited,
+div#menu-buscador li.seleccionat a:hover {
+	color: rgb(51,51,51);
+}
+/* rounded corners item menu seleccionat */
+div#menu-buscador li.seleccionat {
+	position: relative;
+}
+div#menu-buscador li.seleccionat span.se,
+div#menu-buscador li.seleccionat span.ie {
+	position: absolute;
+	padding: 0;
+	border: 0;
+}
+div#menu-buscador li.seleccionat span.se {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -10px;
+	top: 0;
+	left: 0;
+	width: 4px;
+	height: 4px;
+}
+div#menu-buscador li.seleccionat span.ie {
+	bottom: -1px;
+	background: url(../img/buscador-sprites.png) no-repeat 0 -15px;
+	left: 0px;
+	width: 4px;
+	height: 5px;
+}
+/* fi rounded corners item menu seleccionat */
+div#resultats-buscador {
+	background-color: rgb(235,235,235);
+	margin-left: 220px;
+	padding: 18px 0 0 0;
+}
+/* rounded corners resultats */
+div#resultats-buscador div#rc-resultats-buscador {
+	margin-top: -1.5em;
+	padding-bottom: 18px;
+	position: relative;
+}
+div#resultats-buscador div.ie-resultats-buscador,
+div#resultats-buscador div.id-resultats-buscador {
+	position: absolute;
+	padding: 0;
+	border: 0;
+}
+div#resultats-buscador div.ie-resultats-buscador {
+	bottom: -1px;
+	left: 0;
+	width: 5px;
+	height: 5px;
+}
+div#resultats-buscador div.id-resultats-buscador {
+	bottom: -1px;
+	right: -1px;
+	width: 5px;
+	height: 5px;
+}
+div#resultats-buscador div.ie-resultats-buscador {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -15px;
+}
+div#resultats-buscador div.id-resultats-buscador {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -20px;
+}
+/* fi rounded corners resultats */
+.titol-resultats {
+	font-size: 1.2em;
+	border-bottom: 1px solid rgb(150,163,185);
+	margin: 0 0 1em 0;
+	padding: 0 0 0.5em 0;
+}
+div#caixa-llista-resultats p {
+	color: rgb(110,110,110);
+	font-weight: bold;
+	margin: 100px 0;
+	text-align: center;
+	width: 100%;
+}
+div#caixa-llista-resultats  {
+	background-color: rgb(255,255,255);
+	padding: 8px 8px 8px 8px;
+	margin: 0 18px 0 18px;
+}
+div#caixa-llista-resultats:after  {
+	content: "."; 
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+/* rounded corners llista de resultats */
+div#caixa-llista-resultats  {
+	position: relative;
+	margin-bottom: 18px;
+}
+div#caixa-llista-resultats div.se-llista-resultats,
+div#caixa-llista-resultats div.sd-llista-resultats,
+div#caixa-llista-resultats div.ie-llista-resultats,
+div#caixa-llista-resultats div.id-llista-resultats {
+	position: absolute;
+	padding: 0;
+	border: 0;
+	width: 4px;
+	height: 4px;
+}
+div#caixa-llista-resultats div.se-llista-resultats {
+	top: 0;
+	left: 0;
+}
+div#caixa-llista-resultats div.sd-llista-resultats {
+	top: 0;
+	right: 0;
+}
+div#caixa-llista-resultats div.ie-llista-resultats {
+	bottom: 0;
+	left: 0;
+}
+div#caixa-llista-resultats div.id-llista-resultats {
+	bottom: 0;
+	right: 0;
+}
+div#caixa-llista-resultats div.se-llista-resultats {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -25px;
+}
+div#caixa-llista-resultats div.sd-llista-resultats {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -30px;
+}
+div#caixa-llista-resultats div.ie-llista-resultats {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -35px;
+}
+div#caixa-llista-resultats div.id-llista-resultats {
+	background: url(../img/buscador-sprites.png) no-repeat 0 -40px;
+}
+/* fi rounded corners llista de resutats */
+div#resultats-buscador ul.paginador {
+	margin: 0;
+	padding: 0 6px 0 0;
+}	
+
+/*-- toggle JS
+------------------------------------------------------------------------- */
+.js .llistat-links-contingut li.desplegable ul,
+.js .tf7-widget-menu-flyout-menu,
+#error dl,
+.js #altres-dades,
+.js .fila-filla,
+.js div.seccio-persiana {
+	display:  none;
+}
+
+.js div.seccio-oberta {
+	display: block;
+}
+
+/*-- Línia separadora horitzontal
+------------------------------------------------------------------------- */
+hr.separador {
+	border : 0 solid rgb(151,151,151);
+	border-top-width : thin;
+	color : rgb(151,151,151);
+	height : 1px;
+	margin: 0;
+}
+div.contenidor hr.separador {
+	margin: 0 1.2em 1em 1.2em;
+}
+
+/*-- Missatges de procés
+------------------------------------------------------------------------- */
+/* TODO: a eliminar un cop comprovat que els nous missatges de procés funcionen correctament */
+p.confirmacio-proces,
+p.avis-proces,
+p.error-proces {
+	padding: 9px 9px 9px 42px;
+}
+p.confirmacio-proces {
+	background: transparent url(../img/icono-ok-proceso.gif) no-repeat 4px 4px;
+}
+p.avis-proces {
+	background: transparent url(../img/icono-alerta.gif) no-repeat 9px 0.5em;
+	padding-left: 32px;
+}
+p.error-proces {
+	background: transparent url(../img/icono-error-proceso.gif) no-repeat 4px 4px;
+}
+/* endTODO: a eliminar un cop comprovat que els nous missatges de procés funcionen correctament */
+
+div.missatge-feedback-positiu,
+div.missatge-error,
+div.missatge-alerta,
+div.missatge-auto-conf,
+div.missatge-informacio,
+div.missatge-error,
+div.missatge-indicador-progres,
+div.missatge-impressio-llibreta {
+	border: 1px solid rgb(135,155,179);
+	padding: 13px 9px 9px 50px;
+	margin-bottom: 1em;
+}
+div.missatge-alerta,
+div.missatge-auto-conf,
+div.missatge-informacio,
+div.missatge-indicador-progres {
+  padding-top: 16px;
+}
+div.missatge-feedback-positiu p,
+div.missatge-error p,
+div.missatge-alerta p,
+div.missatge-auto-conf p,
+div.missatge-informacio p,
+div.missatge-error p,
+div.missatge-indicador-progres p,
+div.missatge-impressio-llibreta p {
+	margin-top: 0;
+	margin-bottom: 0.5em;
+}
+div.missatge-feedback-positiu ul,
+div.missatge-error ul,
+div.missatge-alerta ul,
+div.missatge-auto-conf ul,
+div.missatge-informacio ul,
+div.missatge-error ul,
+div.missatge-indicador-progres ul,
+div.missatge-impressio-llibreta ul {
+	padding-left: 0;
+	padding-bottom: 0.5em;
+}
+div.missatge-feedback-positiu {
+	background: transparent url(../img/icono-ok-proceso.gif) no-repeat 9px 9px;
+}
+div.missatge-error {
+	background: transparent url(../img/icono-error-proceso.gif) no-repeat 9px 9px;
+	border-color: rgb(255,0,0);
+}
+div.missatge-alerta {
+	background: transparent url(../img/icono-alerta-proceso.gif) no-repeat 9px 9px;
+}
+div.missatge-auto-conf {
+	background: transparent url(../img/icono-autorizacion-proceso.gif) no-repeat 9px 9px;
+}
+div.missatge-informacio {
+	background: transparent url(../img/icono-informacion.gif) no-repeat 9px 9px;
+}
+div.missatge-indicador-progres {
+  background: transparent url(../img/grafico-cargador-automatico.gif) no-repeat 9px 9px;
+}
+div.missatge-impressio-llibreta {
+  background: transparent url(../img/icono-libreta.gif) no-repeat 9px 9px;
+  padding: 24px 9px 19px 60px;
+}
+div.lock-form-message {
+  background-color: rgb(255,255,255);
+  position: absolute;
+  width: 85%;
+}
+
+/*-- Subtítol de pàgina
+------------------------------------------------------------------------- */
+.content-title {
+	clear: both;
+	font-size: 1em;
+	border-bottom: 1px solid rgb(135,155,179);
+	margin: 0 1em 0.7em 1em;
+	padding: 0 0 0.2em 0.5em;
+}
+.content-title-simple {
+	border-bottom: none;
+}
+.proces .content-title {
+	border-bottom: none;
+}
+.content-title a span.accedir {
+	font-size: 0.9em;
+	margin-left: -0.2em;
+}
+.content-title a:link,
+.content-title a:visited,
+.content-title a:active {
+	color: rgb(26,100,164);
+}
+.content-title.emphasized,
+.content-title.super-emphasized {
+	border-bottom: none;
+	padding: 0.3em 8px;
+	position: relative;
+}
+.content-title.emphasized {
+	background-color: rgb(223,223,222);
+}
+.content-title.super-emphasized {
+	background-color: #d54e00;
+	color: #fff;
+}
+.content-title.super-emphasized a:link,
+.content-title.super-emphasized a:visited,
+.content-title.super-emphasized a:hover {
+	color: #fff;
+}
+.content-title.emphasized span.se,
+.content-title.super-emphasized span.se,
+.content-title.emphasized span.sd,
+.content-title.super-emphasized span.sd,
+.content-title.emphasized span.ie,
+.content-title.super-emphasized span.ie,
+.content-title.emphasized span.id,
+.content-title.super-emphasized span.id {
+	border: 0;
+	position: absolute;
+	height: 10px;
+	width: 10px;
+	z-index: 2;
+}
+.content-title.emphasized span.se,
+.content-title.super-emphasized span.se {
+	top: 0;
+	left: -1px;
+}
+.content-title.emphasized span.sd,
+.content-title.super-emphasized span.sd {
+	top: 0;
+	right: 0;
+}
+.content-title.emphasized span.ie,
+.content-title.super-emphasized span.ie {
+	bottom: 0;
+	left: -1px;
+}
+.content-title.emphasized span.id,
+.content-title.super-emphasized span.id {
+	bottom: 0;
+	right: 0;
+}
+.content-title.emphasized span.se {
+	background: url(../img/menu-destacat.gif) no-repeat 0 0;
+}
+.content-title.emphasized span.sd {
+	background: url(../img/menu-destacat.gif) no-repeat 0 -10px;
+}
+.content-title.emphasized span.ie {
+	background: url(../img/menu-destacat.gif) no-repeat 0 -20px;
+}
+.content-title.emphasized span.id {
+	background: url(../img/menu-destacat.gif) no-repeat 0 -30px;
+}
+.content-title.super-emphasized span.se {
+	background: url(../img/menu-superdestacat.gif) no-repeat 0 0;
+}
+.content-title.super-emphasized span.sd {
+	background: url(../img/menu-superdestacat.gif) no-repeat 0 -10px;
+}
+.content-title.super-emphasized span.ie {
+	background: url(../img/menu-superdestacat.gif) no-repeat 0 -20px;
+}
+.content-title.super-emphasized span.id {
+	background: url(../img/menu-superdestacat.gif) no-repeat 0 -30px;
+}
+.content-title.informative-contents {
+	background-color: #efefef;
+	border-bottom: none;
+	font-size: 1.2em;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0.3em 6px;
+}
+.cols .content-title.informative-contents {
+  margin: 0 1em 0.7em;
+}
+
+
+
+/*-- Càrregues asíncrones
+------------------------------------------------------------------------- */
+div.carregant,
+div.error-carrega {
+	background-color: rgb(243,243,243);
+	border: 1px solid rgb(165,172,178);
+	
+	padding: 9px 9px 9px 9px;
+	text-align: center;
+}
+div.carregant {
+	cursor: wait;
+}
+div.carregant p {
+	background: transparent url(../img/grafico-cargador-automatico.gif) no-repeat 50% 100%;
+	
+	padding: 0 0 35px 0;
+}
+div.error-carrega {
+	padding-top: 12px;
+}
+div.error-carrega p {
+	margin: 0;
+	padding: 0;
+}
+div.error-carrega p.avis {
+	background: transparent url(../img/icono-alerta-ajax.gif) no-repeat 9px 50%;
+	display: inline;
+	margin: 3px;
+	padding: 9px 9px 9px 38px;
+}
+/* Per minifitxa */
+div.minifitxa-principal h3.carregant,
+div.minifitxa-principal h4.carregant,
+div.minifitxa-principal h5.carregant,
+div.minifitxa-secundaria h3.carregant,
+div.minifitxa-secundaria h4.carregant,
+div.minifitxa-secundaria h5.carregant {
+	background: transparent url(../img/grafico-cargador-minificha-pestanya.gif) no-repeat 99% 50%;
+}
+div.minifitxa-principal div.carregant,
+div.minifitxa-principal div.error-carrega,
+div.minifitxa-secundaria div.carregant,
+div.minifitxa-secundaria div.error-carrega {
+	background-color: transparent;
+	border: none;
+}
+div.minifitxa-principal div.carregant p,
+div.minifitxa-secundaria div.carregant p {
+	background: transparent url(../img/grafico-cargador-automatico.gif) no-repeat 50% 100%;
+	margin: 0;
+	padding: 0 0 35px 0;
+}
+
+/*-- Pantalla Login AGS
+------------------------------------------------------------------------- */
+div.centrador-login {
+	text-align: center;
+}
+div.centrador-login div.login-ags {
+	margin: 0 auto;
+	margin-top: 10em;
+	text-align: left;
+	width: 25em;
+}
+div.centrador-login p {
+	margin: 0.6em auto;
+}
+div.centrador-login div.login-ags fieldset p {
+	margin-left: 0;
+	margin-right: 0;
+}
+div.login-ags p.error input,
+div.login-ags p.error select {
+	background-color: rgb(255,0,0);
+	border-color: rgb(167,166,170);
+	color: rgb(255,255,255);
+}
+div.login-ags p.botons {
+	padding: 0 10px 3px 10px;
+}
+
+/*-- Tooltip error
+------------------------------------------------------------------------- */
+div.tooltip-error {
+    border: 1px solid rgb(245,164,153);
+    padding: 6px;
+    position: absolute;
+    width: 26em;
+    background: #fff;
+	display: none;
+	z-index: 11000;
+}
+div.tooltip-error p {
+    margin: 0 0 0.5em 0;
+    padding: 0 0.3em 0 0.3em;
+}
+div.tooltip-error p.titol {
+    border-bottom: 1px solid rgb(245,164,153);
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 0.2em;
+}
+div.tooltip-error ul {
+	margin: 0;
+	padding: 0;
+}
+div.tooltip-error ul li {
+	background: url(../img/bullet-rodo.gif) no-repeat 0 0.1em;
+	padding-left: 11px;
+	list-style-type: none;
+}
+
+
+/*-- Tooltip avanzado
+------------------------------------------------------------------------- */
+div.tooltip {
+    border: 1px solid rgb(147, 181,	212);
+    padding: 6px;
+    position: absolute;
+    width: 29em;
+    background: #fff;
+	display: none;
+	z-index: 1000;
+}
+div.tooltip p {
+    margin: 0 0 0.5em 0;
+    padding: 0 0.3em 0 0.3em;
+}
+div.tooltip p.titol {
+    border-bottom: 1px solid rgb(147, 181,	212);
+    font-size: 1em;
+    font-weight: bold;
+    padding-bottom: 0.2em;
+}
+
+/*-- Llistat ric
+------------------------------------------------------------------------- */
+ul.rich-list {
+	list-style-type: none;
+  margin: 0 0 1.4em 0;
+  padding: 0 1.3em 1.2em 1em;
+}
+ul.rich-list li {
+	background: url(../img/bullet-rodo.gif) no-repeat 0em 0.24em;
+	margin: 0 0 6px 0;
+	padding-left: 9px;
+}
+ul.rich-list span.metadata {
+	color: #b2b2b2;
+	margin-left: 0.8em;
+	white-space: nowrap;
+}
+ul.rich-list li p {
+	margin: 0 0 0.2em 0;
+	padding: 0;
+}
+
+/*-- Llista de resultats
+------------------------------------------------------------------------- */
+ul.result-list .title {
+	font-size: 1.166em;
+	font-weight: normal;
+	margin: 0 0 0.1em 0;
+}
+ul.result-list {
+  list-style-type: none;
+  margin: 0 0 1.4em 0;
+  padding: 0 1.3em 1.2em 1em;
+}
+ul.result-list li {
+	background: url(../img/bullet-rodo.gif) no-repeat 0em 0.24em;
+	margin: 0 0 6px 0;
+	padding-left: 9px;
+}
+ul.result-list-without-results li {
+	background: none;
+	font-size: 1.166em;
+	padding-left: 0;
+}
+ul.result-list span.metadata {
+	margin-left: 0;
+	margin-right: 1.5em;
+}
+
+
+/*-- Alertes
+------------------------------------------------------------------------- */
+strong.alerta {
+	color: rgb(51,51,51);
+	font-weight: normal;
+	background: url(../img/bullet-alerta.gif) no-repeat 0 0.1em;
+	padding-left: 9px;
+}
+.llistat-normal strong.alerta,
+.llistat-continguts strong.alerta {
+	font-weight: normal;
+}
+strong.alerta a:link,
+strong.alerta a:hover,
+strong.alerta a:visited {
+	font-weight: normal;
+}
+
+/*--- Títol de contingut
+------------------------------------------------------------------------- */
+
+
+/*--- Fitxes amb pestanyes
+------------------------------------------------------------------------- */
+div.pestanyes-fitxes ul.pestanyes {
+	margin-bottom: 0;
+}
+div.pestanyes-fitxes ul.pestanyes li.seleccionat {
+	background: url(../img/pestanyes-sprites.png) no-repeat left -300px;
+}
+div.pestanyes-fitxes ul.pestanyes li.seleccionat a {
+	background: url(../img/pestanyes-sprites.png) no-repeat right -300px;
+}
+
+div.pestanyes-fitxes div.fitxa {
+	border-bottom: 1px solid rgb(135,155,179);
+	border-left: 1px solid rgb(135,155,179);
+	border-right: 1px solid rgb(135,155,179);
+	padding: 18px;
+	display: none;
+}
+div.pestanyes-fitxes div.seleccionat {
+	display: block;
+}
+
+/*--- zIndex extra per menus desplegables
+------------------------------------------------------------------------- */
+.z21 {
+	z-index: 21;
+}
+
+/*--- Ocultació XML finestra marc
+------------------------------------------------------------------------- */
+xml {
+	display: none;
+}
+
+/*--- Datepicker
+------------------------------------------------------------------------- */
+/* The main calendar widget.  DIV containing a table. */
+div.calendar { position: relative; }
+.calendar {
+	border: 1px solid #797979;
+	border-width: 1px 2px 2px 1px;
+}
+.calendar table {
+	border: none;
+	cursor: default;
+	background: #fff;
+	width: 20em;
+}
+
+/* Header part -- contains navigation buttons and day names. */
+.calendar .button { 
+	text-align: center;
+	padding: 2px;
+}
+.calendar .nav div {
+	background-image: url(../img/tablas-icono-abrir-operativa.gif);
+	background-repeat: no-repeat; 
+	background-position:100% .6em;
+}
+.calendar thead .title {
+	text-align: center;
+	color: #000;
+	padding: 2px;
+}
+.calendar thead .title-year {
+	padding-right: 8px;
+}
+.calendar thead .title-year div {
+	position: relative;
+}
+.calendar thead .title-month {
+	padding-right: 11px;
+}
+.calendar thead .title-month div {
+	position: relative;
+}
+.calendar thead .headrow { /* Row <TR> containing navigation buttons */
+	background: #dadfdd url(../img/tablas-fondo-cabecera.gif) top left repeat-x;
+	border: 1px solid #797979;
+}
+.calendar thead .daynames { /* Row <TR> containing the day names */
+	background: #e0e4ef;
+}
+.calendar thead .name { /* Cells <TD> containing the day names */
+	border-bottom: 1px solid #797979;
+	padding: 2px;
+	text-align: center;
+	color: #000;
+}
+.calendar thead .weekend { /* How a weekend day name shows in header */
+	color: #c44;
+}
+.calendar thead .hilite { /* How do the buttons in header appear when hover */
+	padding: 1px;
+}
+.calendar thead .active { /* Active (pressed) buttons in header */
+	padding-top: 2px;
+	padding-left: 4px;
+	padding-bottom: 0px;
+}
+/* The body part -- contains all the days in month. */
+.calendar tbody .day { /* Cells <TD> containing month days dates */
+	border: none;
+	width: 2em;
+	text-align: right;
+	padding: 2px 4px 2px 2px;
+}
+.calendar tbody td.special {
+	color: #ccc;
+}
+.calendar tbody .day.othermonth {
+  font-size: 80%;
+  color: #bbb;
+}
+.calendar tbody td.hilite { /* Hovered cells <TD> */
+	background: rgb(201,209,233);
+	padding: 1px 3px 1px 1px;
+}
+.calendar tbody td.active { /* Active (pressed) cells <TD> */
+  padding: 2px 2px 0px 2px;
+}
+.calendar tbody td.selected { /* Cell showing today date */
+  padding: 1px 3px 1px 1px;
+  background: #3c75c4;
+  color: #fff;
+}
+.calendar tbody td.today { /* Cell showing selected date */
+  font-weight: bold;
+}
+.calendar tbody .disabled {
+	color: #999;
+}
+.calendar tbody .emptycell { /* Empty cells (the best is to hide them) */
+	border: none;
+	visibility: hidden;
+}
+.calendar tbody .emptyrow { /* Empty row (some months need less than 6 rows) */
+  display: none;
+}
+/* Combo boxes (menus that display months/years for direct selection) */
+.calendar .combo {
+  position: absolute;
+  display: none;
+  top: 0px;
+  left: 0px;
+  width: 4em;
+  cursor: default;
+  border: 1px solid #655;
+  background: #def;
+  color: #000;
+  font-size: 90%;
+  z-index: 100;
+}
+.calendar .combo .label {
+  text-align: center;
+  padding: 1px;
+}
+.calendar .combo .label-IEfix {
+  width: 4em;
+}
+.calendar .combo .hilite {
+  background: #acf;
+}
+.calendar .combo .active {
+  border-top: 1px solid #46a;
+  border-bottom: 1px solid #46a;
+  background: #eef;
+  font-weight: bold;
+}
+
+/*--- Treeview
+------------------------------------------------------------------------- */
+.treeview,
+.treeview ul {
+    padding: 0; 
+    margin: 0; 
+    list-style: none;
+}
+.treeview li {  
+    padding: 0.4em 0 0 15px;
+} 
+.treeview li .hitarea {
+	background: url(../img/tablas-icono-plegar.gif) 2px 3px no-repeat;
+	width: 12px;
+	height: 12px;
+	float: left;
+	margin-left: -15px;
+	cursor: pointer;
+}
+.treeview li input {
+	margin: 0;
+	vertical-align: middle;
+}
+.treeview .collapsable .hitarea {
+	background-image: url(../img/tablas-icono-plegar.gif);
+} 
+.treeview .expandable .hitarea { 
+	background-image: url(../img/tablas-icono-desplegar.gif);
+} 
+.treeview .semichecked {
+	background: transparent url(../img/checkbox-semi.png) 1px 50% no-repeat;
+}
+table .semichecked {
+	background: transparent url(../img/checkbox-semi.png) 1px 55% no-repeat;
+}
+.treeview li .hitarea { background: url(../img/tablas-icono-plegar.gif) 2px 3px no-repeat; } 
+.treeview .collapsable .hitarea { background-image: url(../img/tablas-icono-plegar.gif); } 
+.treeview .expandable .hitarea { background-image: url(../img/tablas-icono-desplegar.gif); } 
+
+/*--- Columnes per retícula
+------------------------------------------------------------------------- */
+.cols {
+	float: left;
+}
+.cols-1,
+.contenidor .cols-1,
+.caixa-detall .cols-1 {
+	width: 9.95%;
+}
+table.cols-1,
+.taula-cols-1 {
+	width: 10%;
+}
+.cols-2,
+.contenidor .cols-2,
+.caixa-detall .cols-2 {
+	width: 19.95%;
+}
+table.cols-2,
+.taula-cols-2 {
+	width: 20%;
+}
+.cols-3,
+.contenidor .cols-3,
+.caixa-detall .cols-3 {
+	width: 29.9%;
+}
+table.cols-3,
+.taula-cols-3 {
+	width: 30%;
+}
+.cols-4,
+.contenidor .cols-4,
+.caixa-detall .cols-4 {
+	width: 39.9%;
+}
+table.cols-4,
+.taula-cols-4 {
+	width: 40%;
+}
+.cols-5,
+.contenidor .cols-5,
+.caixa-detall .cols-5 {
+	width: 49.9%;
+}
+table.cols-5,
+.taula-cols-5 {
+	width: 50%;
+}
+.cols-6,
+.contenidor .cols-6,
+.caixa-detall .cols-6 {
+	width: 59.9%;
+}
+table.cols-6,
+.taula-cols-6 {
+	width: 60%;
+}
+.cols-7,
+.contenidor .cols-7,
+.caixa-detall .cols-7 {
+	width: 69.9%;
+}
+table.cols-7,
+.taula-cols-7 {
+	width: 70%;
+}
+.cols-8,
+.contenidor .cols-8,
+.caixa-detall .cols-8 {
+	width: 79.9%;
+}
+table.cols-8,
+.taula-cols-8 {
+	width: 80%;
+}
+.cols-9,
+table.cols-9,
+.taula-cols-9 {
+	width: 90%;
+}
+
+#layout-5-5 .cols-1 {
+	width: 19.8%;
+}
+#layout-5-5 .cols-2 {
+	width: 40%;
+}
+#layout-5-5 .cols-3 {
+	width: 60%;
+}
+#layout-5-5 .cols-4 {
+	width: 80%;
+}
+#layout-5-5 .cols-5 {
+	width: 99.9%;
+}
+
+#layout-6-4 .contenidor-principal .cols-1 {
+	width: 16.5%;
+}
+#layout-6-4 .contenidor-secundari .cols-1 {
+	width: 24.7%;
+}
+#layout-6-4 .contenidor-principal .cols-2 {
+	width: 33.2%;
+}
+#layout-6-4 .contenidor-secundari .cols-2 {
+	width: 49.9%;
+}
+#layout-6-4 .contenidor-principal .cols-3 {
+	width: 49.6%;
+}
+#layout-6-4 .contenidor-secundari .cols-3 {
+	width: 74.8%;
+}
+#layout-6-4 .contenidor-principal .cols-4 {
+	width: 66.5%;
+}
+#layout-6-4 .contenidor-secundari .cols-4 {
+	width: 99.9%;
+}
+#layout-6-4 .contenidor-principal .cols-5 {
+	width: 83%;
+}
+#layout-6-4 .contenidor-principal .cols-6 {
+	width: 99.9%;
+}
+
+#layout-7-3 .contenidor-principal .cols-1 {
+	width: 14.2%;
+}
+#layout-7-3 .contenidor-secundari .cols-1 {
+	width: 33%;
+}
+#layout-7-3 .contenidor-principal .cols-2 {
+	width: 28.5%;
+}
+#layout-7-3 .contenidor-secundari .cols-2 {
+	width: 66%;
+}
+#layout-7-3 .contenidor-principal .cols-3 {
+	width: 42.6%;
+}
+#layout-7-3 .contenidor-secundari .cols-3 {
+	width: 99.9%;
+}
+#layout-7-3 .contenidor-principal .cols-4 {
+	width: 57%;
+}
+#layout-7-3 .contenidor-principal .cols-5 {
+	width: 71%;
+}
+#layout-7-3 .contenidor-principal .cols-6 {
+	width: 85.4%;
+}
+#layout-7-3 .contenidor-principal .cols-7 {
+	width: 99.9%;
+}
+
+#layout-8-2 .contenidor-principal .cols-1 {
+	width: 12.5%;
+}
+#layout-8-2 .contenidor-secundari .cols-1 {
+	width: 49.9%;
+}
+#layout-8-2 .contenidor-principal .cols-2 {
+	width: 25%;
+}
+#layout-8-2 .contenidor-secundari .cols-2 {
+	width: 99.9%;
+}
+#layout-8-2 .contenidor-principal .cols-3 {
+	width: 37.5%;
+}
+#layout-8-2 .contenidor-principal .cols-4 {
+	width: 50%;
+}
+#layout-8-2 .contenidor-principal .cols-5 {
+	width: 62.5%;
+}
+#layout-8-2 .contenidor-principal .cols-6 {
+	width: 85.4%;
+}
+#layout-8-2 .contenidor-principal .cols-7 {
+	width: 99.9%;
+}
+
+#layout-2-5-3 .contenidor-secundari .cols-1 {
+	width: 49.9%;
+}
+#layout-2-5-3 .contenidor-principal .cols-1 {
+	width: 19.9%;
+}
+#layout-2-5-3 .contenidor-terciari .cols-1 {
+	width: 33%;
+}
+#layout-2-5-3 .contenidor-secundari .cols-2 {
+	width: 99.9%;
+}
+#layout-2-5-3 .contenidor-principal .cols-2 {
+	width: 39.9%;
+}
+#layout-2-5-3 .contenidor-terciari .cols-2 {
+	width: 66%;
+}
+#layout-2-5-3 .contenidor-principal .cols-3 {
+	width: 60%;
+}
+#layout-2-5-3 .contenidor-terciari .cols-3 {
+	width: 99.5%;
+}
+#layout-2-5-3 .contenidor-principal .cols-4 {
+	width: 79.9%;
+}
+#layout-2-5-3 .contenidor-principal .cols-5 {
+	width: 99.9%;
+}
+
+#layout-3-7 .contenidor-principal .cols-1 {
+	width: 14.2%;
+}
+#layout-3-7 .contenidor-secundari .cols-1 {
+	width: 33%;
+}
+#layout-3-7 .contenidor-principal .cols-2 {
+	width: 28.5%;
+}
+#layout-3-7 .contenidor-secundari .cols-2 {
+	width: 66%;
+}
+#layout-3-7 .contenidor-principal .cols-3 {
+	width: 42.6%;
+}
+#layout-3-7 .contenidor-secundari .cols-3 {
+	width: 99.9%;
+}
+#layout-3-7 .contenidor-principal .cols-4 {
+	width: 57%;
+}
+#layout-3-7 .contenidor-principal .cols-5 {
+	width: 71%;
+}
+#layout-3-7 .contenidor-principal .cols-6 {
+	width: 85.4%;
+}
+#layout-3-7 .contenidor-principal .cols-7 {
+	width: 99.9%;
+}
+
+
+#layout-3-4-3 .contenidor-secundari .cols-1 {
+	width: 33%;
+}
+#layout-3-4-3 .contenidor-principal .cols-1 {
+	width: 25%;
+}
+#layout-3-4-3 .contenidor-terciari .cols-1 {
+	width: 33%;
+}
+#layout-3-4-3 .contenidor-secundari .cols-2 {
+	width: 66%;
+}
+#layout-3-4-3 .contenidor-principal .cols-2 {
+	width: 49.9%;
+}
+#layout-3-4-3 .contenidor-terciari .cols-2 {
+	width: 66%;
+}
+#layout-3-4-3 .contenidor-secundari .cols-3 {
+	width: 99.9%;
+}
+#layout-3-4-3 .contenidor-principal .cols-3 {
+	width: 60%;
+}
+#layout-3-4-3 .contenidor-terciari .cols-3 {
+	width: 99.9%;
+}
+#layout-3-4-3 .contenidor-principal .cols-4 {
+	width: 99.9%;
+}
+
+#layout-25-5-25 .contenidor-secundari .cols-1 {
+	width: 41%;
+}
+#layout-25-5-25 .contenidor-principal .cols-1 {
+	width: 19.9%;
+}
+#layout-25-5-25 .contenidor-terciari .cols-1 {
+	width: 41%;
+}
+#layout-25-5-25 .contenidor-secundari .cols-2 {
+	width: 82%;
+}
+#layout-25-5-25 .contenidor-principal .cols-2 {
+	width: 39.9%;
+}
+#layout-25-5-25 .contenidor-terciari .cols-2 {
+	width: 82%;
+}
+#layout-25-5-25 .contenidor-secundari .cols-3 {
+	width: 99.9%;
+}
+#layout-25-5-25 .contenidor-principal .cols-3 {
+	width: 60%;
+}
+#layout-25-5-25 .contenidor-terciari .cols-3 {
+	width: 99.9%;
+}
+#layout-25-5-25 .contenidor-principal .cols-4 {
+	width: 79.9%;
+}
+#layout-25-5-25 .contenidor-principal .cols-5 {
+	width: 99.9%;
+}
+
+/*--- Passos
+------------------------------------------------------------------------- */
+ol.passos li.executat {
+	color: rgb(102,102,102);
+}
+
+/*--- C2Call
+------------------------------------------------------------------------- */
+.caixa-dialeg-c2c {
+	background-color: rgb(234,234,233);
+	border-bottom: 1px solid rgb(188,188,187);
+	border-top: 1px solid rgb(188,188,187);
+	position: absolute;
+	z-index: 200; /* per sobre del bloqueig d'interfície */
+	margin-left: 24px;
+	width: 31.20em;
+}
+.dialeg-c2c {
+	background-color: rgb(234,234,233);
+	border-left: 1px solid rgb(188,188,187);
+	border-right: 1px solid rgb(188,188,187);
+	position: relative;
+	margin-bottom: 24px;
+	margin-left: -25px;
+	margin-right: -25px;
+	margin-top: 24px;
+	padding: 0 25px;
+	/*_width: 30.1em;*/ /* TODO: Choan: aquesta amplada s'haurà de calcular via JS per IE */
+}
+div.caixa-dialeg-c2c div.se,
+div.caixa-dialeg-c2c div.sd,
+div.caixa-dialeg-c2c div.ie,
+div.caixa-dialeg-c2c div.id {
+	position: absolute;
+	padding: 0;
+	border: 0;
+	width: 25px;
+	height: 25px;
+	z-index: 2;
+}
+div.caixa-dialeg-c2c div.se {
+	background: url(../img/c2c-sprites.png) no-repeat 0 0;
+	top: -1px;
+	left: -25px;
+}
+div.caixa-dialeg-c2c div.sd {
+	background: url(../img/c2c-sprites.png) no-repeat 0 -25px;
+	top: -1px;
+	right: -25px;
+}
+div.caixa-dialeg-c2c div.ie {
+	background: url(../img/c2c-sprites.png) no-repeat 0 -50px;
+	bottom: -1px;
+	left: -25px;
+}
+div.caixa-dialeg-c2c div.id {
+	background: url(../img/c2c-sprites.png) no-repeat 0 -75px;
+	bottom: -1px;
+	right: -25px;
+}
+div.caixa-dialeg-c2c div.pin {
+	height: 57px;
+	position: absolute;
+	width: 84px;
+	z-index: 2;
+}
+div.caixa-dialeg-c2c-ne div.pin {
+	background: url(../img/c2c-sprites.png) no-repeat 0 -100px;
+	top: -57px;
+	position: absolute;
+	right: -25px;
+}
+div.caixa-dialeg-c2c-se div.pin {
+	background: url(../img/c2c-sprites.png) no-repeat 0 -158px;
+	bottom: -57px;
+	position: absolute;
+	right: -25px;
+}
+div.caixa-dialeg-c2c-sw div.pin {
+	background: url(../img/c2c-sprites.png) no-repeat 0 -216px;
+	bottom: -57px;
+	position: absolute;
+	left: -25px;
+}
+div.caixa-dialeg-c2c-nw div.pin {
+	background: url(../img/c2c-sprites.png) no-repeat 0 -274px;
+	top: -57px;
+	position: absolute;
+	left: -25px;
+}
+
+.dialeg-c2c h1,
+.dialeg-c2c h2,
+.dialeg-c2c h3,
+.dialeg-c2c h4,
+.dialeg-c2c h5,
+.dialeg-c2c h6 {
+	background: transparent url(../img/c2c-linia-titol.gif) repeat-x bottom left;
+	font-size: 1em;
+	padding: 0 0 8px 0;
+	margin: 0 0 11px 0px;
+	text-align: center;
+}
+.dialeg-c2c p.missatge-error {
+	padding-left: 25px;
+}
+.dialeg-c2c p.confirmacio-proces,
+.dialeg-c2c p.avis-proces,
+.dialeg-c2c p.error-proces {
+	padding: 9px 9px 9px 42px;
+}
+.dialeg-c2c div.carregant,
+.dialeg-c2c div.error-carrega {
+	background-color: transparent;
+	border: none;
+	margin: 0;
+	padding: 9px 9px 9px 9px;
+	text-align: center;
+}
+.dialeg-c2c ol.passos {
+	list-style-position: inside;
+}
+.dialeg-c2c ol.passos,
+.dialeg-c2c p {
+	margin: 0 0;
+	padding: 0;
+	line-height: 1.5;
+}
+.dialeg-c2c ul {
+	margin: 0 19px;
+	padding: 0;
+	line-height: 1.5;
+}
+.dialeg-c2c p {
+	padding-bottom: 0.8em;
+}
+.dialeg-c2c ol.passos li {
+	margin: 0;
+	padding: 0 0 0.8em 0;
+}
+.dialeg-c2c ol.passos li.actual strong {
+	font-weight: normal;
+}
+.dialeg-c2c form {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.dialeg-c2c p.botons {
+	margin: 0 0;
+	padding: 1em 0 0 0;
+}
+
+span.c2c {
+	background: url(../img/icono-c2c.gif) no-repeat 0  50%;
+}
+span.c2c a {
+	padding-left: 18px;
+}
+span.c2c-no-funcional {
+	background: url(../img/icono-c2c-off.gif) no-repeat 0 50%;
+	padding-left: 18px;
+}
+
+/*--- Guió
+------------------------------------------------------------------------- */
+ol.guio {
+	margin: 0.6em 0.6em 0.6em 0.6em;
+	padding: 0 0 0 25px;
+}
+ol.guio li {
+	font-weight: bold;
+}
+ol.guio li {
+	font-weight: bold;
+}
+ol.guio dl,
+ol.guio dd,
+ol.guio dt,
+ol.guio p {
+	margin: 0;
+	padding: 0;
+}
+ol.guio dl {
+	font-weight: normal;
+	margin-bottom: 6px;
+}
+ol.guio dt {
+	float: left;
+	clear: left;
+}
+ol.guio dt.question img {
+	margin-top: 5px;
+}
+ol.guio dd {
+	padding-top: 6px;
+}
+ol.guio dd p {
+	line-height: 1.3;
+}
+
+/*--- Feedback lite
+------------------------------------------------------------------------- */
+html.hasFBL {
+	padding-bottom: 36px;
+}
+.js div.feedback-lite {
+	background: #fedb85 url(../img/fblite-ok.png) 16px 6px no-repeat;
+	position: fixed;
+	bottom: -36px;
+	left: 0;
+	width: 100%;
+	height: 26px;
+	padding: 6px 0;
+	overflow: hidden;
+}
+.js div.feedback-lite-error {
+	background-image: url(../img/fblite-error.png);
+}
+div.feedback-lite div.feedback-lite-inner {
+	margin-left: 60px;
+}
+div.feedback-lite p {
+	margin-top: 0;
+}
+div.feedback-lite span.feedback-lite-close {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	background: url(../img/fblite-cerrar.png) no-repeat;
+	width: 13px;
+	height: 13px;
+	display: none;
+}
+div.hover span.feedback-lite-close {
+	display: block;
+}
+
+/*--- Peu de pàgina
+------------------------------------------------------------------------- */
+div#peu-pagina {
+	text-align: center;
+	margin-left: 20%;
+	margin-right: 30%;
+}
+div#peu-pagina hr,
+div#peu-pagina p,
+div#peu-pagina ul {
+	margin-left: 0.8em;
+}
+div#peu-pagina p {
+	color: rgb(137,137,137);
+	margin: 0;
+	padding-top: 1.2em;
+}
+div#peu-pagina ul.llistat-links-horitzontals {
+	text-align: center;
+	padding: 0.3em;
+}
+div#peu-pagina ul.llistat-links-horitzontals li {
+	border-right-color: rgb(137,137,137);
+	display: inline;
+	float: none;
+}
+
+/*--- Texte addicional
+------------------------------------------------------------------------- */
+span.texte-addicional {
+	padding-left: 0.3em;
+}
+p.quadre-llista span.texte-addicional,
+p.area-text span.texte-addicional {
+	vertical-align: top;
+}
+div.multiple-select select,
+div.text-area textarea {
+	vertical-align: top;
+}
+
+/*--- ¿Qué es?
+------------------------------------------------------------------------- */
+a.que-es,
+a.com,
+div.contenidor .titol-contenidor a.que-es,
+div.contenidor .titol-contenidor a.com,
+.llistat-simple .titol a.que-es,
+.llistat-simple .titol a.com {
+	color: rgb(26,100,164);
+	font-weight: normal;
+}
+form.vertical fieldset div.fila-inputs span a.que-es,
+form.vertical fieldset div.fila-inputs span a.com,
+form.vertical fieldset div.columna-inputs span a.que-es,
+form.vertical fieldset div.columna-inputs span a.com,
+form.vertical fieldset div.graella-inputs span a.que-es,
+form.vertical fieldset div.graella-inputs span a.com {
+	margin-left: 0;
+}
+div.fila-inputs li a.que-es,
+div.fila-inputs li a.com,
+div.columna-inputs li a.que-es,
+div.graella-inputs li a.com,
+div.columna-inputs li a.que-es,
+div.graella-inputs li a.com {
+	white-space: nowrap;
+}
+p.area-text a.que-es,
+p.quadre-llista a.que-es,
+p.area-text a.com,
+p.quadre-llista a.com {
+	vertical-align: top;
+}
+
+/*--- Capçalera
+------------------------------------------------------------------------- */
+#titol-aplicacio {
+	font-family: Tahoma;
+	font-size: 117%;
+	margin: 0.8em -18px 0.4em -18px;
+	padding-bottom: 0.15em;
+	padding-left: 9px;
+}
+.proces #titol-aplicacio {
+	border-bottom: 2px solid rgb(241,241,218);
+	margin-top: 8px;
+	padding-bottom: 0.6em;
+}
+#titol-aplicacio.amb-separador {
+	background: transparent url(../img/degradat-vertical-gris-blanc.png) repeat-x bottom;
+	padding-bottom: 16px;
+	margin-bottom: -1px;
+}
+#titol-aplicacio .canal {
+	background-color: rgb(221,232,237);
+	padding: 3px 7px 2px 7px;
+	position: relative;
+}
+#titol-aplicacio .canal span {
+	height: 7px;
+	position: absolute;
+	width: 7px;
+}
+#titol-aplicacio .canal span.se {
+	background: url(../img/fondo-canal.gif) no-repeat 0 0;	
+	left: -1px;
+	top: 0;
+}
+#titol-aplicacio .canal span.sd {
+	background: url(../img/fondo-canal.gif) no-repeat 0 -10px;	
+	right: 0;
+	top: 0;
+}
+#titol-aplicacio .canal span.ie {
+	background: url(../img/fondo-canal.gif) no-repeat 0 -20px;	
+	bottom: 0;
+	left: -1px;
+	overflow: hidden;
+}
+#titol-aplicacio .canal span.id {
+	background: url(../img/fondo-canal.gif) no-repeat 0 -30px;
+	bottom: 0;
+	overflow: hidden;
+	right: 0;
+}
+#titol-aplicacio span.separador {
+	display: none;
+}
+#titol-aplicacio .aplicacio {
+	margin-left: 7px;
+}
+p.nota-aplicacio {
+	margin: 0 0 0.6em 12px;
+}
+#navegacio-contextual,
+#informacio-contextual {
+	list-style: none;
+}
+#informacio-contextual li,
+#navegacio-contextual li {
+	float: right;
+	margin-left: 1.5em;
+	line-height: 1.5;
+}
+#navegacio-contextual li {
+	margin-top: -1px;
+}
+#informacio-contextual li {
+    margin-left: .5em;
+    padding-right: .5em;
+	border-right: 1px solid rgb(204,204,204);
+}
+#informacio-contextual li.primer {
+	padding-right: 0;
+    border-right: none;
+}
+#navegacio-contextual a {
+	position: relative;
+	display: block;
+	padding: 1px 0 0 20px;
+}
+#navegacio-contextual li.ajuda {
+	background: url(../img/icona-ajuda.gif) no-repeat center left;
+}
+#navegacio-contextual li.tornar {
+	background: url(../img/icona-tornar.png) no-repeat center left;
+}
+#navegacio-contextual li.tancar-popup a {
+	background: url(../img/icono-popup-cerrar.gif) no-repeat center left;
+	color: rgb(26,100,164);
+	padding-left: 12px;
+	margin-top: 6px;
+}
+#navegacio-contextual li.tancar-popup a:hover {
+	text-decoration: underline;
+}
+#navegacio-contextual li.reiniciar-cli a,
+#navegacio-contextual li.reiniciar-com a,
+#navegacio-contextual li.reiniciar-pro a,
+#navegacio-contextual li.reiniciar-ofi a,
+#navegacio-contextual li.reiniciar-rap a,
+#navegacio-contextual li.reiniciar-act a,
+#navegacio-contextual li.reiniciar-bus a {
+	padding-bottom: 2px;
+}
+#navegacio-contextual li.reiniciar-cli {
+	background: url(../img/icono-reinicio-cliente.png) no-repeat center left;
+}
+#navegacio-contextual li.reiniciar-com {
+	background: url(../img/icono-reinicio-comercial.png) no-repeat center left;
+}
+#navegacio-contextual li.reiniciar-pro {
+	background: url(../img/icono-reinicio-productos.png) no-repeat center left;
+}
+#navegacio-contextual li.reiniciar-ofi {
+	background: url(../img/icono-reinicio-oficina.png) no-repeat center left;
+}
+#navegacio-contextual li.reiniciar-rap {
+	background: url(../img/icono-reinicio-atencion-rapida.png) no-repeat center left;
+}
+#navegacio-contextual li.reiniciar-act {
+	background: url(../img/icono-reinicio-actualidad.png) no-repeat center left;
+}
+#navegacio-contextual li.reiniciar-bus {
+	background: url(../img/icono-reinicio-buscador.png) no-repeat center left;
+}
+p.fil-ariadna {
+	color: #999;
+	font-size: 0.92em;
+	margin: 0 0 0 -3px;
+	padding: 0 0 0.7em 0;
+	width: auto;
+}
+p.fil-ariadna span.actiu {
+	color: #666;
+}
+div#titol-pantalla p.texte-informatiu {
+	padding-top: 0.2em;
+	width: 33%;
+}
+div#titol-pantalla h2,
+div#titol-pantalla h3,
+div#titol-pantalla h4 {
+	clear: left;
+	color: rgb(51,51,51);
+	font-family: Tahoma;
+	font-size: 117%;
+	font-weight: bold;
+	width: auto;
+}
+
+/*--- SMS
+------------------------------------------------------------------------- */
+div.minifitxa-principal div.seccio-persiana span.sms img {
+	border: 0;
+	margin: 0;
+}
+span.nowrap {
+	white-space: nowrap;
+}
+
+/*--- Documents
+------------------------------------------------------------------------- */
+span.document-metadata {
+	color: #b2b2b2;
+	white-space: nowrap;
+}
+a.document img {
+/*	vertical-align: middle;*/
+}
+
+/*--- Enllaç en nou d'escenari
+------------------------------------------------------------------------- */
+a img.escenari {
+	vertical-align: middle;
+}
+
+/*--- Enllaç per iniciar procés
+------------------------------------------------------------------------- */
+a.iniciar-proces em {
+	font-weight: bold;
+}
+
+/*--- Bloc de notícies
+------------------------------------------------------------------------- */
+div.noticia {
+	margin-bottom: 1.4em;
+}
+div.noticia:after {
+	content: " ";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+div.noticies img {
+	float: left;
+	margin: 0 12px 0 0;
+}
+div.noticies p {
+	margin: 0;
+}
+div.noticies .no-destacada,
+div.noticies .destacada {
+	margin: 0 0 0.2em 0;
+	clear: left;
+}
+div.noticies .destacada {
+	font-size: 1.416em;
+}
+div.noticies .no-destacada {
+	font-size: 1.167em;
+}
+div.noticies ul.llistat {
+	margin: 0;
+	padding: 0;
+}
+div.noticies ul.llistat li {
+	padding-bottom: 1.6em;
+	margin-left: 0;
+}
+div.noticies div.noticia ul.llistat li {
+	margin: 0;
+	padding-bottom: 0;
+}
+.noticia span.categoria,
+.noticia span.data {
+	color: #b2b2b2;
+	margin-right: 1.5em;
+	white-space: nowrap;
+}
+
+/*-- Tunel procés
+------------------------------------------------------------------------- */
+.indicador-proces {
+	background-color: rgb(241,241,218);
+	margin: -0.6em -18px 7px -18px;
+	padding: 6px 0 7px 0;
+}
+.indicador-proces:after {
+	content: " ";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+.indicador-proces li {
+	float: left;
+	list-style-type: none;
+	padding-bottom: 16px;
+	padding-left: 2em;
+	text-align: center;
+	white-space: nowrap;
+}
+.indicador-proces li {
+	background: transparent url(../img/ind-proces-pas.gif) no-repeat 47% 100%;
+}
+.indicador-proces li.primer {
+	background-image: url(../img/ind-proces-pas-inicial.gif);
+}
+.indicador-proces li.primer-actual {
+	background-image: url(../img/ind-proces-pas-inicial-actual.gif);
+	font-weight: bold;
+}
+.indicador-proces li.primer-executat {
+	background-image: url(../img/ind-proces-pas-inicial-executat.gif);
+}
+.indicador-proces li.ultim {
+	background-image: url(../img/ind-proces-pas-final.gif);
+}
+.indicador-proces li.actual {
+	background-image: url(../img/ind-proces-pas-actual.gif);
+	font-weight: bold;
+}
+.indicador-proces li.ultim-actual {
+	background-image: url(../img/ind-proces-pas-final-actual.gif);
+	font-weight: bold;
+}
+.indicador-proces li.executat {
+	background-image: url(../img/ind-proces-pas-executat.gif);
+}
+.indicador-proces.single {
+	height: 10px;
+	padding: 0;
+}
+.indicador-proces.single li {
+	height: 0;
+	visibility: hidden;
+}
+.subproces li.primer {
+	background-image: url(../img/ind-subproces-pas-inicial-actual.gif);
+}
+.subproces li.primer-executat {
+	background-image: url(../img/ind-subproces-pas-inicial-executat.gif);
+}
+.subproces li.ultim {
+	background-image: url(../img/ind-subproces-pas-final.gif);
+}
+.subproces li.ultim-actual {
+	background-image: url(../img/ind-subproces-pas-final-actual.gif);
+}
+.subproces li.retorn {
+	background-image: url(../img/ind-subproces-retorn.gif);
+}
+.indicador-proces li.truncat-enrera {
+	background-image: url(../img/ind-proces-pas-truncat-executat.gif);
+}
+.indicador-proces li.truncat-endavant {
+	background-image: url(../img/ind-proces-pas-truncat.gif);
+}
+.indicador-proces li.ocult {
+	left: -1000em;
+	overflow: hidden;
+	position: absolute;
+	width: 0;
+}
+
+/*-- Accions globals
+------------------------------------------------------------------*/
+.accions-globals {
+	background-color: rgb(237,240,246);
+	clear: both;
+	margin-bottom: 1em;
+	padding: 0.3em 1em;
+	position: relative;
+}
+.accions-globals:after { 
+	clear: both; 
+	content: "."	; 
+	display: block; 
+	height: 0;
+	visibility: hidden;
+}
+.contenidor-taula .accions-globals + table {
+  margin-top: -1em;
+}
+.accions-globals ul {
+	margin: 0;
+	padding: 0;
+}
+.accions-globals li {
+	background: url(../img/separador-llistes-verticals.png) no-repeat center left;
+	float: left;
+	/*line-height: 2.1em;*/
+	list-style: none;
+	margin-right: 0.7em;
+	/*padding-left: 0.7em;*/
+	padding: 0.4em 0 0.4em 0.7em;
+}
+.accions-globals li.primer {
+	background: none;
+	padding-left: 0;
+}
+.accions-globals li p {
+	margin: 0;
+}
+
+/* Accions globals amb elements de formulari */
+form .accions-globals p select {
+	display: none;
+}
+.js form .accions-globals p select {
+	display: inline;
+}
+form .accions-globals li input {
+	vertical-align: middle;
+	margin-top: -2px;
+}
+form .accions-globals p.botons {
+	float: left;
+	margin: 0;
+	margin-right: 0.7em;
+}
+form .accions-globals p.botons select {
+	margin-top: 2px;
+}
+/* //Accions globals amb elements de formulari */
+
+/* Accions globals paginador */
+.accions-globals .paginador li {
+	background: none;
+	margin: 0;
+	margin-left: 0.6em;
+	padding-left: 0;
+}
+/* //Accions globals paginador */
+form.vertical p.incremental-pagination {
+	clear: none;
+	float: right;
+	margin: 0;
+}
+
+
+/* Menú desplegable */
+
+/********************************************************/
+td.operatives {
+	width: 1px;
+}
+/********************************************************/
+.menu-desplegable span.obridor {
+	display: none;
+}
+.menu-desplegable ul {
+	margin: 0;
+	padding: 0;
+}
+.menu-desplegable li {
+	background: url(../img/separador-llistes-verticals.png) no-repeat center left;
+	border-right: none;
+	float: left;
+	line-height: 2.1em;
+	list-style: none;
+	margin-right: 0.7em;
+	padding-left: 0.7em;
+}
+.menu-desplegable li.primer {
+	background: none;
+	padding-left: 0;
+}
+/** JS activat **/
+.js .menu-desplegable span.obridor {
+	color: #1a64a4;
+	cursor: pointer;
+	display: inline;
+}
+.js .menu-desplegable span.obridor span.nowrap {
+	padding-right: 15px;
+	position: relative;
+}
+.js .menu-desplegable-obert span.obridor span.title,
+.js .menu-desplegable span.obridor span.title:hover{
+	text-decoration: underline;
+}
+.js .menu-desplegable span.obridor span.over {
+	background: none;
+}
+.js .menu-desplegable span.obridor img {
+	margin: 1px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.js .menu-desplegable-obert span.obridor img {
+	background-color: rgb(201,209,233);
+	border: 1px solid rgb(165,172,178);
+	margin: 0;
+}
+.js .menu-desplegable li {
+	line-height: 2.1em;
+}
+.js #menu-desplegable-clonat ul {
+	margin: 0;
+	padding: 0;
+}
+.js #menu-desplegable-clonat li {
+	background: none;
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+.js #menu-desplegable-clonat li a {
+	display: block;
+	padding: 3px 6px;
+	white-space: nowrap;
+}
+.js #menu-desplegable-clonat li a:hover{
+  background-color: rgb(201,209,233);
+	color: rgb(51,51,51);
+	text-decoration: none;
+}
+/** //JS activat **/
+/* //Menú desplegable */
+
+
+
+/*--- Separador por rangos
+------------------------------------------------------------------------- */
+ul.separador-rangos {
+	margin: 0;
+	padding: 0 0 1.2em 0;
+	height: 1%;
+}
+ul.separador-rangos:after {
+	content: " ";
+	display: block;
+	clear: both;
+	height: 0;
+	overflow: hidden;
+}
+ul.separador-rangos li {
+	border-left: 1px solid #999;
+	color: rgb(161,161,146);
+	float: left;
+	list-style-type: none;
+	padding: 0 0.6em;
+}
+ul.separador-rangos li.primer {
+	border-left: none;
+	padding-left: 0;
+}
+ul.separador-rangos li.actual {
+	color: #333;
+	font-weight: bold;
+}
+
+
+/*--- Miniaplicaciones
+------------------------------------------------------------------------- */
+html.in-popup #titol-aplicacio {
+	border-bottom: none;
+	position: absolute;
+	text-indent: -9000px;
+}
+html.in-popup #titol-aplicacio.amb-separador {
+	background: none;
+}
+html.in-popup ol.indicador-proces {
+	display: none;
+}
+html.in-popup #titol-pantalla {
+	font-family: Tahoma;
+	font-size: 1em;
+	padding-top: 1em;
+}
+html.in-popup p.botons {
+	text-align: center;
+}
+
+/*- Rich text
+-----------------------------------------------------------------------------*/
+.rich-text-area textarea,
+.rich-text-area .mceEditor {
+  display: block;
+  margin: 0.3em 0;
+}
+.rich-text-area span.texte-addicional {
+  padding-left: 0;
+}
+.rich-text-area .title {
+  font-size: 1em;
+  margin: 0;
+  padding-bottom: 0.3em;
+}
+.rich-text-area .error table.mceLayout,
+.rich-text-area .error table.mceLayout tr.mceFirst td.mceToolbar,
+.rich-text-area .error table.mceLayout tr.mceLast td.mceStatusbar {
+  border-color: rgb(255, 0, 0);
+}
+.rich-text-area .accions-globals + .output {
+  margin-top: -1em;
+}
+.rich-text-area .output {
+  border: 1px dotted rgb(191, 191, 191);
+  padding: 1em 1em 0 1em;
+}
+.rich-text-area .output p.empty {
+  color: rgb(161,161,146);
+}
+.rich-text-area .output p,
+.rich-text-area .output h4,
+.rich-text-area .output h5,
+.rich-text-area .output table {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+.rich-text-area .output table {
+  border: 1px solid #A5ACB2;
+}
+.rich-text-area .output table td,
+.rich-text-area .output table th,
+.rich-text-area .output table caption {
+  border: 1px solid #DCDCDC;
+}
+.rich-text-area .output h4 {
+  font-size: 1.75em;
+  margin-bottom: 0.6em;
+}
+.rich-text-area .output h5 {
+  font-size: 1.33em;
+  margin-bottom: 0.6em;
+}
+
+/*- Buttonlink
+-----------------------------------------------------------------------------*/
+a.buttonlink {
+  background: rgb(232,236,244);
+  border: 1px solid rgb(118, 162, 200);
+  position: relative;
+  padding: 0.1em 0.4em;
+}
+a.buttonlink span {
+  background-image: url(../img/bg-buttonlink.png);
+  background-repeat: no-repeat;
+  display: block;
+  height: 3px;
+  position: absolute; 
+  width: 3px;
+}
+a.buttonlink .tl {
+  background-position: 0 -9px;
+  left: -1px;
+  top: -1px;
+}
+a.buttonlink .tr {
+  background-position: 0 0;
+  right: -1px;
+  top: -1px;
+}
+a.buttonlink .bl {
+  background-position: 0 -6px;
+  bottom: -1px;
+  left: -1px;
+}
+a.buttonlink .br {
+  background-position: 0 -3px;
+  bottom: -1px;
+  right: -1px;
+}
+a.buttonlink:hover {
+	background: rgb(218,224,237);
+  border-color: rgb(26,100,164);
+  text-decoration: none;
+}
+a.buttonlink:hover span {
+  background-image: url(../img/bg-buttonlink-hover.png);
+}
+.inhabilitat a.buttonlink,
+.field.disabled-field a.buttonlink {
+  background: rgb(255,255,255);
+  border-color: rgb(200,200,185);
+}
+.inhabilitat a.buttonlink span,
+.field.disabled-field a.buttonlink span {
+  background-image: url(../img/bg-buttonlink-disabled.png);
+}
+
+/*- Banner
+------------------------------------------------------------------------------*/
+img.banner {
+  display: block;
+  margin-bottom: 1.2em;
+}
+img.margin-top {
+  margin-top: 1.2em;
+}
+img.margin-right {
+  margin-right: 1.3em;
+}
+
+
+/*-- Blocs de formularis ocults
+-------------------------------------------------------------------------- */
+div.disclosure-box {
+  clear: left;
+	margin-bottom: 1.8em;
+	padding-top: 0.2em;
+}
+div.disclosure-box .disclosure-box-content {
+  display: none;
+}
+div.disclosure-box-visible {
+  margin-bottom: 0;
+	padding-top: 0;
+}
+div.disclosure-box-visible .disclosure-box-content {
+  display: block;
+}
+div.disclosure-box-visible .disclosure-box-trigger {
+  display: none;
+}
+div.disclosure-box .disclosure-box-trigger {
+	background: url(../img/tablas-icono-desplegar.gif) no-repeat 0 0.25em;
+	color: rgb(26,100,164);
+	cursor: pointer;
+	padding-left: 13px;
+	margin-left: 1.5em;
+}
+
+
+
+/*- File upload asíncrono
+------------------------------------------------------------------------------*/
+span.uploading {
+  background: transparent url('../img/grafico-cargador-file-upload.gif') no-repeat center left;
+  padding-left: 20px;
+}
+.error .error-message {
+  color: red;
+}
+
+@charset "utf-8";
+
+table thead tr {
+  background: rgb(240, 242, 249) url(../img/tablas-fondo-cabecera.gif) repeat-x left bottom;
+}
+table.tabular thead tr,
+table.simple thead tr {
+  background: none;
+}
+table th {
+  text-align: left;
+}
+fieldset.caixa-formulari {
+  padding:0.8em 0.6em;
+}
+#fons-modal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+}
+.vista-impressio{margin: 0; color: rgb(20,20,20); font-family: Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif;}
+.vista-impressio div#contenidor-general{padding: 0;}
+.vista-impressio button, .vista-impressio input, .vista-impressio select, .vista-impressio textarea{font-family: Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif; color: rgb(20,20,20);font-family: Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif; color: rgb(20,20,20);font-family: Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif; color: rgb(20,20,20);font-family: Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif; color: rgb(20,20,20);}
+.vista-impressio a:hover{cursor: default; text-decoration: none;}
+.vista-impressio a:link, .vista-impressio a:visited{color: rgb(20,20,20);color: rgb(20,20,20);}
+.vista-impressio #navegacio-contextual{display: none;}
+.vista-impressio #pestanyes-globals{display: none;}
+.vista-impressio .paginador{display: none;}
+.vista-impressio .botons{display: none;}
+.vista-impressio .que-es{display: none;}
+.vista-impressio .intranet{display: none;}
+.vista-impressio .accions-globals{display: none;}
+.vista-impressio #titol-aplicacio{font-size: 150%; margin: 0 -12px 0.6em -12px;}
+.vista-impressio #titol-aplicacio span.aplicacio{margin-left: 0;}
+.vista-impressio div#titol-pantalla{font-size: 90%; padding-left: 6px; padding-bottom: 0.8em;}
+.vista-impressio p.fil-ariadna{display: none;}
+.vista-impressio div.titol-integrat p.fil-ariadna{display: block;}
+.vista-impressio div.contenidor-taula{margin: 0em 0 1em 0;}
+.vista-impressio div.scroll-taula{width: auto !important;}
+.vista-impressio div.scroll-taula-y{height: auto !important;}
+.vista-impressio table{border: none; height: auto !important; width: 100% !important;}
+.vista-impressio table thead, .vista-impressio table thead tr th.descendent, .vista-impressio table thead tr th.ascendent{background: none; background-color: transparent;background: none; background-color: transparent;background: none; background-color: transparent;}
+.vista-impressio table thead tr{background: none; color: rgb(102,102,102); border-top: none;}
+.vista-impressio table th, .vista-impressio table td{border: 0 !important;border: 0 !important;}
+.vista-impressio table, .vista-impressio table thead th{border-bottom: 1px solid rgb(59,61,61) !important;border-bottom: 1px solid rgb(59,61,61) !important;}
+.vista-impressio table tbody td, .vista-impressio table tbody th{border-bottom: 1px solid rgb(189,193,192) !important;border-bottom: 1px solid rgb(189,193,192) !important;}
+.vista-impressio table .accions{display: none;}
+.vista-impressio table .parell{background-color: transparent;}
+.vista-impressio table .caption{padding-left: 18px;}
+.vista-impressio p.peu-taula{margin: 0 20em 0.9em 18px;}
+.vista-impressio table tr.destacada{background-color: rgb(212,212,212);}
+.vista-impressio table.jerarquica tr th, .vista-impressio table.jerarquica tr td{background: none !important;background: none !important;}
+.vista-impressio table.jerarquica thead th.primera{font-weight: normal;}
+.vista-impressio table.doble-capcalera thead th.superior{border-bottom: none !important; background: transparent;}
+.vista-impressio a.export-excel-cap-taula, .vista-impressio ul.links-cap-taula{display: none;display: none;}
+.vista-impressio .over{background: #fff;}
+.vista-impressio div.menu{border: none; margin-left: 6px;}
+.vista-impressio div.contenidor .titol-contenidor{font-weight: bold; font-size: 1.1em; padding-left: 11px;}
+.vista-impressio div.menu .titol-contenidor{font-size: 1.2em; border-bottom: none; background: transparent; color: rgb(51,51,51);}
+.vista-impressio div.menu div.se, .vista-impressio div.menu div.sd, .vista-impressio div.menu div.ie, .vista-impressio div.menu div.id{display: none;display: none;display: none;display: none;}
+.vista-impressio div.llistat-continguts, .vista-impressio ul.llistat-links, .vista-impressio ul.llistat-vinyetes, .vista-impressio ul.llistat-normal{padding-left: 0;padding-left: 0;padding-left: 0;padding-left: 0;}
+.vista-impressio .content-title{padding-left: 4px; margin-left: 0;}
+.vista-impressio div.dades{clear: left; margin-left: 0;}
+.vista-impressio #layout-7-3, .vista-impressio #layout-6-4, .vista-impressio #layout-5-5, .vista-impressio #layout-2-5-3{margin: 0 !important; padding: 0 !important;margin: 0 !important; padding: 0 !important;margin: 0 !important; padding: 0 !important;margin: 0 !important; padding: 0 !important;}
+.vista-impressio .contenidor-principal, .vista-impressio .contenidor-secundari, .vista-impressio .contenidor-terciari{clear: left; margin: 0 !important; padding: 0 !important; width: 100% !important; float: none !important;clear: left; margin: 0 !important; padding: 0 !important; width: 100% !important; float: none !important;clear: left; margin: 0 !important; padding: 0 !important; width: 100% !important; float: none !important;}
+.vista-impressio div.caixa-detall{padding-top: 0; border: none;}
+.vista-impressio #persianes{background: rgb(255, 255,255); margin-top: 2em; border: none; padding-left: 6px; width: 30em;}
+.vista-impressio #persianes .titol-minifitxa, .vista-impressio #persianes .titol-grup{margin: 0; padding: 0;margin: 0; padding: 0;}
+.vista-impressio #persianes .titol-grup, .vista-impressio #persianes .titol-grup a{color: rgb(102,102,102);color: rgb(102,102,102);}
+.vista-impressio #persianes .titol-minifitxa{margin-left: 12em;}
+.vista-impressio #persianes .titol-persiana{display: none;}
+.vista-impressio #persianes p, .vista-impressio #persianes dl, .vista-impressio #persianes ul{margin: 0; padding: 0;margin: 0; padding: 0;margin: 0; padding: 0;}
+.vista-impressio #persianes ul{margin-left: 12em;}
+.vista-impressio #persianes p.sortida strong{color: rgb(134,134,134) !important;}
+.vista-impressio #persianes p.sortida span{float: left;}
+.vista-impressio #persianes div.llistat-continguts dt{clear: both; width: 12em; float: left;}
+.vista-impressio #persianes div.llistat-continguts dl.numero dd{margin-right: 100px;}
+.vista-impressio #persianes p.sortida strong{font-weight: normal; color: rgb(102,102,102); width: 12em; float: left;}
+.vista-impressio #persianes .seccio-persiana{clear: left; background: rgb(255,255,255); padding: 0;}
+.vista-impressio #persianes .se, .vista-impressio #persianes .sd, .vista-impressio #persianes .ie, .vista-impressio #persianes .id{display: none;display: none;display: none;display: none;}
+.vista-impressio fieldset.caixa-formulari{margin: 0 18px;}
+.vista-impressio div.filtres fieldset{border: 1px solid rgb(102,102,102);}
+.vista-impressio div.filtres span.switch{display: none;}
+.vista-impressio div.filtres span.visibles{padding-right: 10px; background-color: rgb(255,255,255); display: block; margin-right: 0;}
+
+} @media print {
+@charset "utf-8";
+/*
+	TOC
+		Capçalera
+		Components no imprimibles
+		Títol aplicacio
+		Títol pagina
+		Taules
+		Contenidors
+		Llistats
+		Layouts
+		Dades
+		Caixa detall
+		Minifitxa
+		Formularis
+		Altres
+*/
+
+
+body {
+	color: rgb(20,20,20);
+	font: 0.6em/1.2 Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif;
+	font: 0.75em/1.2 Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif;
+	margin: 0;
+}
+div#contenidor-general {
+	padding: 0;
+}
+
+button,
+input,
+select,
+textarea {
+	color: rgb(20,20,20);
+	font-family: Helvetica, Arial, Verdana, Tahoma, Geneva, sans-serif;
+}
+a:hover {
+	text-decoration: none;
+	cursor: default;
+}
+a:link,
+a:visited {
+	color: rgb(20,20,20);
+}
+
+/*-- Components no imprimibles
+------------------------------------------------------------------------- */
+#navegacio-contextual {
+	display: none;
+}
+#pestanyes-globals {
+	display: none;
+}
+.paginador {
+	display: none;
+}
+.botons {
+	display: none;
+}
+.que-es {
+	display: none;
+}
+.intranet {
+	display: none;
+}
+.accions-globals {
+	display: none;
+}
+
+/*-- Títol aplicacio
+------------------------------------------------------------------------- */
+#titol-aplicacio {
+	font-size: 150%;
+	margin: 0 -12px 0.6em -12px;
+}
+#titol-aplicacio span.aplicacio {
+	margin-left: 0;
+}
+
+/*-- Títol pagina
+------------------------------------------------------------------------- */
+div#titol-pantalla {
+	font-size: 90%;
+	padding-left: 6px;
+	padding-bottom: 0.8em;
+}
+p.fil-ariadna {
+	display: none;
+}
+div.titol-integrat p.fil-ariadna {
+	display: block;
+}
+
+/*-- Taules
+------------------------------------------------------------------------- */
+div.contenidor-taula {
+	margin: 0em 0 1em 0;
+}
+div.scroll-taula {
+	width: auto !important; /* Per taules amb scroll */
+}
+div.scroll-taula-y {
+	height: auto !important;  /* Per taules amb scroll */
+}
+table {
+	border: none;
+	height: auto !important; /* Per taules amb scroll */
+	width: 100% !important; /* Per taules amb scroll */
+}
+table thead,
+table thead tr th.descendent,
+table thead tr th.ascendent {
+	background: none;
+	background-color: transparent;
+}
+table thead tr {
+	background: none;
+	border-top: none;
+	color: rgb(102,102,102);
+}
+table th,
+table td {
+	border: 0 !important;
+}
+table,
+table thead th {
+	border-bottom: 1px solid rgb(59,61,61) !important;
+}
+table tbody td,
+table tbody th {
+	border-bottom: 1px solid rgb(189,193,192) !important;
+}
+table .accions {
+	display: none;
+}
+table .parell {
+	background-color: transparent;
+}
+table .caption {
+	padding-left: 18px;
+}
+p.peu-taula {
+	margin: 0 20em 0.9em 18px;
+}
+table tr.destacada {
+	background-color: rgb(212,212,212);
+}
+table.jerarquica tr th,
+table.jerarquica tr td {
+	background: none !important;
+}
+table.jerarquica thead th.primera {
+	font-weight: normal;
+}
+table.doble-capcalera thead th.superior {
+	background: transparent;
+	border-bottom: none !important;
+}
+a.export-excel-cap-taula,
+ul.links-cap-taula {
+	display: none;
+}
+.over {
+	background: #fff;
+}
+
+
+/*-- Contenidors
+------------------------------------------------------------------------- */
+div.menu {
+	border: none;
+	margin-left: 6px;
+}
+div.contenidor .titol-contenidor {
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-left: 11px;
+}
+div.menu .titol-contenidor {
+	background: transparent;
+	border-bottom: none;
+	color: rgb(51,51,51);
+	font-size: 1.2em;
+}
+div.menu div.se,
+div.menu div.sd,
+div.menu div.ie,
+div.menu div.id {
+	display: none;
+}
+
+/*-- Llistats
+------------------------------------------------------------------------- */
+div.llistat-continguts,
+ul.llistat-links,
+ul.llistat-vinyetes,
+ul.llistat-normal {
+	padding-left: 0;
+}
+
+/*-- Subtítol pàgina
+------------------------------------------------------------------------- */
+.content-title {
+	padding-left: 4px;
+	margin-left: 0;
+}
+
+/*-- Dades
+------------------------------------------------------------------------- */
+div.dades {
+	clear: left;
+	margin-left: 0;
+}
+
+/*--- Layouts
+------------------------------------------------------------------------- */
+#layout-7-3,
+#layout-6-4,
+#layout-5-5,
+#layout-2-5-3 {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.contenidor-principal,
+.contenidor-secundari,
+.contenidor-terciari {
+	clear: left;
+	float: none !important;
+	width: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+/*--- Caixa detall
+------------------------------------------------------------------------- */
+div.caixa-detall {
+	border: none;
+	padding-top: 0;
+}
+
+/*-- Minifitxa
+------------------------------------------------------------------------- */
+#persianes {
+	background: rgb(255, 255,255);
+	border: none;
+	margin-top: 2em;
+	padding-left: 6px;
+	width: 30em;
+}
+#persianes .titol-minifitxa,
+#persianes .titol-grup {
+	margin: 0;
+	padding: 0;
+}
+#persianes .titol-grup,
+#persianes .titol-grup a {
+	color: rgb(102,102,102);
+}
+#persianes .titol-minifitxa {
+	margin-left: 12em;
+}
+#persianes .titol-persiana {
+	display: none;
+}
+#persianes p,
+#persianes dl,
+#persianes ul {
+	margin: 0;
+	padding: 0;
+}
+#persianes ul {
+	margin-left: 12em;
+}
+#persianes p.sortida strong {
+	color: rgb(134,134,134) !important;
+}
+#persianes p.sortida span {
+	float: left;
+}
+#persianes div.llistat-continguts dt {
+	clear: both;
+	float: left;
+	width: 12em;
+}
+#persianes div.llistat-continguts dl.numero dd {
+	margin-right: 100px;
+}
+#persianes p.sortida strong {
+	color: rgb(102,102,102);
+	font-weight: normal;
+	float: left;
+	width: 12em;
+}
+#persianes .seccio-persiana {
+	background: rgb(255,255,255);
+	clear: left;
+	padding: 0;
+}
+#persianes .se,
+#persianes .sd,
+#persianes .ie,
+#persianes .id {
+	display: none;
+}
+
+/*-- Formularis
+------------------------------------------------------------------------- */
+fieldset.caixa-formulari {
+	margin: 0 18px;
+}
+
+/*-- Altres
+------------------------------------------------------------------------- */
+div.filtres fieldset {
+	border: 1px solid rgb(102,102,102);
+}
+div.filtres span.switch {
+	display: none;
+}
+div.filtres span.visibles {
+	background-color: rgb(255,255,255);
+	display: block;
+	padding-right: 10px;
+	margin-right: 0;
+}
+}

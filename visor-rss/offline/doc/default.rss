@@ -1,0 +1,112 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0" xmlns:dda="http://backend.userland.com/dda">
+  <channel>
+	<title>Visor RSS</title>
+	<pubDate>Fri, 16 Nov 2012 15:21:36 GMT</pubDate>
+	<lastBuildDate>Fri, 16 Nov 2012 15:21:36 GMT</lastBuildDate>
+	<image>
+			<title>Test RSS Image</title> 
+			<url>/stw5/ddadda/tf7/2.0.6/common/img/grafic-diposit-creixent.gif</url> 
+			<link>http://writetheweb.com</link> 
+			<width>88</width> 
+			<height>31</height> 
+			<description>News for web users that write back</description> 
+	</image>
+
+	<item>
+	  <title>Configuracion del visor RSS</title>
+	  <link>javascript:help()</link>
+	  <description>
+	   &lt;img src="offline/doc/configuracion.jpg" />
+	  &lt;ul>
+	  	&lt;li>
+	  		&lt;h2>Ficheros de configuracion&lt;/h2>
+	 		&lt;ul>
+	 			&lt;li>&lt;b>config/customize.js&lt;/b>: configuracion global&lt;/li>
+	 			&lt;li>&lt;b>config/layout.js&lt;/b>: configuracion por defecto en caso de error&lt;/li>
+                 
+	 			&lt;li>&lt;b>offline/doc/default.rss&lt;/b>: RSS de ejemplo con esta documentacion&lt;/li>
+	 		&lt;/ul>	
+	  	&lt;/li>
+	  	&lt;li>&lt;h2>Internacionalizaci&amp;oacute;n&lt;/h2>
+	  		&lt;ul>
+	 			&lt;li>&lt;b>literales/l10n-es.js&lt;/b>: loaclizacion de TF7&lt;/li>
+	 			&lt;li>&lt;b>literales/rss-i18n-es.js&lt;/b>: loaclizacion del visro RSS&lt;/li>
+	  		&lt;/ul>
+	  	&lt;/li>
+	  	&lt;!--
+	    &lt;li>&lt;h2>Carga desde el Backend de la configuracion del usuario&lt;/h2>&lt;/li>
+	  	&lt;li>&lt;h2>Codigo Fuente&lt;/h2>&lt;/li>
+
+	
+	  	
+	  	-->
+	  &lt;/ul>
+	          &lt;link href="offline/doc/editor/themes/github.css" rel="stylesheet" type="text/css">
+              &lt;script src="offline/doc/editor/js/rainbow.js">&lt;/script>
+              &lt;script src="offline/doc/editor/js/language/generic.js">&lt;/script>
+              &lt;script src="offline/doc/editor/js/language/javascript.js">&lt;/script>
+              &lt;script src="offline/doc/editor/js/language/html.js">&lt;/script>
+	  </description>
+	  <category domain="DOCUMENTO_ESPECIFICO">Documentacion</category>
+	  <pubDate>Fri, 16 Nov 2012 15:21:36 GMT</pubDate>
+	</item>
+	
+	<item>
+	  <title>XSS a traves del visor RSS</title>
+	  <link>javascript:xss()</link>
+	  <description>
+     
+	  &lt;script type="text/javascript" src="offline/doc/demo.js">&lt;/script>
+	  &lt;p style="display:none;" class="doc-message">Ejemplo de ejecucion de codigo incluido en un RSS&lt;/p>
+	  </description>
+	  <category domain="Portal RSS">Documentacion</category>
+	  <enclosure url="img/icono-alerta-proceso.gif" length="-1" type="image/gif" />
+	  <pubDate>Fri, 16 Nov 2012 15:21:36 GMT</pubDate>
+	  <enclosure url="img/icono-autorizacion-proceso.gif" length="-1" type="image/gif" />
+	</item>
+	<item>
+	  <title>prueba paginacion</title>
+	  <link></link>
+	  <description></description>
+	  <category domain="DOCUMENTO_ESPECIFICO">Categoria</category>
+	  <pubDate>Fri, 17 Nov 2012 15:21:36 GMT</pubDate>
+	  <enclosure url="img/icono-autorizacion-proceso.gif" length="-1" type="image/gif" />
+	</item>
+	<item>
+	  <title>prueba paginacion</title>
+	  <link>#</link>
+	  <description></description>
+	  <category>Documentacion</category>
+	  <pubDate>Fri, 18 Nov 2012 15:21:36 GMT</pubDate>
+	  <enclosure url="img/icono-autorizacion-proceso.gif" length="-1" type="image/gif" />
+	</item>
+	<item>
+	  <title>prueba paginacion</title>
+	  <link>#</link>
+	  <description></description>
+	  <category>Documentacion</category>
+	  <pubDate>Fri, 19 Nov 2012 15:21:36 GMT</pubDate>
+	  <enclosure url="img/icono-autorizacion-proceso.gif" length="-1" type="image/gif" />
+	</item>
+	<item>
+	  <title>prueba paginacion</title>
+	  <link>#</link>
+	  <description></description>
+	  <category>Documentacion</category>
+	  <pubDate>Fri, 20 Nov 2012 15:21:36 GMT</pubDate>
+	  <enclosure url="img/icono-autorizacion-proceso.gif" length="-1" type="image/gif" />
+	</item>
+	<item>
+	  <title>prueba paginacion</title>
+	  <link>#</link>
+	  <description></description>
+	  <category>Documentacion</category>
+	  <pubDate>Fri, 16 Nov 2012 15:21:36 GMT</pubDate>
+	  <enclosure url="img/icono-autorizacion-proceso.gif" length="-1" type="image/gif" />
+	</item>
+	
+   </channel>
+</rss>

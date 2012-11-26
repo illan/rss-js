@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Visor RSS</title>
+		
+		
+
+
+		
+		<!-- comentario condicional "clásico" -->
+		<!--[if lte IE 7]>
+			 
+		<![endif]-->
+		<!-- comentario condicional inverso -->
+        <!--    -->
+    	<!--[if IE]>
+           <link href="css/components-j-ie.css" rel="stylesheet" type="text/css"    media="all" />
+		<![endif]-->
+        <!--[if !IE]>
+            <link rel="stylesheet" href="css/components.css" type="text/css"    media="screen" />
+        <![endif]-->
+        
+		<!-- comentario condicional para IE7 -->
+        <!--<link href="css/components-j-ie7.css" rel="stylesheet" type="text/css" media="all" />-->
+		<!--[if IE 7]>
+			  <link href="css/components-j-ie7.css" rel="stylesheet" type="text/css" media="all" />
+		<![endif]-->
+		
+		<!-- comentario condicional para IE8 -->
+              <!--<link href="css/components-j-ie8.css" rel="stylesheet" type="text/css" media="all" />-->
+		<!--[if IE 8]>
+		
+		<![endif]-->
+        
+         
+        <link href="css/components-j.css" rel="stylesheet" type="text/css" media="all" />
+        
+
+		<script type="text/javascript" src="config/customize.js"></script>
+		<script type="text/javascript" src="config/paths.js"></script>
+		<script type="text/javascript" src="js/tf7-2.0.6.js"></script>
+	
+		<script type="text/javascript" src="js/setup.js"></script>	
+		<script type="text/javascript" src="js/rss.js"></script>
+		<style type="text/css" id="rss-css-hack">
+			span.categoria {	border-right: 1px solid #B2B2B2;	padding-right: .5em;}
+			span.domain {	margin-right: 2px;}
+			span.source {	margin-right: 2px;}
+			.noticies {	margin-top: 2em;}
+			.paginador {	margin-bottom: -1em;}
+			#content {}
+			#loading {text-align:center;position:absolute;width:100%;height:100%;opacity:0.9;margin:auto; padding-top:20%; }
+			.carregant{width:60%;margin:auto;}
+			.missatge-feedback-positiu {	background-color: #FFE899; }
+			#navegacio-contextual{display:none;}
+			div.toggle-box { height:auto;overflow:auto; margin-top:0px }
+			div.filtros{top:0px;}
+			.contenidor-principal{background:transparent;}
+			.contenidor-secundari{background:transparent; padding-top:2em;}
+			.noticia span.categoria {margin-right: 0.5em;}
+			.listado {margin-top:-25px;}
+			.directo{background-color: #D54E00; color: #FFFFFF;}
+			
+		</style>
+	</head>	
+	<body>
+	<div id="contenidor-general">
+		<div id="loading"></div>
+		<noscript><img src="img/icono-alerta-proceso.gif"/><strong> Es necesario tener javascript activado para visualizar la  p&aacute;gina</strong></noscript>
+		<div id="preload"></div>
+		<div id="content" style="display:none;">
+			<ul id="navegacio-contextual">
+				<li class="ajuda"></li>
+				<li class="reiniciar-cli"></li>
+			</ul>
+			<h1 id="titol-aplicacio" class="amb-separador">
+					<a href="#"	class="canal"> 
+						<span class="se"></span> 
+						<span class="sd"></span> 
+						<span class="ie"></span> 
+						<span class="id"></span> 
+					</a>
+					<span class="separador"> &gt; </span>
+			</h1>
+			
+			<div id="titol-pantalla"></div>		
+			<div id="layout-8-2">
+					<div class="contenidor-principal">
+							<p class="contingut">
+								<div class="missatge-error"></div>
+			         			<div class="toggle-box toggle-box-visible filtres">
+			         				<span class="toggle-box-trigger filtros"></span>
+			         				<div class="toggle-box-content">
+			         					<div class="toggle-form">
+			         						<div class="toggle-form-content">
+			         							<div class="toggle-form-item toggle-form-item-visible" style="display: block;">
+					         						<form class="horitzontal" method="#" action="#" accept-charset="utf-8" id="filtro-rss">
+					         							<fieldset class="caixa-formulari">
+					         								<div class="field">
+					         									<p class="control"><span class="label-wrapper"> 
+					         										<label	for="portal-normal-1-desaprovat" class="portal"></label> </span> 
+					         											<select name="portal-desaprovat" id="portal-desaprovat"></select>
+					         									</p>
+					         								</div>
+					         								<div class="field">
+					         									<p class="control">
+					         										<span class="label-wrapper"><label	for="otros-desaprovat" class="otros"></label></span>
+					         											<select name="otros-desaprovat"	id="otros-desaprovat"></select>
+					         									</p>
+					         								</div>
+															<div class="field">
+																<p class="control"><span class="label-wrapper">
+																	<label for="query-desaprovat" class="query"></label></span>
+																	<input name="query-desaprovat" type="text" id="query-desaprovat" class="text" value="" size="25">
+																</p>
+															</div>
+															<div class="agrupador-horitzontal rango-fechas">
+																<div class="field">
+																	<p class="control date-container">
+																		<span class="data"><span	class="label-wrapper"><label for="desde-desaprovat" class="desde"></label></span>
+																		<input id="desde-desaprovat" class="text date-dmy" type="text"	tf7type="date" name="desde-desaprovat" maxlength="10" size="11" /></span>
+																	</p>
+																</div>
+																<div class="field">
+																	<p class="control date-container">
+																		<span class="data">
+																			<span class="label-wrapper"> <label for="hasta-desaprovat" class="hasta"></label></span>
+																			<input id="hasta-desaprovat" class="text date-dmy" type="text"	tf7type="date" name="hasta-desaprovat" maxlength="10" size="11" />
+																		</span>
+																	</p>
+																</div>
+																
+															</div>
+															<p class="botons"></p>
+														</fieldset>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<ul class="paginador">
+									<li><a href="#" class="inici"></a></li>
+									<li><a href="#" class="anterior"></a></li>
+									<li><a href="#" class="seguent"></a></li>
+								</ul>
+								
+								<h3 class="content-title listado">
+									<span class="resultados"></span>
+									<span class="pager-desde"></span> - <span class="pager-actual"></span>
+									<span class="pager-de"></span>
+									<span class="pager-total"></span>
+								</h3>
+								<div class="noticies" id="noticias"></div>
+								<div id="no-results">								
+									<p class="estructura-guia niet"></p>
+									<h3 class="content-title sugerencias"></h3>
+									<ul class="rich-list result-list">
+										<li class="hint"></li>
+									</ul>
+								</div>								
+								<div class="missatge-feedback-positiu"><p class="updated"></p></div>
+							</p>
+					     </div>
+					<div class="contenidor-secundari">
+					        <p class="contingut">
+						   		<div class="llistat-links-contingut llistat-simple">
+						   			<h3 class="titol directo"></h3>
+									<ul>
+										<li>
+											<a class="enlace-gestionar" href="#">
+												<span class="gestionar"></span>
+												<span class="se"></span>
+												<span class="sd"></span>
+												<span class="ie"></span>
+												<span class="id"></span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</p>
+					 </div>
+
+			</div>
+		</div>
+		<div style="display: none">
+										<div class="noticia" id="rss-template">
+											<h2 class="no-destacada"><a href="#" class="link"><span class="title"></span></a></h2>
+											<img class="esquerra imagen" src="" height="75" alt="" width="77" style="display: none">
+											<div class="description"></div>
+											<p><span class="categoria label"></span><span class="categoria category"></span><span class="categoria domain" style="display:none;"></span><span class="data pubDate"></span></p>
+										</div>
+		</div>
+		
+	</div>	
+	</body>
+</html>
+
+
+

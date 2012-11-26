@@ -1,0 +1,288 @@
+﻿@charset "utf-8";
+
+h1.estructura-guia,
+h2.estructura-guia,
+h3.estructura-guia,
+h4.estructura-guia,
+h5.estructura-guia,
+h6.estructura-guia,
+p.estructura-guia,
+ul.estructura-guia,
+ol.estructura-guia {
+	font-family: Helvetica, Arial;
+	font-size: 1.2em;
+}
+p.estructura-guia,
+ul.estructura-guia,
+ol.estructura-guia {
+/* 	font-size: 1.3em; */
+}
+body.estructura-guia {
+
+}
+img.estructura-guia {
+	border: 0; 
+}
+
+code {
+	background-color: rgb(242,242,242);
+	font: 1.1em Monaco,"Lucida Console","Courier New",monospace;
+}
+p.exemple code {
+	background-color: rgb(210,210,210);
+	font-size: 1.2em;
+	font-weight: normal;
+}
+pre.estructura-guia {
+	background-color: rgb(242,242,242);
+	border: 1px solid rgb(204,204,204);
+	font-size: 1em;
+	padding: 12px;
+}
+
+
+/* titulars
+ *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
+/*h1.estructura-guia,
+h2.estructura-guia,
+h3.estructura-guia,
+h4.estructura-guia,
+h5.estructura-guia,
+h6.estructura-guia {
+    border: 0;
+	font-weight: bold;
+	line-height: 1.2em;
+}
+
+h1.estructura-guia,
+h2.estructura-guia,
+h3.estructura-guia,
+h4.estructura-guia {
+	color: rgb(207, 67, 43);
+}
+
+h1.estructura-guia {
+	font-size: 190%;
+	margin-bottom: 0.8em;
+}
+
+h2.estructura-guia {
+	font-size: 170%;
+	margin-bottom: 0.6em;
+}
+
+h3.estructura-guia {
+	font-size: 140%; 
+	margin-bottom: 0.4em;
+}
+	
+h4.estructura-guia {
+	font-size: 110%;
+	margin-bottom: 0.3em;
+}	
+h5.estructura-guia {
+	font-size: 100%;
+	margin-bottom: 0.3em;
+}	
+h6.estructura-guia {
+	font-size: 100%;
+	margin-bottom: 0.3em;
+}*/
+/* fi de titulars
+ *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
+
+h1.estructura-guia {
+	font-size: 220%;
+	border-bottom: 0;
+	margin: 0.5em;
+	padding: 0;
+}
+h2.estructura-guia,
+h3.estructura-guia,
+h4.estructura-guia,
+h5.estructura-guia {
+	clear: both;
+	font-size: 120%;
+	font-weight: bold;
+	color: #000;
+	background: #ccc;
+	margin: 3em 0 1.5em;
+	margin: 6em 0 1.5em;
+	padding: 0.2em 0.5em;
+	border: 0;
+}
+
+h1.estructura-guia strong,
+h2.estructura-guia strong,
+h3.estructura-guia strong,
+h4.estructura-guia strong,
+h5.estructura-guia strong,
+p.exemple strong {
+	color: rgb(255,0,0);
+}
+
+
+/*Layout - colors resaltadors*/
+.contenidor-principal {
+	background: rgb(137,208,243);
+}
+.contenidor-secundari {
+	background: rgb(239,241,143);
+}
+.contenidor-principal {
+	background: rgb(137,208,243);
+}
+.contenidor-secundari {
+	background: rgb(239,241,143);
+}
+.contenidor-terciari {
+	background: rgb(196,198,242);
+}
+
+/*.contenidor-principal .contenidor-principal,
+.contenidor-secundari .contenidor-principal,
+.contenidor-terciari .contenidor-principal {
+	background: rgb(85,155,223);
+}
+.contenidor-principal .contenidor-secundari,
+.contenidor-secundari .contenidor-secundari,
+.contenidor-terciari .contenidor-secundari {
+	background: rgb(190,216,100);
+}
+.contenidor-principal .contenidor-terciari,
+.contenidor-secundari .contenidor-terciari,
+.contenidor-terciari .contenidor-terciari {
+	background: rgb(154,152,200);
+}*/
+.exemple .contenidor-principal {
+	background: transparent;
+}
+.exemple .contenidor-secundari,
+.exemple .contenidor-terciari {
+	background: transparent;
+}
+p.contingut {
+	font-weight: bold;
+}
+.bloc-llistats-petit,
+.bloc-llistats-mitja,
+.bloc-llistats-gran,
+.bloc-llistats-fila {
+	background: #fc0;
+}
+p.exemple {
+	background: #eee;
+	clear: both;
+	font-size: 90%;
+	font-weight: bold;
+	padding: 0.24em 0.5em 0.5em 0.5em;
+}
+p.estructura-guia {
+	clear: both;
+}
+.exemple .bloc-llistats-petit,
+.exemple .bloc-llistats-mitja,
+.exemple .bloc-llistats-gran,
+.exemple .bloc-llistats-fila {
+	background: transparent;
+}
+
+div.component,
+div.exemple {
+	clear: both;
+	margin-bottom: 2em;
+}
+
+
+div.final-guia {
+	height: 200px;
+}
+
+div#taula-scroll-vertical-limitat {
+	height: 236px;
+}
+
+
+
+/* colors per 30/70 */
+div#color-dades-personalitzades-30-70 div.columna-1 {
+ 	background: #fc0;
+	padding: 10px;
+	width: 30%;
+}
+div#color-dades-personalitzades-30-70 div.columna-2 {
+	background: #f50;
+	padding: 10px;
+	width: 70%;
+}
+
+
+/* colors per 35/45/20 */
+div#color-dades-personalitzades-35-45-20 div.columna-1 {
+ 	background: #fc0;
+	padding: 10px;
+	width: 35%;
+}
+div#color-dades-personalitzades-35-45-20 div.columna-2 {
+	background: #f50;
+	padding: 10px;
+	width: 45%;
+}
+div#color-dades-personalitzades-35-45-20 div.columna-3 {
+ 	background: #fc0;
+	padding: 10px;
+	width: 19%;
+}
+
+h4.desaprovat {
+	background-color: rgb(255,0,0);
+}
+h4.desaprovat strong {
+	color: rgb(0,0,0);
+}
+
+
+
+
+.referencia .cols-1 {
+	background-color: rgb(196,196,140) !important;
+}
+.referencia .cols {
+	background-color: rgb(170,170,210);
+	border-right: 1px solid rgb(255,255,255);
+	border-bottom: 1px solid rgb(255,255,255);
+}
+div.bloc-llistats-fila:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+
+
+
+
+/* Menú para vistas */
+#views-menu {
+	margin: 0;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+#views-menu li {
+	display: inline;
+	list-style: none;
+}
+#views-menu li a {
+	display: block;
+	float: left;
+	padding: 0.4em;
+	background-color: #EDF0F6;
+	margin-right: 8px;
+}
+#views-menu li a:hover {
+	color: #EDF0F6;
+	background-color: #1A64A4;
+}
